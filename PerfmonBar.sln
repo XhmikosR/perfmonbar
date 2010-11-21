@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 10.00
+# Visual Studio 2008
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "PerfmonBar", "PerfmonBar\PerfmonBar.vcproj", "{132096EE-1897-4D28-82C3-54A082CC3CCF}"
+EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "Setup", "Setup\Setup.vdproj", "{B13F2B88-27FC-45AE-A981-FD4868750E86}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Release|Win32 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{132096EE-1897-4D28-82C3-54A082CC3CCF}.Debug|Win32.ActiveCfg = Debug|Win32
+		{132096EE-1897-4D28-82C3-54A082CC3CCF}.Debug|Win32.Build.0 = Debug|Win32
+		{132096EE-1897-4D28-82C3-54A082CC3CCF}.Release|Win32.ActiveCfg = Release|Win32
+		{132096EE-1897-4D28-82C3-54A082CC3CCF}.Release|Win32.Build.0 = Release|Win32
+		{B13F2B88-27FC-45AE-A981-FD4868750E86}.Debug|Win32.ActiveCfg = Debug
+		{B13F2B88-27FC-45AE-A981-FD4868750E86}.Release|Win32.ActiveCfg = Release
+		{B13F2B88-27FC-45AE-A981-FD4868750E86}.Release|Win32.Build.0 = Release
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

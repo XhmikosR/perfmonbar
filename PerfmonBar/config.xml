@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- you can reload the configuration file with right click -> Performance Monitor - (Reload Configuration) -->
+<perfbar>
+  <counters>
+    <counter name="cpu" value="\Processor(_Total)\% Processor Time" />
+    <!--<counter name="cpufreq" value="\Processor Performance(PPM_Processor_0)\Processor Frequency" />-->
+    <counter name="diskread" value="\LogicalDisk(_Total)\Disk Read Bytes/sec"/>
+    <counter name="diskwrite" value="\LogicalDisk(_Total)\Disk Write Bytes/sec"/>
+    <counter name="tcp" value="\TCPv4\Connections Established" />
+    <counter name="mem" value="\Memory\Committed Bytes" />
+    <counter name="contention" value="\.NET CLR LocksAndThreads(_Global_)\Contention Rate / sec" />
+    <counter name="gc" value="\.NET CLR Memory(_Global_)\% Time In GC" />
+    <counter name="alloc" value="\.NET CLR Memory(_Global_)\Allocated Bytes/sec" />
+    <counter name="netin" value="\Network Interface(Marvell Yukon 88E8056 PCI-E Gigabit Ethernet Controller)\Bytes Received/sec" />
+    <counter name="netout" value="\Network Interface(Marvell Yukon 88E8056 PCI-E Gigabit Ethernet Controller)\Bytes Sent/sec" />
+    <counter name="freediskC" value="\LogicalDisk(C:)\Free Megabytes" />
+  </counters>
+  <pages>
+    <!-- use left button click on the performance bar to switch between the pages -->
+    <page offsetY="1">
+      <lines>
+        <line fontFamily="Arial" fontSize="8" fontItalic="false" fontBold="true" fontColor="FFFFFF">
+          <display prefix="CPU: " suffix="% " counter="cpu" />
+          <!--<display prefix="@" suffix=" " counter="cpufreq" />-->
+          <display prefix="R: " suffix=" " counter="diskread" decimals="2" divide="1048576" />
+          <display prefix="W: " suffix=" " counter="diskwrite" decimals="2" divide="1048576" />
+          <display prefix="CONT: " counter="contention" />
+        </line>
+        <line>
+          <display prefix="I: " suffix=" " counter="netin" decimals="2" divide="1024" />
+          <display prefix="O: " suffix=" " counter="netout" decimals="2" divide="1024" />
+          <display prefix="TCP: " suffix=" " counter="tcp" />
+          <display prefix="MEM: " suffix=" " counter="mem" decimals="2" divide="1048576" />
+          <display prefix="GC: " suffix="% " counter="gc" />
+          <display prefix="NEW: " counter="alloc" decimals="2" divide="1048576" />
+        </line>
+      </lines>
+    </page>
+    <page> 
+      <lines>
+        <line>
+          <display prefix="Free C: " suffix=" GB " counter="freediskC" decimals="2" divide="1024" />
+        </line>
+      </lines>
+    </page>
+  </pages>
+</perfbar>
