@@ -5,6 +5,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "PerfmonBar", "PerfmonBar\Pe
 EndProject
 Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "Setup", "Setup\Setup.vdproj", "{B13F2B88-27FC-45AE-A981-FD4868750E86}"
 EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "Setup", "Setup\Setup_x64.vdproj", "{BF224280-CB70-4147-884C-F66CE4417D87}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Win32 = Debug|Win32
@@ -23,11 +25,14 @@ Global
 		{132096EE-1897-4D28-82C3-54A082CC3CCF}.Release|x64.Build.0 = Release|x64
 		{B13F2B88-27FC-45AE-A981-FD4868750E86}.Debug|Win32.ActiveCfg = Debug
 		{B13F2B88-27FC-45AE-A981-FD4868750E86}.Debug|x64.ActiveCfg = Debug
-		{B13F2B88-27FC-45AE-A981-FD4868750E86}.Debug|x64.Build.0 = Debug
 		{B13F2B88-27FC-45AE-A981-FD4868750E86}.Release|Win32.ActiveCfg = Release
 		{B13F2B88-27FC-45AE-A981-FD4868750E86}.Release|Win32.Build.0 = Release
 		{B13F2B88-27FC-45AE-A981-FD4868750E86}.Release|x64.ActiveCfg = Release
-		{B13F2B88-27FC-45AE-A981-FD4868750E86}.Release|x64.Build.0 = Release
+		{BF224280-CB70-4147-884C-F66CE4417D87}.Debug|Win32.ActiveCfg = Debug
+		{BF224280-CB70-4147-884C-F66CE4417D87}.Debug|x64.ActiveCfg = Debug
+		{BF224280-CB70-4147-884C-F66CE4417D87}.Release|Win32.ActiveCfg = Release
+		{BF224280-CB70-4147-884C-F66CE4417D87}.Release|x64.ActiveCfg = Release
+		{BF224280-CB70-4147-884C-F66CE4417D87}.Release|x64.Build.0 = Release
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
