@@ -16,13 +16,11 @@
 #undef APSTUDIO_READONLY_SYMBOLS
 
 /////////////////////////////////////////////////////////////////////////////
-// English (U.S.) resources
+// English (United States) resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
-#ifdef _WIN32
 LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
 #pragma code_page(1252)
-#endif //_WIN32
 
 #ifdef APSTUDIO_INVOKED
 /////////////////////////////////////////////////////////////////////////////
@@ -75,13 +73,13 @@ BEGIN
     BEGIN
         BLOCK "040904e4"
         BEGIN
-            VALUE "CompanyName", "TODO: <Company name>"
-            VALUE "FileDescription", "TODO: <File description>"
+            VALUE "CompanyName", "Danny Couture"
+            VALUE "FileDescription", "Performance Monitor Toolbar"
             VALUE "FileVersion", "1.0.0.1"
-            VALUE "LegalCopyright", "TODO: (c) <Company name>.  All rights reserved."
             VALUE "InternalName", "PerfmonBar.dll"
+            VALUE "LegalCopyright", "(c) Danny Couture.  All rights reserved."
             VALUE "OriginalFilename", "PerfmonBar.dll"
-            VALUE "ProductName", "TODO: <Product name>"
+            VALUE "ProductName", "PerfmonBar"
             VALUE "ProductVersion", "1.0.0.1"
         END
     END
@@ -105,12 +103,12 @@ IDR_PERFBAR             REGISTRY                "PerfBar.rgs"
 // String Table
 //
 
-STRINGTABLE 
+STRINGTABLE
 BEGIN
     IDS_PROJNAME            "PerfmonBar"
 END
 
-#endif    // English (U.S.) resources
+#endif    // English (United States) resources
 /////////////////////////////////////////////////////////////////////////////
 
 

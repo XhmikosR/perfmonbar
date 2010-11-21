@@ -21,6 +21,12 @@
         }
         "Entry"
         {
+        "MsmKey" = "8:_424D75CFEC1E15E6A9AF223E4C33059B"
+        "OwnerKey" = "8:_425F98CCA9A940A4B9D5BD76AA19CF8F"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
         "MsmKey" = "8:_425F98CCA9A940A4B9D5BD76AA19CF8F"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
@@ -50,6 +56,19 @@
             "PrerequisitesLocation" = "2:1"
             "Url" = "8:"
             "ComponentsUrl" = "8:"
+                "Items"
+                {
+                    "{EDC2488A-8267-493A-A98E-7D9C3B36CDF3}:.NETFramework,Version=v4.0,Profile=Client"
+                    {
+                    "Name" = "8:Microsoft .NET Framework 4 Client Profile (x86 and x64)"
+                    "ProductCode" = "8:.NETFramework,Version=v4.0,Profile=Client"
+                    }
+                    "{EDC2488A-8267-493A-A98E-7D9C3B36CDF3}:Microsoft.Windows.Installer.3.1"
+                    {
+                    "Name" = "8:Windows Installer 3.1"
+                    "ProductCode" = "8:Microsoft.Windows.Installer.3.1"
+                    }
+                }
             }
         }
         "Release"
@@ -61,7 +80,7 @@
         "PackageFilesAs" = "3:2"
         "PackageFileSize" = "3:-2147483648"
         "CabType" = "3:1"
-        "Compression" = "3:2"
+        "Compression" = "3:3"
         "SignOutput" = "11:FALSE"
         "CertificateFile" = "8:"
         "PrivateKeyFile" = "8:"
@@ -74,6 +93,19 @@
             "PrerequisitesLocation" = "2:1"
             "Url" = "8:"
             "ComponentsUrl" = "8:"
+                "Items"
+                {
+                    "{EDC2488A-8267-493A-A98E-7D9C3B36CDF3}:.NETFramework,Version=v4.0,Profile=Client"
+                    {
+                    "Name" = "8:Microsoft .NET Framework 4 Client Profile (x86 and x64)"
+                    "ProductCode" = "8:.NETFramework,Version=v4.0,Profile=Client"
+                    }
+                    "{EDC2488A-8267-493A-A98E-7D9C3B36CDF3}:Microsoft.Windows.Installer.3.1"
+                    {
+                    "Name" = "8:Windows Installer 3.1"
+                    "ProductCode" = "8:Microsoft.Windows.Installer.3.1"
+                    }
+                }
             }
         }
     }
@@ -114,6 +146,26 @@
             "Register" = "3:1"
             "Exclude" = "11:FALSE"
             "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_424D75CFEC1E15E6A9AF223E4C33059B"
+            {
+            "SourcePath" = "8:pdh.dll"
+            "TargetName" = "8:pdh.dll"
+            "Tag" = "8:"
+            "Folder" = "8:_91B3EE987D9041C2941FAC02824CB26A"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:TRUE"
+            "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
         }
@@ -221,8 +273,9 @@
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:PerfmonBar"
         "ProductCode" = "8:{3C201211-770A-4048-9889-CFABA8A3FF35}"
-        "PackageCode" = "8:{CB7BBCB6-617C-4015-AAF2-5B32F954449D}"
+        "PackageCode" = "8:{919FF62D-B1DB-46F1-B303-3396D5421E07}"
         "UpgradeCode" = "8:{5CAE7049-B733-43C6-9D69-9B95F6160474}"
+        "AspNetVersion" = "8:4.0.30319.0"
         "RestartWWWService" = "11:FALSE"
         "RemovePreviousVersions" = "11:FALSE"
         "DetectNewerInstalledVersion" = "11:TRUE"
@@ -755,7 +808,7 @@
         {
             "{5259A561-127C-4D43-A0A1-72F10C7B3BF8}:_425F98CCA9A940A4B9D5BD76AA19CF8F"
             {
-            "SourcePath" = "8:..\\PerfmonBar\\Release\\PerfmonBar.dll"
+            "SourcePath" = "8:..\\bin\\Release_Win32\\PerfmonBar.dll"
             "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_91B3EE987D9041C2941FAC02824CB26A"
