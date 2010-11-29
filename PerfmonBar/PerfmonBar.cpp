@@ -23,7 +23,7 @@
 CComModule _Module;
 
 BEGIN_OBJECT_MAP(ObjectMap)
-   OBJECT_ENTRY(CLSID_PerfBar, CPerfBar)
+OBJECT_ENTRY(CLSID_PerfBar, CPerfBar)
 END_OBJECT_MAP()
 
 extern "C"
@@ -54,11 +54,11 @@ STDAPI DllGetClassObject(REFCLSID rclsid, REFIID riid, LPVOID* ppv)
 // DllRegisterServer - Adds entries to the system registry
 STDAPI DllRegisterServer(void)
 {
-   return _Module.RegisterServer(TRUE);
+    return _Module.RegisterServer(TRUE);
 }
 
 // DllUnregisterServer - Removes entries from the system registry
 STDAPI DllUnregisterServer(void)
 {
-   return _Module.UnregisterServer(TRUE);
+    return _Module.UnregisterServer(TRUE);
 }

@@ -337,7 +337,7 @@ bool Configuration::ReadDisplay(IXMLDOMNodePtr & node, Display & display)
 HRESULT Configuration::GetConfigPath(tstring & filePath)
 {
     TCHAR path[MAX_PATH];
-    HRESULT hr = 
+    HRESULT hr =
         SHGetSpecialFolderPath(
             NULL,
             path,

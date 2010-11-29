@@ -35,7 +35,7 @@ class ATL_NO_VTABLE CPerfBar :
 {
 private:
     CPerfMon                     m_perfMonitor;
-    CComQIPtr<IInputObjectSite>  m_spInputObjSite; 
+    CComQIPtr<IInputObjectSite>  m_spInputObjSite;
     HFONT                        m_font;
     Configuration                m_config;
     size_t                       m_currentPage;
@@ -66,7 +66,7 @@ public:
     BEGIN_CATEGORY_MAP( CPerfBar )
         IMPLEMENTED_CATEGORY(CATID_DeskBand)
         IMPLEMENTED_CATEGORY(CATID_CommBand)
-    END_CATEGORY_MAP()    
+    END_CATEGORY_MAP()
 
     STDMETHOD(FinalConstruct)();
 
@@ -75,9 +75,9 @@ public:
 
     STDMETHOD(GetBandInfo)
     (
-        DWORD         dwBandID, 
-        DWORD         dwViewMode, 
-        DESKBANDINFO* pdbi 
+        DWORD         dwBandID,
+        DWORD         dwViewMode,
+        DESKBANDINFO* pdbi
     );
 
     STDMETHOD(GetWindow)(HWND* phwnd);
@@ -90,9 +90,9 @@ public:
 
     STDMETHOD(ResizeBorderDW)
     (
-        LPCRECT       prcBorder, 
-        IUnknown*     punkToolbarSite, 
-        BOOL          bReserved 
+        LPCRECT       prcBorder,
+        IUnknown*     punkToolbarSite,
+        BOOL          bReserved
     );
 
     STDMETHOD(CanRenderComposited)(BOOL *pfCanRenderComposited);
@@ -107,7 +107,7 @@ public:
     STDMETHOD(GetSite)
     (
         REFIID    riid,
-        LPVOID*   ppvSite 
+        LPVOID*   ppvSite
     );
 
     ///////////////////////////////////////////////////////////////
@@ -127,18 +127,18 @@ public:
     // IContext Menu Methods
 
     STDMETHOD(GetCommandString)( UINT_PTR idCmd,
-        UINT     uFlags,
-        UINT    *pwReserved,
-        LPSTR    pszName,
-        UINT     cchMax );
+                                 UINT     uFlags,
+                                 UINT    *pwReserved,
+                                 LPSTR    pszName,
+                                 UINT     cchMax );
 
     STDMETHOD(InvokeCommand)( LPCMINVOKECOMMANDINFO pici );
 
     STDMETHOD(QueryContextMenu)( HMENU hmenu,
-        UINT  indexMenu,
-        UINT  idCmdFirst,
-        UINT  idCmdLast,
-        UINT  uFlags );
+                                 UINT  indexMenu,
+                                 UINT  idCmdFirst,
+                                 UINT  idCmdLast,
+                                 UINT  uFlags );
 
     STDMETHOD(ReloadConfiguration)();
     STDMETHOD(EditConfiguration)();
