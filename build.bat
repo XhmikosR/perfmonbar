@@ -8,8 +8,11 @@ CD /D %~dp0
 
 CALL "%VS100COMNTOOLS%vsvars32.bat" >NUL
 
+TITLE Compiling PerfmonBar - Release^|Win32...
 devenv PerfmonBar.sln /Rebuild "Release|Win32"
 IF %ERRORLEVEL% NEQ 0 GOTO :EndWithError
+
+TITLE Compiling PerfmonBar - Release^|x64...
 devenv PerfmonBar.sln /Rebuild "Release|x64"
 IF %ERRORLEVEL% NEQ 0 GOTO :EndWithError
 ECHO.
