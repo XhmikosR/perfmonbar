@@ -1,26 +1,26 @@
 HKCR
 {
-	PerfmonBar.PerfBar.1 = s 'Performance Monitor Toolbar'
-	{
-		CLSID = s '{88C6ABF2-4C63-4B90-98B3-4DCB2615B234}'
-	}
-	PerfmonBar.PerfBar = s 'Performance Monitor Toolbar'
-	{
-		CLSID = s '{88C6ABF2-4C63-4B90-98B3-4DCB2615B234}'
-		CurVer = s 'PerfmonBar.PerfBar.1'
-	}
-	NoRemove CLSID
-	{
-		ForceRemove {88C6ABF2-4C63-4B90-98B3-4DCB2615B234} = s 'Performance Monitor Toolbar'
-		{
-			ProgID = s 'PerfmonBar.PerfBar.1'
-			VersionIndependentProgID = s 'PerfmonBar.PerfBar'
-			ForceRemove 'Programmable'
-			InprocServer32 = s '%MODULE%'
-			{
-				val ThreadingModel = s 'Apartment'
-			}
-			'TypeLib' = s '{61DF45AB-F973-476A-9A6C-1056B1DDCF98}'
-		}
-	}
+    PerfmonBar.PerfBar.1 = s 'Performance Monitor Toolbar'
+    {
+        CLSID = s '{88C6ABF2-4C63-4B90-98B3-4DCB2615B234}'
+    }
+    PerfmonBar.PerfBar = s 'Performance Monitor Toolbar'
+    {
+        CLSID = s '{88C6ABF2-4C63-4B90-98B3-4DCB2615B234}'
+        CurVer = s 'PerfmonBar.PerfBar.1'
+    }
+    NoRemove CLSID
+    {
+        ForceRemove {88C6ABF2-4C63-4B90-98B3-4DCB2615B234} = s 'Performance Monitor Toolbar'
+        {
+            ProgID = s 'PerfmonBar.PerfBar.1'
+            VersionIndependentProgID = s 'PerfmonBar.PerfBar'
+            ForceRemove 'Programmable'
+            InprocServer32 = s '%MODULE%'
+            {
+                val ThreadingModel = s 'Apartment'
+            }
+            'TypeLib' = s '{61DF45AB-F973-476A-9A6C-1056B1DDCF98}'
+        }
+    }
 }

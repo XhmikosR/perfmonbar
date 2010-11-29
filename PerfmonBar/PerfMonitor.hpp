@@ -14,27 +14,28 @@
     You should have received a copy of the GNU General Public License
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
+
 #pragma once
 
 class CPerfMon
 {
     typedef vector<pair<tstring, HCOUNTER>> counters_t;
 private:
-	HQUERY _query;
+    HQUERY _query;
     counters_t _counters;
 
 public:
-	CPerfMon()
-	{
-		_query = NULL;
-	}
+    CPerfMon()
+    {
+        _query = NULL;
+    }
 
-	virtual ~CPerfMon()
-	{
-		Stop();
-	}
+    virtual ~CPerfMon()
+    {
+        Stop();
+    }
 
     BOOL Start(vector<pair<tstring, tstring>> & counters);
-	VOID Stop();
+    VOID Stop();
     hash_map<tstring, double> GetValues();
 };

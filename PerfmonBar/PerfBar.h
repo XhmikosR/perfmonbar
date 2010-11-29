@@ -14,6 +14,7 @@
     You should have received a copy of the GNU General Public License
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
+
 #pragma once
 
 #include "resource.h"       // main symbols
@@ -23,152 +24,152 @@
 
 // CPerfBar
 class ATL_NO_VTABLE CPerfBar :
-	public CComObjectRootEx<CComSingleThreadModel>,
-	public CComCoClass<CPerfBar, &CLSID_PerfBar>,
-	public IDispatchImpl<IPerfBar, &IID_IPerfBar, &LIBID_PerfmonBarLib, /*wMajor =*/ 1, /*wMinor =*/ 0>,
-	public IObjectWithSite,
-	public IPersistStream,
-	public IDeskBand2,
-	public IContextMenu,
-	public CWindowImpl<CPerfBar>
+    public CComObjectRootEx<CComSingleThreadModel>,
+    public CComCoClass<CPerfBar, &CLSID_PerfBar>,
+    public IDispatchImpl<IPerfBar, &IID_IPerfBar, &LIBID_PerfmonBarLib, /*wMajor =*/ 1, /*wMinor =*/ 0>,
+    public IObjectWithSite,
+    public IPersistStream,
+    public IDeskBand2,
+    public IContextMenu,
+    public CWindowImpl<CPerfBar>
 {
 private:
     CPerfMon                     m_perfMonitor;
-	CComQIPtr<IInputObjectSite>  m_spInputObjSite; 
-	HFONT                        m_font;
+    CComQIPtr<IInputObjectSite>  m_spInputObjSite; 
+    HFONT                        m_font;
     Configuration                m_config;
     size_t                       m_currentPage;
     BOOL                         m_fCompositionEnabled;
 
 public:
-	CPerfBar()
+    CPerfBar()
     {
     }
 
-	DECLARE_REGISTRY_RESOURCEID(IDR_PERFBAR)
+    DECLARE_REGISTRY_RESOURCEID(IDR_PERFBAR)
 
-	DECLARE_PROTECT_FINAL_CONSTRUCT()
+    DECLARE_PROTECT_FINAL_CONSTRUCT()
 
-	BEGIN_COM_MAP(CPerfBar)
-		COM_INTERFACE_ENTRY ( IPerfBar         )
-		COM_INTERFACE_ENTRY ( IDispatch        )
-		COM_INTERFACE_ENTRY ( IObjectWithSite  )
+    BEGIN_COM_MAP(CPerfBar)
+        COM_INTERFACE_ENTRY ( IPerfBar         )
+        COM_INTERFACE_ENTRY ( IDispatch        )
+        COM_INTERFACE_ENTRY ( IObjectWithSite  )
         COM_INTERFACE_ENTRY ( IDeskBand        )
-		COM_INTERFACE_ENTRY ( IDeskBand2       )
-		COM_INTERFACE_ENTRY ( IPersist         )
-		COM_INTERFACE_ENTRY ( IPersistStream   )
-		COM_INTERFACE_ENTRY ( IDockingWindow   )
-		COM_INTERFACE_ENTRY ( IOleWindow       )
-		COM_INTERFACE_ENTRY ( IContextMenu     )
-	END_COM_MAP()
+        COM_INTERFACE_ENTRY ( IDeskBand2       )
+        COM_INTERFACE_ENTRY ( IPersist         )
+        COM_INTERFACE_ENTRY ( IPersistStream   )
+        COM_INTERFACE_ENTRY ( IDockingWindow   )
+        COM_INTERFACE_ENTRY ( IOleWindow       )
+        COM_INTERFACE_ENTRY ( IContextMenu     )
+    END_COM_MAP()
 
-	BEGIN_CATEGORY_MAP( CPerfBar )
-		IMPLEMENTED_CATEGORY(CATID_DeskBand)
-		IMPLEMENTED_CATEGORY(CATID_CommBand)
-	END_CATEGORY_MAP()    
+    BEGIN_CATEGORY_MAP( CPerfBar )
+        IMPLEMENTED_CATEGORY(CATID_DeskBand)
+        IMPLEMENTED_CATEGORY(CATID_CommBand)
+    END_CATEGORY_MAP()    
 
-	STDMETHOD(FinalConstruct)();
+    STDMETHOD(FinalConstruct)();
 
-	///////////////////////////////////////////////////////////////
-	// IDeskBand methods
+    ///////////////////////////////////////////////////////////////
+    // IDeskBand methods
 
-	STDMETHOD(GetBandInfo)
+    STDMETHOD(GetBandInfo)
     (
         DWORD         dwBandID, 
-	    DWORD         dwViewMode, 
-	    DESKBANDINFO* pdbi 
+        DWORD         dwViewMode, 
+        DESKBANDINFO* pdbi 
     );
 
-	STDMETHOD(GetWindow)(HWND* phwnd);
+    STDMETHOD(GetWindow)(HWND* phwnd);
 
-	STDMETHOD(ContextSensitiveHelp)(BOOL  bEnterMode);
+    STDMETHOD(ContextSensitiveHelp)(BOOL  bEnterMode);
 
-	STDMETHOD(ShowDW)(BOOL bShow);
+    STDMETHOD(ShowDW)(BOOL bShow);
 
-	STDMETHOD(CloseDW)(DWORD dwReserved);
+    STDMETHOD(CloseDW)(DWORD dwReserved);
 
-	STDMETHOD(ResizeBorderDW)
+    STDMETHOD(ResizeBorderDW)
     (
         LPCRECT       prcBorder, 
-		IUnknown*     punkToolbarSite, 
-		BOOL          bReserved 
+        IUnknown*     punkToolbarSite, 
+        BOOL          bReserved 
     );
 
     STDMETHOD(CanRenderComposited)(BOOL *pfCanRenderComposited);
     STDMETHOD(SetCompositionState)(BOOL fCompositionEnabled);
     STDMETHOD(GetCompositionState)(BOOL *pfCompositionEnabled);
 
-	///////////////////////////////////////////////////////////////
-	// IObjectWithSite methods
+    ///////////////////////////////////////////////////////////////
+    // IObjectWithSite methods
 
-	STDMETHOD(SetSite)(IUnknown *pUnkSite);
+    STDMETHOD(SetSite)(IUnknown *pUnkSite);
 
-	STDMETHOD(GetSite)
+    STDMETHOD(GetSite)
     (
         REFIID    riid,
-		LPVOID*   ppvSite 
+        LPVOID*   ppvSite 
     );
 
-	///////////////////////////////////////////////////////////////
-	// IPersistStream methods
+    ///////////////////////////////////////////////////////////////
+    // IPersistStream methods
 
-	STDMETHOD(GetClassID)(LPCLSID pClassID);
+    STDMETHOD(GetClassID)(LPCLSID pClassID);
 
-	STDMETHOD(IsDirty)();
+    STDMETHOD(IsDirty)();
 
-	STDMETHOD(Load)(LPSTREAM  pStream);
+    STDMETHOD(Load)(LPSTREAM  pStream);
 
-	STDMETHOD(Save)(LPSTREAM  pStream, BOOL bClearDirty);
+    STDMETHOD(Save)(LPSTREAM  pStream, BOOL bClearDirty);
 
-	STDMETHOD(GetSizeMax)( ULARGE_INTEGER* pcbSize );
+    STDMETHOD(GetSizeMax)( ULARGE_INTEGER* pcbSize );
 
-	////////////////////////////////////////////////////////////////
-	// IContext Menu Methods
+    ////////////////////////////////////////////////////////////////
+    // IContext Menu Methods
 
-	STDMETHOD(GetCommandString)( UINT_PTR idCmd,
-		UINT     uFlags,
-		UINT    *pwReserved,
-		LPSTR    pszName,
-		UINT     cchMax );
+    STDMETHOD(GetCommandString)( UINT_PTR idCmd,
+        UINT     uFlags,
+        UINT    *pwReserved,
+        LPSTR    pszName,
+        UINT     cchMax );
 
-	STDMETHOD(InvokeCommand)( LPCMINVOKECOMMANDINFO pici );
+    STDMETHOD(InvokeCommand)( LPCMINVOKECOMMANDINFO pici );
 
-	STDMETHOD(QueryContextMenu)( HMENU hmenu,
-		UINT  indexMenu,
-		UINT  idCmdFirst,
-		UINT  idCmdLast,
-		UINT  uFlags );
+    STDMETHOD(QueryContextMenu)( HMENU hmenu,
+        UINT  indexMenu,
+        UINT  idCmdFirst,
+        UINT  idCmdLast,
+        UINT  uFlags );
 
     STDMETHOD(ReloadConfiguration)();
     STDMETHOD(EditConfiguration)();
 
-	///////////////////////////////////////////////////////////////
-	// Windows Message Map
+    ///////////////////////////////////////////////////////////////
+    // Windows Message Map
 
-	BEGIN_MSG_MAP( CPerfBar )
-		MESSAGE_HANDLER( WM_CREATE,            OnCreate              )
-		MESSAGE_HANDLER( WM_DESTROY,           OnGoodBye             )
-		MESSAGE_HANDLER( WM_PAINT,             OnPaint               )
-		MESSAGE_HANDLER( WM_TIMER,             OnTimer               )
-		MESSAGE_HANDLER( WM_ERASEBKGND,        OnEraseBackground     )
+    BEGIN_MSG_MAP( CPerfBar )
+        MESSAGE_HANDLER( WM_CREATE,            OnCreate              )
+        MESSAGE_HANDLER( WM_DESTROY,           OnGoodBye             )
+        MESSAGE_HANDLER( WM_PAINT,             OnPaint               )
+        MESSAGE_HANDLER( WM_TIMER,             OnTimer               )
+        MESSAGE_HANDLER( WM_ERASEBKGND,        OnEraseBackground     )
         MESSAGE_HANDLER( WM_LBUTTONDOWN,       OnLButtonDown         )
-	END_MSG_MAP()
+    END_MSG_MAP()
 
 
-	////////////////////////////////////////////////////////////////
-	// Message Handlers
+    ////////////////////////////////////////////////////////////////
+    // Message Handlers
 
-	LRESULT OnPaint               ( UINT uMsg, WPARAM wParam, LPARAM lParam, BOOL& bHandled );
+    LRESULT OnPaint               ( UINT uMsg, WPARAM wParam, LPARAM lParam, BOOL& bHandled );
     LRESULT OnLButtonDown         ( UINT uMsg, WPARAM wParam, LPARAM lParam, BOOL& bHandled );
-	LRESULT OnTimer               ( UINT uMsg, WPARAM wParam, LPARAM lParam, BOOL& bHandled );
-	LRESULT OnEraseBackground     ( UINT uMsg, WPARAM wParam, LPARAM lParam, BOOL& bHandled );
-	LRESULT OnCreate              ( UINT uMsg, WPARAM wParam, LPARAM lParam, BOOL& bHandled );
-	LRESULT OnGoodBye             ( UINT uMsg, WPARAM wParam, LPARAM lParam, BOOL& bHandled );
+    LRESULT OnTimer               ( UINT uMsg, WPARAM wParam, LPARAM lParam, BOOL& bHandled );
+    LRESULT OnEraseBackground     ( UINT uMsg, WPARAM wParam, LPARAM lParam, BOOL& bHandled );
+    LRESULT OnCreate              ( UINT uMsg, WPARAM wParam, LPARAM lParam, BOOL& bHandled );
+    LRESULT OnGoodBye             ( UINT uMsg, WPARAM wParam, LPARAM lParam, BOOL& bHandled );
 
-	/////////////////////////////////////////////////////////////////
-	// CPerfBar Methods
+    /////////////////////////////////////////////////////////////////
+    // CPerfBar Methods
     VOID PaintData(HDC hdc, POINT offset);
-	VOID DestroyBar();
+    VOID DestroyBar();
 };
 
 OBJECT_ENTRY_AUTO(__uuidof(PerfBar), CPerfBar)

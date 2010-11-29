@@ -14,6 +14,7 @@
     You should have received a copy of the GNU General Public License
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
+
 #pragma once
 
 #ifndef STRICT
@@ -25,7 +26,7 @@
 #define _ATL_APARTMENT_THREADED
 #define _ATL_NO_AUTOMATIC_NAMESPACE
 
-#define _ATL_CSTRING_EXPLICIT_CONSTRUCTORS	// some CString constructors will be explicit
+#define _ATL_CSTRING_EXPLICIT_CONSTRUCTORS  // some CString constructors will be explicit
 
 #include "resource.h"
 #include <atlbase.h>
@@ -43,6 +44,7 @@
 #include <vector>
 #include <deque>
 #include <string>
+
 using namespace std;
 using namespace stdext;
 

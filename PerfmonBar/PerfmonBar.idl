@@ -13,6 +13,7 @@
 
     You should have received a copy of the GNU General Public License
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
 */
 // This file will be processed by the MIDL tool to
 // produce the type library (PerfmonBar.tlb) and marshalling code.
@@ -20,31 +21,33 @@ import "oaidl.idl";
 import "ocidl.idl";
 
 [
-	object,
-	uuid(ADA0A5C2-690F-4D11-BDE4-45D054326222),
-	dual,
-	nonextensible,
-	helpstring("IPerfBar Interface"),
-	pointer_default(unique)
+    object,
+    uuid(ADA0A5C2-690F-4D11-BDE4-45D054326222),
+    dual,
+    nonextensible,
+    helpstring("IPerfBar Interface"),
+    pointer_default(unique)
 ]
+
 interface IPerfBar : IDispatch{
 };
 [
-	uuid(61DF45AB-F973-476A-9A6C-1056B1DDCF98),
-	version(1.0),
-	helpstring("PerfmonBar 1.0 Type Library")
+    uuid(61DF45AB-F973-476A-9A6C-1056B1DDCF98),
+    version(1.0),
+    helpstring("PerfmonBar 1.0 Type Library")
 ]
+
 library PerfmonBarLib
 {
     importlib("stdole32.tlb");
-	importlib("stdole2.tlb");
+    importlib("stdole2.tlb");
 
-	[
-		uuid(88C6ABF2-4C63-4B90-98B3-4DCB2615B234),
-		helpstring("Performance Monitor Toolbar")
-	]
-	coclass PerfBar
-	{
-		[default] interface IPerfBar;
-	};
+    [
+        uuid(88C6ABF2-4C63-4B90-98B3-4DCB2615B234),
+        helpstring("Performance Monitor Toolbar")
+    ]
+    coclass PerfBar
+    {
+        [default] interface IPerfBar;
+    };
 };

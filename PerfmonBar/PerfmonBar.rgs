@@ -1,11 +1,11 @@
 HKCR
 {
-	NoRemove AppID
-	{
-		'%APPID%' = s 'Performance Monitor Toolbar'
-		'PerfmonBar.DLL'
-		{
-			val AppID = s '%APPID%'
-		}
-	}
+    NoRemove AppID
+    {
+        '%APPID%' = s 'Performance Monitor Toolbar'
+        'PerfmonBar.DLL'
+        {
+            val AppID = s '%APPID%'
+        }
+    }
 }
