@@ -26,8 +26,9 @@ BOOL CPerfMon::Start(vector<pair<tstring, tstring>> & counters)
     PDH_STATUS pdhStatus =
         PdhOpenQuery(NULL, 0, &_query);
 
-    if (pdhStatus != ERROR_SUCCESS)
+    if (pdhStatus != ERROR_SUCCESS) {
         return FALSE;
+    }
 
     TCHAR szPathBuffer[1024];
     for (vector<pair<tstring, tstring>>::const_iterator it = counters.begin(); it != counters.end(); ++it)
@@ -35,14 +36,16 @@ BOOL CPerfMon::Start(vector<pair<tstring, tstring>> & counters)
         _tcscpy_s(szPathBuffer, sizeof(szPathBuffer)/sizeof(TCHAR), it->second.c_str());
 
         pdhStatus = PdhValidatePath(szPathBuffer);
-        if (pdhStatus != ERROR_SUCCESS)
+        if (pdhStatus != ERROR_SUCCESS) {
             continue;
+        }
 
         HCOUNTER counter = 0;
         pdhStatus = PdhAddCounter(_query, szPathBuffer, 0, &counter) ;
 
-        if (pdhStatus == ERROR_SUCCESS)
+        if (pdhStatus == ERROR_SUCCESS) {
             _counters.push_back(make_pair(it->first, counter));
+        }
     }
 
     return TRUE;
@@ -50,11 +53,13 @@ BOOL CPerfMon::Start(vector<pair<tstring, tstring>> & counters)
 
 VOID CPerfMon::Stop()
 {
-    for (counters_t::iterator it = _counters.begin(); it != _counters.end(); ++it)
+    for (counters_t::iterator it = _counters.begin(); it != _counters.end(); ++it) {
         PdhRemoveCounter(it->second);
+    }
 
-    if (_query)
+    if (_query) {
         PdhCloseQuery(_query);
+    }
 
     _query = NULL;
     _counters.clear();
@@ -64,8 +69,9 @@ hash_map<tstring, double> CPerfMon::GetValues()
 {
     PDH_STATUS pdhStatus = PdhCollectQueryData(_query);
 
-    if (pdhStatus != ERROR_SUCCESS)
+    if (pdhStatus != ERROR_SUCCESS) {
         return hash_map<tstring, double>();
+    }
 
     hash_map<tstring, double> values;
 
@@ -78,8 +84,9 @@ hash_map<tstring, double> CPerfMon::GetValues()
                         NULL,
                         &pdhCounterValue );
 
-        if ( pdhStatus == ERROR_SUCCESS )
+        if ( pdhStatus == ERROR_SUCCESS ) {
             values[it->first] = pdhCounterValue.doubleValue;
+        }
     }
 
     return values;

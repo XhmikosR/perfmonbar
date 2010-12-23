@@ -34,8 +34,9 @@ BOOL WINAPI DllMain(HINSTANCE hInstance, DWORD dwReason, LPVOID /*lpReserved*/)
         _Module.Init(ObjectMap, hInstance, &LIBID_PerfmonBarLib);
         DisableThreadLibraryCalls(hInstance);
     }
-    else if (dwReason == DLL_PROCESS_DETACH)
+    else if (dwReason == DLL_PROCESS_DETACH) {
         _Module.Term();
+    }
     return TRUE;    // ok
 }
 

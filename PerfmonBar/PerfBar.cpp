@@ -38,8 +38,9 @@ STDMETHODIMP CPerfBar::EditConfiguration()
     HRESULT hr =
         m_config.GetConfigPath(configPath);
 
-    if (FAILED(hr))
+    if (FAILED(hr)) {
         return hr;
+    }
 
     ShellExecute(
         NULL,
@@ -62,8 +63,9 @@ STDMETHODIMP CPerfBar::ReloadConfiguration()
     vector<pair<tstring, tstring>> counterNames;
 
     Configuration::counters_t & counters = m_config.GetCounters();
-    for (Configuration::counters_t::iterator it = counters.begin(); it != counters.end(); ++it)
+    for (Configuration::counters_t::iterator it = counters.begin(); it != counters.end(); ++it) {
         counterNames.push_back(make_pair(it->first, it->second.Value));
+    }
 
     m_perfMonitor.Start(counterNames);
 
@@ -104,8 +106,9 @@ STDMETHODIMP CPerfBar::GetBandInfo ( DWORD dwBandID,
             pdbi->ptActual.y = 0;
         }
 
-        if(pdbi->dwMask & DBIM_MODEFLAGS)
+        if(pdbi->dwMask & DBIM_MODEFLAGS) {
             pdbi->dwModeFlags = DBIMF_VARIABLEHEIGHT | DBIF_VIEWMODE_TRANSPARENT;
+        }
 
         /*if(pdbi->dwMask & DBIM_BKCOLOR)
             pdbi->dwMask &= ~DBIM_BKCOLOR;*/
@@ -146,10 +149,12 @@ STDMETHODIMP CPerfBar::ShowDW ( BOOL fShow )
 {
     if( IsWindow() )
     {
-        if( fShow )
+        if( fShow ) {
             ShowWindow( SW_SHOW );
-        else
+        }
+        else {
             ShowWindow( SW_HIDE );
+        }
     }
 
     return S_OK;
@@ -159,8 +164,9 @@ STDMETHODIMP CPerfBar::CloseDW( DWORD dwReserved )
 {
     ShowDW( FALSE );
 
-    if( IsWindow() )
+    if( IsWindow() ) {
         DestroyWindow();
+    }
 
     return S_OK;
 }
@@ -223,8 +229,9 @@ STDMETHODIMP CPerfBar::GetSite( REFIID  riid,
 {
     HRESULT hr = E_FAIL;
 
-    if ( ppvReturn == NULL )
+    if ( ppvReturn == NULL ) {
         hr = E_INVALIDARG;
+    }
     else if(m_spInputObjSite != NULL )
     {
         *ppvReturn = NULL;
@@ -247,35 +254,37 @@ STDMETHODIMP CPerfBar::InvokeCommand( LPCMINVOKECOMMANDINFO pici )
 {
     HRESULT hr = S_OK;
 
-    if ( HIWORD( pici->lpVerb ) != 0 )
+    if ( HIWORD( pici->lpVerb ) != 0 ) {
         hr = E_INVALIDARG;
+    }
     else
     {
         switch ( LOWORD( pici->lpVerb ) )
         {
-        case IDM_RELOAD:
-            hr = ReloadConfiguration();
-            break;
-        case IDM_EDIT:
-            hr = EditConfiguration();
-            break;
-        default:
-            hr = E_INVALIDARG;
+            case IDM_RELOAD:
+                hr = ReloadConfiguration();
+                break;
+            case IDM_EDIT:
+                hr = EditConfiguration();
+                break;
+            default:
+                hr = E_INVALIDARG;
         }
     }
     return hr;
 }
 
 STDMETHODIMP CPerfBar::QueryContextMenu( HMENU hMenu,
-                                         UINT  indexMenu,
-                                         UINT  idCmdFirst,
-                                         UINT  idCmdLast,
-                                         UINT  uFlags )
+        UINT  indexMenu,
+        UINT  idCmdFirst,
+        UINT  idCmdLast,
+        UINT  uFlags )
 {
     HRESULT hr = S_OK;
 
-    if( CMF_DEFAULTONLY & uFlags )
+    if( CMF_DEFAULTONLY & uFlags ) {
         hr = MAKE_HRESULT( SEVERITY_SUCCESS, 0, 0 );
+    }
     else
     {
         InsertMenu( hMenu, indexMenu, MF_SEPARATOR | MF_BYPOSITION, idCmdFirst, 0 );
@@ -312,8 +321,9 @@ STDMETHODIMP CPerfBar::Save( LPSTREAM pStream,
 
 STDMETHODIMP CPerfBar::GetSizeMax( ULARGE_INTEGER* pcbSize )
 {
-    if ( pcbSize == NULL )
+    if ( pcbSize == NULL ) {
         return E_INVALIDARG;
+    }
 
     ULISet32(*pcbSize, 0);
 
@@ -343,16 +353,19 @@ void CPerfBar::PaintData(HDC hdc, POINT offset)
     Configuration::pages_t & pages = m_config.GetPages();
     Configuration::counters_t & counters = m_config.GetCounters();
 
-    if (pages.size() <= 0)
+    if (pages.size() <= 0) {
         return;
+    }
 
-    if (pages.size() <= m_currentPage)
+    if (pages.size() <= m_currentPage) {
         m_currentPage = pages.size() - 1;
+    }
 
     Configuration::Page & page = pages[m_currentPage];
 
-    if (page.Lines.size() <= 0)
+    if (page.Lines.size() <= 0) {
         return;
+    }
 
     hash_map<tstring, double> values = m_perfMonitor.GetValues();
 
@@ -372,13 +385,15 @@ void CPerfBar::PaintData(HDC hdc, POINT offset)
             hash_map<tstring, double>::const_iterator value_it = values.find(iit->Counter);
 
             TCHAR formattedValue[256];
-            if (value_it == values.end())
+            if (value_it == values.end()) {
                 _tcscpy_s(formattedValue, sizeof(formattedValue)/sizeof(TCHAR), _T("[N/A]"));
+            }
             else
             {
                 double val = value_it->second;
-                if (iit->Divide > 0)
+                if (iit->Divide > 0) {
                     val /= iit->Divide;
+                }
 
                 TCHAR formattingString[256];
                 _stprintf_s(

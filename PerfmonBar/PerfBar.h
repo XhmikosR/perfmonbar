@@ -51,21 +51,21 @@ public:
     DECLARE_PROTECT_FINAL_CONSTRUCT()
 
     BEGIN_COM_MAP(CPerfBar)
-        COM_INTERFACE_ENTRY ( IPerfBar         )
-        COM_INTERFACE_ENTRY ( IDispatch        )
-        COM_INTERFACE_ENTRY ( IObjectWithSite  )
-        COM_INTERFACE_ENTRY ( IDeskBand        )
-        COM_INTERFACE_ENTRY ( IDeskBand2       )
-        COM_INTERFACE_ENTRY ( IPersist         )
-        COM_INTERFACE_ENTRY ( IPersistStream   )
-        COM_INTERFACE_ENTRY ( IDockingWindow   )
-        COM_INTERFACE_ENTRY ( IOleWindow       )
-        COM_INTERFACE_ENTRY ( IContextMenu     )
+    COM_INTERFACE_ENTRY ( IPerfBar         )
+    COM_INTERFACE_ENTRY ( IDispatch        )
+    COM_INTERFACE_ENTRY ( IObjectWithSite  )
+    COM_INTERFACE_ENTRY ( IDeskBand        )
+    COM_INTERFACE_ENTRY ( IDeskBand2       )
+    COM_INTERFACE_ENTRY ( IPersist         )
+    COM_INTERFACE_ENTRY ( IPersistStream   )
+    COM_INTERFACE_ENTRY ( IDockingWindow   )
+    COM_INTERFACE_ENTRY ( IOleWindow       )
+    COM_INTERFACE_ENTRY ( IContextMenu     )
     END_COM_MAP()
 
     BEGIN_CATEGORY_MAP( CPerfBar )
-        IMPLEMENTED_CATEGORY(CATID_DeskBand)
-        IMPLEMENTED_CATEGORY(CATID_CommBand)
+    IMPLEMENTED_CATEGORY(CATID_DeskBand)
+    IMPLEMENTED_CATEGORY(CATID_CommBand)
     END_CATEGORY_MAP()
 
     STDMETHOD(FinalConstruct)();
@@ -147,12 +147,12 @@ public:
     // Windows Message Map
 
     BEGIN_MSG_MAP( CPerfBar )
-        MESSAGE_HANDLER( WM_CREATE,            OnCreate              )
-        MESSAGE_HANDLER( WM_DESTROY,           OnGoodBye             )
-        MESSAGE_HANDLER( WM_PAINT,             OnPaint               )
-        MESSAGE_HANDLER( WM_TIMER,             OnTimer               )
-        MESSAGE_HANDLER( WM_ERASEBKGND,        OnEraseBackground     )
-        MESSAGE_HANDLER( WM_LBUTTONDOWN,       OnLButtonDown         )
+    MESSAGE_HANDLER( WM_CREATE,            OnCreate              )
+    MESSAGE_HANDLER( WM_DESTROY,           OnGoodBye             )
+    MESSAGE_HANDLER( WM_PAINT,             OnPaint               )
+    MESSAGE_HANDLER( WM_TIMER,             OnTimer               )
+    MESSAGE_HANDLER( WM_ERASEBKGND,        OnEraseBackground     )
+    MESSAGE_HANDLER( WM_LBUTTONDOWN,       OnLButtonDown         )
     END_MSG_MAP()
 
 
