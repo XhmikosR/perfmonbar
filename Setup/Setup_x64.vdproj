@@ -199,7 +199,7 @@
             }
             "{3C67513D-01DD-4637-8A68-80971EB9504F}:_91B3EE987D9041C2941FAC02824CB26A"
             {
-            "DefaultLocation" = "8:[ProgramFilesFolder]\\[ProductName]"
+            "DefaultLocation" = "8:[ProgramFiles64Folder]\\[ProductName]"
             "Name" = "8:#1925"
             "AlwaysCreate" = "11:FALSE"
             "Condition" = "8:"
@@ -263,7 +263,7 @@
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:PerfmonBar"
         "ProductCode" = "8:{3C201211-770A-4048-9889-CFABA8A3FF35}"
-        "PackageCode" = "8:{919FF62D-B1DB-46F1-B303-3396D5421E07}"
+        "PackageCode" = "8:{7CA62F89-8FC6-4F37-A65B-CFDABE773B3D}"
         "UpgradeCode" = "8:{5CAE7049-B733-43C6-9D69-9B95F6160474}"
         "AspNetVersion" = "8:4.0.30319.0"
         "RestartWWWService" = "11:FALSE"

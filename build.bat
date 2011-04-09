@@ -24,6 +24,7 @@ ENDLOCAL
 PAUSE
 EXIT /B
 
+
 :EndWithError
 Title Compiling PerfmonBar [ERROR]
 ECHO. & ECHO.
