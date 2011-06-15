@@ -98,15 +98,10 @@
       <PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <TargetEnvironment>Win32</TargetEnvironment>
       <GenerateStublessProxies>true</GenerateStublessProxies>
-      <TypeLibraryName>$(IntDir)PerfmonBar.tlb</TypeLibraryName>
       <HeaderFileName>PerfmonBar_i.h</HeaderFileName>
-      <DllDataFileName>
-      </DllDataFileName>
       <InterfaceIdentifierFileName>PerfmonBar_i.c</InterfaceIdentifierFileName>
       <ProxyFileName>PerfmonBar_p.c</ProxyFileName>
       <ValidateAllParameters>true</ValidateAllParameters>
-      <OutputDirectory>
-      </OutputDirectory>
     </Midl>
     <ClCompile>
       <Optimization>Disabled</Optimization>
@@ -136,14 +131,9 @@
     <Midl>
       <PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <GenerateStublessProxies>true</GenerateStublessProxies>
-      <TypeLibraryName>$(IntDir)PerfmonBar.tlb</TypeLibraryName>
       <HeaderFileName>PerfmonBar_i.h</HeaderFileName>
-      <DllDataFileName>
-      </DllDataFileName>
       <InterfaceIdentifierFileName>PerfmonBar_i.c</InterfaceIdentifierFileName>
       <ProxyFileName>PerfmonBar_p.c</ProxyFileName>
-      <OutputDirectory>
-      </OutputDirectory>
       <TargetEnvironment>X64</TargetEnvironment>
     </Midl>
     <ClCompile>
@@ -173,12 +163,8 @@
       <TargetEnvironment>Win32</TargetEnvironment>
       <GenerateStublessProxies>true</GenerateStublessProxies>
       <HeaderFileName>PerfmonBar_i.h</HeaderFileName>
-      <DllDataFileName>
-      </DllDataFileName>
       <InterfaceIdentifierFileName>PerfmonBar_i.c</InterfaceIdentifierFileName>
       <ProxyFileName>PerfmonBar_p.c</ProxyFileName>
-      <OutputDirectory>
-      </OutputDirectory>
     </Midl>
     <ClCompile>
       <Optimization>MaxSpeed</Optimization>
@@ -195,7 +181,6 @@
       <AdditionalIncludeDirectories>$(IntDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
     <Link>
-      <RegisterOutput>true</RegisterOutput>
       <AdditionalDependencies>pdh.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <ModuleDefinitionFile>PerfmonBar.def</ModuleDefinitionFile>
       <GenerateDebugInformation>true</GenerateDebugInformation>
@@ -210,12 +195,8 @@
       <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <GenerateStublessProxies>true</GenerateStublessProxies>
       <HeaderFileName>PerfmonBar_i.h</HeaderFileName>
-      <DllDataFileName>
-      </DllDataFileName>
       <InterfaceIdentifierFileName>PerfmonBar_i.c</InterfaceIdentifierFileName>
       <ProxyFileName>PerfmonBar_p.c</ProxyFileName>
-      <OutputDirectory>
-      </OutputDirectory>
       <TargetEnvironment>X64</TargetEnvironment>
     </Midl>
     <ClCompile>
