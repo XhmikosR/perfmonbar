@@ -4,16 +4,17 @@
   <counters>
     <counter name="cpu" value="\Processor(_Total)\% Processor Time" />
     <!--<counter name="cpufreq" value="\Processor Performance(PPM_Processor_0)\Processor Frequency" />-->
-    <counter name="diskread" value="\LogicalDisk(_Total)\Disk Read Bytes/sec"/>
-    <counter name="diskwrite" value="\LogicalDisk(_Total)\Disk Write Bytes/sec"/>
-    <counter name="tcp" value="\TCPv4\Connections Established" />
+    <!--<counter name="diskread" value="\LogicalDisk(_Total)\Disk Read Bytes/sec"/>-->
+    <!--<counter name="diskwrite" value="\LogicalDisk(_Total)\Disk Write Bytes/sec"/>-->
+    <!--<counter name="tcp" value="\TCPv4\Connections Established" />-->
     <counter name="mem" value="\Memory\Committed Bytes" />
-    <counter name="contention" value="\.NET CLR LocksAndThreads(_Global_)\Contention Rate / sec" />
-    <counter name="gc" value="\.NET CLR Memory(_Global_)\% Time In GC" />
-    <counter name="alloc" value="\.NET CLR Memory(_Global_)\Allocated Bytes/sec" />
-    <counter name="netin" value="\Network Interface(Marvell Yukon 88E8056 PCI-E Gigabit Ethernet Controller)\Bytes Received/sec" />
-    <counter name="netout" value="\Network Interface(Marvell Yukon 88E8056 PCI-E Gigabit Ethernet Controller)\Bytes Sent/sec" />
+    <!--<counter name="contention" value="\.NET CLR LocksAndThreads(_Global_)\Contention Rate / sec" />-->
+    <!--<counter name="gc" value="\.NET CLR Memory(_Global_)\% Time In GC" />-->
+    <!--<counter name="alloc" value="\.NET CLR Memory(_Global_)\Allocated Bytes/sec" />-->
+    <counter name="netin" value="\Network Interface(Realtek PCIe GBE Family Controller)\Bytes Received/sec" />
+    <counter name="netout" value="\Network Interface(Realtek PCIe GBE Family Controller)\Bytes Sent/sec" />
     <counter name="freediskC" value="\LogicalDisk(C:)\Free Megabytes" />
+    <counter name="processCount" value="\System\Processes" />
   </counters>
   <pages>
     <!-- use left button click on the performance bar to switch between the pages -->
@@ -22,24 +23,24 @@
         <line fontFamily="Arial" fontSize="8" fontItalic="false" fontBold="true" fontColor="FFFFFF">
           <display prefix="CPU: " suffix="% " counter="cpu" />
           <!--<display prefix="@" suffix=" " counter="cpufreq" />-->
-          <display prefix="R: " suffix=" " counter="diskread" decimals="2" divide="1048576" />
-          <display prefix="W: " suffix=" " counter="diskwrite" decimals="2" divide="1048576" />
-          <display prefix="CONT: " counter="contention" />
+          <display prefix="|| RAM: " suffix=" MB" counter="mem" decimals="1" divide="1048576" />
+          <!--<<display prefix="|| RAM: " suffix=" GB" counter="mem" decimals="2" divide="1073741824" />-->
+          <!--<display prefix="CONT: " counter="contention" />-->
         </line>
         <line>
-          <display prefix="I: " suffix=" " counter="netin" decimals="2" divide="1024" />
-          <display prefix="O: " suffix=" " counter="netout" decimals="2" divide="1024" />
-          <display prefix="TCP: " suffix=" " counter="tcp" />
-          <display prefix="MEM: " suffix=" " counter="mem" decimals="2" divide="1048576" />
-          <display prefix="GC: " suffix="% " counter="gc" />
-          <display prefix="NEW: " counter="alloc" decimals="2" divide="1048576" />
+          <display prefix="Proc: " suffix="" counter="processCount" />
+          <display prefix="||D: " suffix="KB/s" counter="netin" decimals="0" divide="1024" />
+          <display prefix="||U: " suffix="KB/s" counter="netout" decimals="0" divide="1024" />
+          <!--<display prefix="TCP: " suffix=" " counter="tcp" />-->
+          <!--<display prefix="GC: " suffix="% " counter="gc" />-->
+          <!--<display prefix="NEW: " counter="alloc" decimals="2" divide="1048576" />-->
         </line>
       </lines>
     </page>
-    <page> 
+    <page offsetY="1">
       <lines>
         <line>
-          <display prefix="Free C: " suffix=" GB " counter="freediskC" decimals="2" divide="1024" />
+          <display prefix="Free C: " suffix=" GB" counter="freediskC" decimals="1" divide="1024" />
         </line>
       </lines>
     </page>
