@@ -99,7 +99,7 @@ en.msg_AppIsRunningUninstall =Uninstall has detected that {#app_name} is current
 en.msg_DeleteSettings        =Do you also want to delete {#app_name}'s settings?%n%nIf you plan on installing {#app_name} again then you do not have to delete them.
 en.msg_SetupIsRunningWarning ={#app_name} setup is already running!
 en.tsk_ResetSettings         =Reset {#app_name}'s settings
-en.run_ViewConfig            =View/Edit PerfmonBar's configuration
+en.run_ViewConfig            =View PerfmonBar's configuration file
 
 
 [Tasks]
@@ -114,8 +114,8 @@ Source: ..\PerfmonBar\config.xml;               DestDir: {userdocs}\PerfmonBar; 
 
 
 [Icons]
-Name: {group}\Shortcut to config.xml; Filename: notepad.exe; Parameters: "{userdocs}\PerfmonBar\config.xml"; Comment: Shortcut to config.xml [{#app_name} {#app_version}]
-
+Name: {group}\Shortcut to config.xml;            Filename: notepad.exe; Parameters: "{userdocs}\PerfmonBar\config.xml"; Comment: Shortcut to config.xml [{#app_name} {#app_version}]
+Name: {group}\{cm:UninstallProgram,{#app_name}}; Filename: {uninstallexe};                                              Comment: {cm:UninstallProgram,{#app_name}}; WorkingDir: {app}
 
 [Run]
 Filename: notepad.exe; Description: {cm:run_ViewConfig}; Parameters: "{userdocs}\PerfmonBar\config.xml"; Flags: nowait postinstall skipifsilent unchecked
@@ -139,7 +139,7 @@ const installer_mutex_name = '{#app_name}' + '_setup_mutex';
 ////////////////////////////////////////
 
 
-// Check if Notepad2's settings exist
+// Check if PerfmonBar's settings exist
 function ConfigExistsCheck(): Boolean;
 begin
   if FileExists(ExpandConstant('{userdocs}\PerfmonBar\config.xml')) then begin
