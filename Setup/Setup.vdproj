@@ -309,7 +309,7 @@
                             "Name" = "8:[Manufacturer]"
                             "Condition" = "8:"
                             "AlwaysCreate" = "11:FALSE"
-                            "DeleteAtUninstall" = "11:FALSE"
+                            "DeleteAtUninstall" = "11:TRUE"
                             "Transitive" = "11:FALSE"
                                 "Keys"
                                 {
@@ -343,7 +343,7 @@
                             "Name" = "8:[Manufacturer]"
                             "Condition" = "8:"
                             "AlwaysCreate" = "11:FALSE"
-                            "DeleteAtUninstall" = "11:FALSE"
+                            "DeleteAtUninstall" = "11:TRUE"
                             "Transitive" = "11:FALSE"
                                 "Keys"
                                 {
