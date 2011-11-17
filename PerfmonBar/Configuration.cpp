@@ -395,7 +395,7 @@ HRESULT Configuration::GetConfigPath(tstring & filePath)
         return hr;
     }
 
-    filePath = tstring(path) + _T("\\perfmonbar\\config.xml");
+    filePath = tstring(path) + _T("\\PerfmonBar\\config.xml");
     return S_OK;
 }
 
