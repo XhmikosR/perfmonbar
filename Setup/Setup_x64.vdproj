@@ -262,8 +262,8 @@
         {
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:PerfmonBar"
-        "ProductCode" = "8:{5F11F965-7A18-49C1-AFA8-A95741DBA631}"
-        "PackageCode" = "8:{38F84D40-72C3-40FA-9F1F-D93A5C08C7B5}"
+        "ProductCode" = "8:{3C201211-770A-4048-9889-CFABA8A3FF35}"
+        "PackageCode" = "8:{7CA62F89-8FC6-4F37-A65B-CFDABE773B3D}"
         "UpgradeCode" = "8:{5CAE7049-B733-43C6-9D69-9B95F6160474}"
         "AspNetVersion" = "8:4.0.30319.0"
         "RestartWWWService" = "11:FALSE"
