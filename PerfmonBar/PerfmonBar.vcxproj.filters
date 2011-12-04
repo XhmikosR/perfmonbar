@@ -20,12 +20,6 @@
     <Filter Include="Library Files">
       <UniqueIdentifier>{e6c8a84b-d279-4823-9c23-579103de42e4}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Precompiled Headers">
-      <UniqueIdentifier>{e20b4685-ae24-4f7b-a798-ab9e3b371945}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Configuration Sample">
-      <UniqueIdentifier>{b9301ba0-ba96-4c49-9276-a62caec8fcf7}</UniqueIdentifier>
-    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Configuration.cpp">
@@ -44,7 +38,7 @@
       <Filter>Library Files</Filter>
     </ClCompile>
     <ClCompile Include="stdafx.cpp">
-      <Filter>Precompiled Headers</Filter>
+      <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -57,17 +51,17 @@
     <ClInclude Include="PerfMonitor.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Resource.h">
-      <Filter>Resource Files</Filter>
-    </ClInclude>
     <ClInclude Include="PerfmonBar_i.h">
       <Filter>Generated Files</Filter>
     </ClInclude>
     <ClInclude Include="stdafx.h">
-      <Filter>Precompiled Headers</Filter>
+      <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="targetver.h">
-      <Filter>Precompiled Headers</Filter>
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="resource.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -80,10 +74,8 @@
     <None Include="PerfmonBar.def">
       <Filter>Library Files</Filter>
     </None>
-    <None Include="config.xml">
-      <Filter>Configuration Sample</Filter>
-    </None>
     <None Include="license.txt" />
+    <None Include="config.xml" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="PerfmonBar.rc">

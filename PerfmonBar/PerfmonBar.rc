@@ -7,9 +7,7 @@
 //
 // Generated from the TEXTINCLUDE 2 resource.
 //
-#ifndef APSTUDIO_INVOKED
 #include "targetver.h"
-#endif
 #include "winres.h"
 
 /////////////////////////////////////////////////////////////////////////////
@@ -35,9 +33,7 @@ END
 
 2 TEXTINCLUDE 
 BEGIN
-    "#ifndef APSTUDIO_INVOKED\r\n"
     "#include ""targetver.h""\r\n"
-    "#endif\r\n"
     "#include ""winres.h""\r\n"
     "\0"
 END
@@ -77,7 +73,7 @@ BEGIN
             VALUE "FileDescription", "Performance Monitor Toolbar"
             VALUE "FileVersion", VER_STR
             VALUE "InternalName", "PerfmonBar.dll"
-            VALUE "LegalCopyright", "© Danny Couture.  All rights reserved."
+            VALUE "LegalCopyright", "© 2008 Danny Couture.  All rights reserved."
             VALUE "OriginalFilename", "PerfmonBar.dll"
             VALUE "ProductName", "PerfmonBar"
             VALUE "ProductVersion", VER_STR
