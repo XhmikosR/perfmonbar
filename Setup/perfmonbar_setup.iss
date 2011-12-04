@@ -94,8 +94,6 @@ SetupWindowTitle =Setup - {#app_name}
 
 
 [CustomMessages]
-en.msg_AppIsRunning          =Setup has detected that {#app_name} is currently running.%n%nPlease close all instances of it now, then click OK to continue, or Cancel to exit.
-en.msg_AppIsRunningUninstall =Uninstall has detected that {#app_name} is currently running.%n%nPlease close all instances of it now, then click OK to continue, or Cancel to exit.
 en.msg_DeleteSettings        =Do you also want to delete {#app_name}'s settings?%n%nIf you plan on installing {#app_name} again then you do not have to delete them.
 en.msg_SetupIsRunningWarning ={#app_name} setup is already running!
 en.tsk_ResetSettings         =Reset {#app_name}'s settings
@@ -122,7 +120,7 @@ Filename: notepad.exe; Description: {cm:run_ViewConfig}; Parameters: "{userdocs}
 
 
 [InstallDelete]
-Type: files;      Name: {userdocs}\config.xml; Check: not IsTaskSelected('desktopicon\user') and IsUpgrade()
+Type: files;      Name: {userdocs}\config.xml; Check: IsTaskSelected('reset_settings')
 
 
 [UninstallDelete]
@@ -203,14 +201,11 @@ end;
 function ShouldSkipPage(PageID: Integer): Boolean;
 begin
   // Hide the license page
-  if IsUpgrade() and (PageID = wpLicense) then begin
-    Result := True;
-  end
-  else begin
+  if IsUpgrade() and (PageID = wpLicense) then
+    Result := True
+  else
     Result := False;
-  end;
 end;
-
 
 
 procedure CleanUpSettings();
@@ -225,21 +220,16 @@ begin
   if CurPageID = wpSelectTasks then
     WizardForm.NextButton.Caption := SetupMessage(msgButtonInstall)
   else if CurPageID = wpFinished then
-    WizardForm.NextButton.Caption := SetupMessage(msgButtonFinish)
+    WizardForm.NextButton.Caption := SetupMessage(msgButtonFinish);
 end;
 
 
 procedure CurStepChanged(CurStep: TSetupStep);
 begin
-
-  if (CurStep = ssInstall) and IsOldBuildInstalled() then begin
+  if (CurStep = ssInstall) and IsOldBuildInstalled() then
     UninstallOldVersion();
-  end;
-
-  if (CurStep = ssPostInstall) and IsTaskSelected('reset_settings') then begin
+  if (CurStep = ssPostInstall) and IsTaskSelected('reset_settings') then
     CleanUpSettings();
-  end;
-
 end;
 
 
@@ -277,7 +267,5 @@ begin
   else begin
     Result := True;
     CreateMutex(installer_mutex_name);
-    // Unload the psvince.dll in order to be uninstalled
-    UnloadDLL(ExpandConstant('{app}\psvince.dll'));
   end;
 end;

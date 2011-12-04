@@ -21,18 +21,29 @@ REM You can set here the Inno Setup path if for example you have Inno Setup Unic
 REM installed and you want to use the ANSI Inno Setup which is in another location
 SET "InnoSetupPath=H:\progs\thirdparty\isetup"
 
-
+rem Check the building environment
 CALL :SubDetectInnoSetup
 
-TITLE Building installer...
-"%InnoSetupPath%\iscc.exe" /Q "perfmonbar_setup.iss"
-IF %ERRORLEVEL% NEQ 0 GOTO EndWithError
+IF NOT EXIST %InnoSetupPath% (
+  ECHO. & ECHO.
+  ECHO Inno Setup not found!
+  GOTO EndWithError
+)
+
+CALL :SubInno %1
 
 
 :END
-TITLE Finished!
-ECHO.
+ECHO. & ECHO.
 ENDLOCAL
+EXIT /B
+
+
+:SubInno
+ECHO.
+TITLE Building PerfmonBar installer...
+"%InnoSetupPath%\iscc.exe" /Q "perfmonbar_setup.iss" /D%1
+IF %ERRORLEVEL% NEQ 0 (GOTO EndWithError) ELSE (ECHO Installer compiled successfully!)
 EXIT /B
 
 
