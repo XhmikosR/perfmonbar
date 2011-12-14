@@ -91,7 +91,7 @@ Name: en; MessagesFile: compiler:Default.isl
 BeveledLabel          ={#app_name} {#app_version}
 SetupAppTitle         =Setup - {#app_name}
 SetupWindowTitle      =Setup - {#app_name}
-WinVersionTooLowError =This program only works on Windows Vista or newer.
+WinVersionTooLowError =This program only works on Windows XP SP3 or newer.
 
 
 [CustomMessages]
