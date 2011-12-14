@@ -351,7 +351,7 @@ LRESULT CPerfBar::OnLButtonDown(UINT uMsg, WPARAM wParam, LPARAM lParam, BOOL& b
 void CPerfBar::PaintData(HDC hdc, POINT offset)
 {
     Configuration::pages_t & pages = m_config.GetPages();
-    Configuration::counters_t & counters = m_config.GetCounters();
+    //Configuration::counters_t & counters = m_config.GetCounters();
 
     if (pages.size() <= 0) {
         return;

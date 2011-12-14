@@ -34,12 +34,12 @@ class ATL_NO_VTABLE CPerfBar :
     public CWindowImpl<CPerfBar>
 {
 private:
-    CPerfMon                     m_perfMonitor;
-    CComQIPtr<IInputObjectSite>  m_spInputObjSite;
-    HFONT                        m_font;
-    Configuration                m_config;
-    size_t                       m_currentPage;
-    BOOL                         m_fCompositionEnabled;
+    CPerfMon                    m_perfMonitor;
+    CComQIPtr<IInputObjectSite> m_spInputObjSite;
+    HFONT                       m_font;
+    Configuration               m_config;
+    size_t                      m_currentPage;
+    BOOL                        m_fCompositionEnabled;
 
 public:
     CPerfBar()
@@ -90,9 +90,9 @@ public:
 
     STDMETHOD(ResizeBorderDW)
     (
-        LPCRECT       prcBorder,
-        IUnknown*     punkToolbarSite,
-        BOOL          bReserved
+        LPCRECT   prcBorder,
+        IUnknown* punkToolbarSite,
+        BOOL      bReserved
     );
 
     STDMETHOD(CanRenderComposited)(BOOL *pfCanRenderComposited);
@@ -106,8 +106,8 @@ public:
 
     STDMETHOD(GetSite)
     (
-        REFIID    riid,
-        LPVOID*   ppvSite
+        REFIID  riid,
+        LPVOID* ppvSite
     );
 
     ///////////////////////////////////////////////////////////////
@@ -117,9 +117,9 @@ public:
 
     STDMETHOD(IsDirty)();
 
-    STDMETHOD(Load)(LPSTREAM  pStream);
+    STDMETHOD(Load)(LPSTREAM pStream);
 
-    STDMETHOD(Save)(LPSTREAM  pStream, BOOL bClearDirty);
+    STDMETHOD(Save)(LPSTREAM pStream, BOOL bClearDirty);
 
     STDMETHOD(GetSizeMax)(ULARGE_INTEGER* pcbSize);
 
@@ -147,12 +147,12 @@ public:
     // Windows Message Map
 
     BEGIN_MSG_MAP(CPerfBar)
-    MESSAGE_HANDLER(WM_CREATE,            OnCreate)
-    MESSAGE_HANDLER(WM_DESTROY,           OnGoodBye)
-    MESSAGE_HANDLER(WM_PAINT,             OnPaint)
-    MESSAGE_HANDLER(WM_TIMER,             OnTimer)
-    MESSAGE_HANDLER(WM_ERASEBKGND,        OnEraseBackground)
-    MESSAGE_HANDLER(WM_LBUTTONDOWN,       OnLButtonDown)
+    MESSAGE_HANDLER(WM_CREATE,      OnCreate)
+    MESSAGE_HANDLER(WM_DESTROY,     OnGoodBye)
+    MESSAGE_HANDLER(WM_PAINT,       OnPaint)
+    MESSAGE_HANDLER(WM_TIMER,       OnTimer)
+    MESSAGE_HANDLER(WM_ERASEBKGND,  OnEraseBackground)
+    MESSAGE_HANDLER(WM_LBUTTONDOWN, OnLButtonDown)
     END_MSG_MAP()
 
 
