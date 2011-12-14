@@ -24,7 +24,7 @@
   #error Update your Inno Setup version
 #endif
 
-#define bindir       "..\bin\"
+#define bindir "..\bin\"
 
 #ifnexist SourcePath + bindir + "\Release_Win32\PerfmonBar.dll"
   #error Compile PerfmonBar x86 first
@@ -88,9 +88,10 @@ Name: en; MessagesFile: compiler:Default.isl
 
 
 [Messages]
-BeveledLabel     ={#app_name} {#app_version}
-SetupAppTitle    =Setup - {#app_name}
-SetupWindowTitle =Setup - {#app_name}
+BeveledLabel          ={#app_name} {#app_version}
+SetupAppTitle         =Setup - {#app_name}
+SetupWindowTitle      =Setup - {#app_name}
+WinVersionTooLowError =This program only works on Windows Vista or newer.
 
 
 [CustomMessages]
@@ -115,12 +116,9 @@ Source: ..\PerfmonBar\config.xml;               DestDir: {userdocs}\PerfmonBar; 
 Name: {group}\Shortcut to config.xml;            Filename: notepad.exe; Parameters: "{userdocs}\PerfmonBar\config.xml"; Comment: Shortcut to config.xml [{#app_name} {#app_version}]
 Name: {group}\{cm:UninstallProgram,{#app_name}}; Filename: {uninstallexe};                                              Comment: {cm:UninstallProgram,{#app_name}}; WorkingDir: {app}
 
+
 [Run]
 Filename: notepad.exe; Description: {cm:run_ViewConfig}; Parameters: "{userdocs}\PerfmonBar\config.xml"; Flags: nowait postinstall skipifsilent unchecked
-
-
-[InstallDelete]
-Type: files;      Name: {userdocs}\config.xml; Check: IsTaskSelected('reset_settings')
 
 
 [UninstallDelete]

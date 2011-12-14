@@ -21,5 +21,9 @@
 #define WINVER 0x0600
 #endif
 
-#define VER_NUM 1,0,2,0
-#define VER_STR "1.0.2.0"
+#ifndef _WIN32_WINNT
+#define _WIN32_WINNT 0x0600
+#endif
+
+#define VER_NUM 1,0,2,1
+#define VER_STR "1.0.2.1"
