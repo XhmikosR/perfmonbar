@@ -21,7 +21,7 @@
 void Configuration::Initialize()
 {
     static bool ole_initialized = false;
-    if(!ole_initialized)
+    if (!ole_initialized)
     {
         CoInitialize(NULL);
         ole_initialized = true;
@@ -75,7 +75,7 @@ bool Configuration::ReadCounters(IXMLDOMNodePtr & node, counters_t & counters)
     IXMLDOMNodePtr childNode;
     HRESULT hr = node->get_firstChild(&childNode);
 
-    while(childNode != 0)
+    while (childNode != 0)
     {
         BSTR nodeName;
         hr = childNode->get_nodeName(&nodeName);
@@ -108,7 +108,7 @@ bool Configuration::ReadPages(IXMLDOMNodePtr & node, std::vector<Page> & pages)
     IXMLDOMNodePtr childNode;
     HRESULT hr = node->get_firstChild(&childNode);
 
-    while(childNode != 0)
+    while (childNode != 0)
     {
         BSTR nodeName;
         hr = childNode->get_nodeName(&nodeName);
@@ -181,7 +181,7 @@ bool Configuration::ReadPage(IXMLDOMNodePtr & node, Page & page)
     IXMLDOMNodePtr childNode;
     hr = node->get_firstChild(&childNode);
 
-    while(childNode != 0)
+    while (childNode != 0)
     {
         BSTR nodeName;
         hr = childNode->get_nodeName(&nodeName);
@@ -210,7 +210,7 @@ bool Configuration::ReadLines(IXMLDOMNodePtr & node, std::vector<Line> & lines)
     IXMLDOMNodePtr childNode;
     HRESULT hr = node->get_firstChild(&childNode);
 
-    while(childNode != 0)
+    while (childNode != 0)
     {
         BSTR nodeName;
         hr = childNode->get_nodeName(&nodeName);
@@ -295,7 +295,7 @@ bool Configuration::ReadLine(IXMLDOMNodePtr & node, Line & line)
     IXMLDOMNodePtr childNode;
     hr = node->get_firstChild(&childNode);
 
-    while(childNode != 0)
+    while (childNode != 0)
     {
         BSTR nodeName;
         hr = childNode->get_nodeName(&nodeName);
@@ -440,7 +440,7 @@ bool Configuration::Read()
         IXMLDOMNodePtr childNode;
         hr = pDocRoot->get_firstChild(&childNode);
 
-        while(childNode != 0)
+        while (childNode != 0)
         {
             BSTR nodeName;
             hr = childNode->get_nodeName(&nodeName);

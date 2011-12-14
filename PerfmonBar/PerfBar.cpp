@@ -72,41 +72,41 @@ STDMETHODIMP CPerfBar::ReloadConfiguration()
     return S_OK;
 }
 
-STDMETHODIMP CPerfBar::GetBandInfo ( DWORD dwBandID,
-                                     DWORD dwViewMode,
-                                     DESKBANDINFO* pdbi )
+STDMETHODIMP CPerfBar::GetBandInfo(DWORD dwBandID,
+                                   DWORD dwViewMode,
+                                   DESKBANDINFO* pdbi)
 {
     HRESULT hr = E_FAIL;
 
     USES_CONVERSION;
 
-    if(pdbi)
+    if (pdbi)
     {
-        if(pdbi->dwMask & DBIM_MINSIZE)
+        if (pdbi->dwMask & DBIM_MINSIZE)
         {
             pdbi->ptMinSize.x = 10;
             pdbi->ptMinSize.y = 10;
         }
 
-        if(pdbi->dwMask & DBIM_MAXSIZE)
+        if (pdbi->dwMask & DBIM_MAXSIZE)
         {
             pdbi->ptMaxSize.x = -1;
             pdbi->ptMaxSize.y = -1;
         }
 
-        if(pdbi->dwMask & DBIM_INTEGRAL)
+        if (pdbi->dwMask & DBIM_INTEGRAL)
         {
             pdbi->ptIntegral.x = 1;
             pdbi->ptIntegral.y = 1;
         }
 
-        if(pdbi->dwMask & DBIM_ACTUAL)
+        if (pdbi->dwMask & DBIM_ACTUAL)
         {
             pdbi->ptActual.x = 0;
             pdbi->ptActual.y = 0;
         }
 
-        if(pdbi->dwMask & DBIM_MODEFLAGS) {
+        if (pdbi->dwMask & DBIM_MODEFLAGS) {
             pdbi->dwModeFlags = DBIMF_VARIABLEHEIGHT | DBIF_VIEWMODE_TRANSPARENT;
         }
 
@@ -123,11 +123,11 @@ STDMETHODIMP CPerfBar::GetBandInfo ( DWORD dwBandID,
     return hr;
 }
 
-STDMETHODIMP CPerfBar::GetWindow( HWND* phWnd )
+STDMETHODIMP CPerfBar::GetWindow(HWND* phWnd)
 {
     HRESULT hr = S_OK;
 
-    if ( phWnd == NULL )
+    if (phWnd == NULL)
     {
         hr = E_INVALIDARG;
     }
@@ -140,40 +140,40 @@ STDMETHODIMP CPerfBar::GetWindow( HWND* phWnd )
     return hr;
 }
 
-STDMETHODIMP CPerfBar::ContextSensitiveHelp ( BOOL bHelp )
+STDMETHODIMP CPerfBar::ContextSensitiveHelp(BOOL bHelp)
 {
     return E_NOTIMPL;
 }
 
-STDMETHODIMP CPerfBar::ShowDW ( BOOL fShow )
+STDMETHODIMP CPerfBar::ShowDW(BOOL fShow)
 {
-    if( IsWindow() )
+    if (IsWindow())
     {
-        if( fShow ) {
-            ShowWindow( SW_SHOW );
+        if (fShow) {
+            ShowWindow(SW_SHOW);
         }
         else {
-            ShowWindow( SW_HIDE );
+            ShowWindow(SW_HIDE);
         }
     }
 
     return S_OK;
 }
 
-STDMETHODIMP CPerfBar::CloseDW( DWORD dwReserved )
+STDMETHODIMP CPerfBar::CloseDW(DWORD dwReserved)
 {
-    ShowDW( FALSE );
+    ShowDW(FALSE);
 
-    if( IsWindow() ) {
+    if (IsWindow()) {
         DestroyWindow();
     }
 
     return S_OK;
 }
 
-STDMETHODIMP CPerfBar::ResizeBorderDW( LPCRECT    prcBorder,
-                                       IUnknown*  punkToolbarSite,
-                                       BOOL       fReserved )
+STDMETHODIMP CPerfBar::ResizeBorderDW(LPCRECT    prcBorder,
+                                      IUnknown*  punkToolbarSite,
+                                      BOOL       fReserved)
 {
     return E_NOTIMPL;
 }
@@ -196,25 +196,25 @@ STDMETHODIMP CPerfBar::GetCompositionState(BOOL *pfCompositionEnabled)
     return S_OK;
 }
 
-STDMETHODIMP CPerfBar::SetSite( IUnknown* punkSite )
+STDMETHODIMP CPerfBar::SetSite(IUnknown* punkSite)
 {
     HRESULT                hr          = E_FAIL;
     CComQIPtr<IOleWindow>  spOleWindow;
     RECT                   rect        = {0};
     HWND                   hWndParent  = NULL;
 
-    if( punkSite != NULL )
+    if (punkSite != NULL)
     {
         spOleWindow = punkSite;
 
-        if ( spOleWindow != NULL )
+        if (spOleWindow != NULL)
         {
-            hr = spOleWindow->GetWindow( &hWndParent );
+            hr = spOleWindow->GetWindow(&hWndParent);
 
-            if ( SUCCEEDED( hr ) )
+            if (SUCCEEDED(hr))
             {
-                ::GetClientRect( hWndParent, &rect );
-                Create( hWndParent, rect, NULL, WS_CHILD);
+                ::GetClientRect(hWndParent, &rect);
+                Create(hWndParent, rect, NULL, WS_CHILD);
 
                 m_spInputObjSite = punkSite;
                 hr               = m_spInputObjSite ? S_OK : E_FAIL;
@@ -224,42 +224,42 @@ STDMETHODIMP CPerfBar::SetSite( IUnknown* punkSite )
     return hr;
 }
 
-STDMETHODIMP CPerfBar::GetSite( REFIID  riid,
-                                LPVOID *ppvReturn )
+STDMETHODIMP CPerfBar::GetSite(REFIID  riid,
+                               LPVOID *ppvReturn)
 {
     HRESULT hr = E_FAIL;
 
-    if ( ppvReturn == NULL ) {
+    if (ppvReturn == NULL) {
         hr = E_INVALIDARG;
     }
-    else if(m_spInputObjSite != NULL )
+    else if (m_spInputObjSite != NULL)
     {
         *ppvReturn = NULL;
-        hr = m_spInputObjSite->QueryInterface ( riid, ppvReturn );
+        hr = m_spInputObjSite->QueryInterface(riid, ppvReturn);
     }
 
     return hr;
 }
 
-STDMETHODIMP CPerfBar::GetCommandString( UINT_PTR idCmd,
-        UINT     uFlags,
-        UINT    *pwReserved,
-        LPSTR    pszName,
-        UINT     cchMax )
+STDMETHODIMP CPerfBar::GetCommandString(UINT_PTR idCmd,
+                                        UINT     uFlags,
+                                        UINT    *pwReserved,
+                                        LPSTR    pszName,
+                                        UINT     cchMax)
 {
     return S_OK;
 }
 
-STDMETHODIMP CPerfBar::InvokeCommand( LPCMINVOKECOMMANDINFO pici )
+STDMETHODIMP CPerfBar::InvokeCommand(LPCMINVOKECOMMANDINFO pici)
 {
     HRESULT hr = S_OK;
 
-    if ( HIWORD( pici->lpVerb ) != 0 ) {
+    if (HIWORD(pici->lpVerb) != 0) {
         hr = E_INVALIDARG;
     }
     else
     {
-        switch ( LOWORD( pici->lpVerb ) )
+        switch (LOWORD(pici->lpVerb))
         {
             case IDM_RELOAD:
                 hr = ReloadConfiguration();
@@ -274,30 +274,30 @@ STDMETHODIMP CPerfBar::InvokeCommand( LPCMINVOKECOMMANDINFO pici )
     return hr;
 }
 
-STDMETHODIMP CPerfBar::QueryContextMenu( HMENU hMenu,
-        UINT  indexMenu,
-        UINT  idCmdFirst,
-        UINT  idCmdLast,
-        UINT  uFlags )
+STDMETHODIMP CPerfBar::QueryContextMenu(HMENU hMenu,
+                                        UINT  indexMenu,
+                                        UINT  idCmdFirst,
+                                        UINT  idCmdLast,
+                                        UINT  uFlags)
 {
     HRESULT hr = S_OK;
 
-    if( CMF_DEFAULTONLY & uFlags ) {
-        hr = MAKE_HRESULT( SEVERITY_SUCCESS, 0, 0 );
+    if (CMF_DEFAULTONLY & uFlags) {
+        hr = MAKE_HRESULT(SEVERITY_SUCCESS, 0, 0);
     }
     else
     {
-        InsertMenu( hMenu, indexMenu, MF_SEPARATOR | MF_BYPOSITION, idCmdFirst, 0 );
-        InsertMenu( hMenu, indexMenu, MF_STRING    | MF_BYPOSITION, idCmdFirst + IDM_RELOAD, _T("Performance Monitor - (Reload Configuration)") );
-        InsertMenu( hMenu, indexMenu, MF_STRING    | MF_BYPOSITION, idCmdFirst + IDM_EDIT, _T("Performance Monitor - (Edit Configuration)") );
+        InsertMenu(hMenu, indexMenu, MF_SEPARATOR | MF_BYPOSITION, idCmdFirst, 0);
+        InsertMenu(hMenu, indexMenu, MF_STRING    | MF_BYPOSITION, idCmdFirst + IDM_RELOAD, _T("Performance Monitor - (Reload Configuration)"));
+        InsertMenu(hMenu, indexMenu, MF_STRING    | MF_BYPOSITION, idCmdFirst + IDM_EDIT, _T("Performance Monitor - (Edit Configuration)"));
 
-        hr = MAKE_HRESULT ( SEVERITY_SUCCESS, FACILITY_NULL, 3);
+        hr = MAKE_HRESULT(SEVERITY_SUCCESS, FACILITY_NULL, 3);
     }
 
     return hr;
 }
 
-STDMETHODIMP CPerfBar::GetClassID( LPCLSID pClassID )
+STDMETHODIMP CPerfBar::GetClassID(LPCLSID pClassID)
 {
     *pClassID = CLSID_PerfBar;
     return S_OK;
@@ -308,20 +308,20 @@ STDMETHODIMP CPerfBar::IsDirty()
     return S_FALSE;
 }
 
-STDMETHODIMP CPerfBar::Load( LPSTREAM pStream )
+STDMETHODIMP CPerfBar::Load(LPSTREAM pStream)
 {
     return S_OK;
 }
 
-STDMETHODIMP CPerfBar::Save( LPSTREAM pStream,
-                             BOOL     bClearDirty )
+STDMETHODIMP CPerfBar::Save(LPSTREAM pStream,
+                            BOOL     bClearDirty)
 {
     return S_OK;
 }
 
-STDMETHODIMP CPerfBar::GetSizeMax( ULARGE_INTEGER* pcbSize )
+STDMETHODIMP CPerfBar::GetSizeMax(ULARGE_INTEGER* pcbSize)
 {
-    if ( pcbSize == NULL ) {
+    if (pcbSize == NULL) {
         return E_INVALIDARG;
     }
 
@@ -330,14 +330,14 @@ STDMETHODIMP CPerfBar::GetSizeMax( ULARGE_INTEGER* pcbSize )
     return S_OK;
 }
 
-LRESULT CPerfBar::OnTimer( UINT uMsg, WPARAM wParam, LPARAM lParam, BOOL& bHandled )
+LRESULT CPerfBar::OnTimer(UINT uMsg, WPARAM wParam, LPARAM lParam, BOOL& bHandled)
 {
     Invalidate();
 
     return 0;
 }
 
-LRESULT CPerfBar::OnLButtonDown( UINT uMsg, WPARAM wParam, LPARAM lParam, BOOL& bHandled )
+LRESULT CPerfBar::OnLButtonDown(UINT uMsg, WPARAM wParam, LPARAM lParam, BOOL& bHandled)
 {
     size_t pageCount = m_config.GetPages().size();
 
@@ -386,7 +386,7 @@ void CPerfBar::PaintData(HDC hdc, POINT offset)
 
             TCHAR formattedValue[256];
             if (value_it == values.end()) {
-                _tcscpy_s(formattedValue, sizeof(formattedValue)/sizeof(TCHAR), _T("[N/A]"));
+                _tcscpy_s(formattedValue, sizeof(formattedValue) / sizeof(TCHAR), _T("[N/A]"));
             }
             else
             {
@@ -398,7 +398,7 @@ void CPerfBar::PaintData(HDC hdc, POINT offset)
                 TCHAR formattingString[256];
                 _stprintf_s(
                     formattingString,
-                    sizeof(formattingString)/sizeof(TCHAR),
+                    sizeof(formattingString) / sizeof(TCHAR),
                     _T("%s%d%s"),
                     _T("%."),
                     iit->Decimals > 0 ? iit->Decimals : 0,
@@ -407,7 +407,7 @@ void CPerfBar::PaintData(HDC hdc, POINT offset)
 
                 _stprintf_s(
                     formattedValue,
-                    sizeof(formattedValue)/sizeof(TCHAR),
+                    sizeof(formattedValue) / sizeof(TCHAR),
                     formattingString,
                     val
                 );
@@ -415,14 +415,14 @@ void CPerfBar::PaintData(HDC hdc, POINT offset)
 
             _stprintf_s(
                 display,
-                sizeof(display)/sizeof(TCHAR),
+                sizeof(display) / sizeof(TCHAR),
                 _T("%s%s%s"),
                 iit->Prefix.c_str(),
                 formattedValue,
                 iit->Suffix.c_str()
             );
 
-            _tcscat_s(buf, sizeof(buf)/sizeof(TCHAR), display);
+            _tcscat_s(buf, sizeof(buf) / sizeof(TCHAR), display);
         }
 
         RECT rc;
@@ -461,7 +461,7 @@ void CPerfBar::PaintData(HDC hdc, POINT offset)
     }
 }
 
-LRESULT CPerfBar::OnPaint( UINT uMsg, WPARAM wParam, LPARAM lParam, BOOL& bHandled )
+LRESULT CPerfBar::OnPaint(UINT uMsg, WPARAM wParam, LPARAM lParam, BOOL& bHandled)
 {
     PAINTSTRUCT ps      = {0};
     RECT        rect    = {0};
@@ -470,16 +470,16 @@ LRESULT CPerfBar::OnPaint( UINT uMsg, WPARAM wParam, LPARAM lParam, BOOL& bHandl
     HBITMAP     hbmOld  = NULL;
     HFONT       hfOld = NULL;
 
-    BeginPaint( &ps );
+    BeginPaint(&ps);
 
     HWND parent = GetParent();
 
     ::GetClientRect(parent, &rect);
 
-    hdcMem = CreateCompatibleDC( ps.hdc );
-    hbmMem = CreateCompatibleBitmap( ps.hdc,
-                                     rect.right - rect.left,
-                                     rect.bottom- rect.top);
+    hdcMem = CreateCompatibleDC(ps.hdc);
+    hbmMem = CreateCompatibleBitmap(ps.hdc,
+                                    rect.right - rect.left,
+                                    rect.bottom - rect.top);
 
     hbmOld = (HBITMAP)SelectObject(hdcMem, hbmMem);
     hfOld = (HFONT)SelectObject(hdcMem, m_font);
@@ -509,8 +509,8 @@ LRESULT CPerfBar::OnPaint( UINT uMsg, WPARAM wParam, LPARAM lParam, BOOL& bHandl
         ps.hdc,
         0,
         0,
-        rc.right-rc.left,
-        rc.bottom-rc.top,
+        rc.right - rc.left,
+        rc.bottom - rc.top,
         hdcMem,
         offset.x,
         offset.y,
@@ -521,17 +521,17 @@ LRESULT CPerfBar::OnPaint( UINT uMsg, WPARAM wParam, LPARAM lParam, BOOL& bHandl
     DeleteObject(hbmMem);
     DeleteDC(hdcMem);
 
-    EndPaint( &ps);
+    EndPaint(&ps);
 
     return 0;
 }
 
-LRESULT CPerfBar::OnEraseBackground( UINT uMsg, WPARAM wParam, LPARAM lParam, BOOL& bHandled )
+LRESULT CPerfBar::OnEraseBackground(UINT uMsg, WPARAM wParam, LPARAM lParam, BOOL& bHandled)
 {
     return TRUE;
 }
 
-LRESULT CPerfBar::OnCreate( UINT uMsg, WPARAM wParam, LPARAM lParam, BOOL& bHandled )
+LRESULT CPerfBar::OnCreate(UINT uMsg, WPARAM wParam, LPARAM lParam, BOOL& bHandled)
 {
     bHandled = FALSE;
 
@@ -562,7 +562,7 @@ LRESULT CPerfBar::OnCreate( UINT uMsg, WPARAM wParam, LPARAM lParam, BOOL& bHand
     return 0;
 }
 
-LRESULT CPerfBar::OnGoodBye( UINT uMsg, WPARAM wParam, LPARAM lParam, BOOL& bHandled )
+LRESULT CPerfBar::OnGoodBye(UINT uMsg, WPARAM wParam, LPARAM lParam, BOOL& bHandled)
 {
     bHandled = FALSE;
 

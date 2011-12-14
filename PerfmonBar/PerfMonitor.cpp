@@ -33,7 +33,7 @@ BOOL CPerfMon::Start(vector<pair<tstring, tstring>> & counters)
     TCHAR szPathBuffer[1024];
     for (vector<pair<tstring, tstring>>::const_iterator it = counters.begin(); it != counters.end(); ++it)
     {
-        _tcscpy_s(szPathBuffer, sizeof(szPathBuffer)/sizeof(TCHAR), it->second.c_str());
+        _tcscpy_s(szPathBuffer, sizeof(szPathBuffer) / sizeof(TCHAR), it->second.c_str());
 
         pdhStatus = PdhValidatePath(szPathBuffer);
         if (pdhStatus != ERROR_SUCCESS) {
@@ -82,9 +82,9 @@ hash_map<tstring, double> CPerfMon::GetValues()
                         it->second,
                         PDH_FMT_DOUBLE,
                         NULL,
-                        &pdhCounterValue );
+                        &pdhCounterValue);
 
-        if ( pdhStatus == ERROR_SUCCESS ) {
+        if (pdhStatus == ERROR_SUCCESS) {
             values[it->first] = pdhCounterValue.doubleValue;
         }
     }
