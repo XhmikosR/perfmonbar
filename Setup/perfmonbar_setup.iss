@@ -15,22 +15,22 @@
 ; along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 ; Requirements:
-; Inno Setup v5.4.2(+): http://www.jrsoftware.org/isdl.php
+; Inno Setup v5.4.3(+): http://www.jrsoftware.org/isdl.php
 
 ; $Id$
 
 
-#if VER < 0x05040200
-  #error Update your Inno Setup version
+#if VER < EncodeVer(5,4,3)
+  #error Update your Inno Setup version (5.4.3 or newer)
 #endif
 
-#define bindir "..\bin\"
+#define bindir "..\bin"
 
-#ifnexist SourcePath + bindir + "\Release_Win32\PerfmonBar.dll"
+#ifnexist bindir + "\Release_Win32\PerfmonBar.dll"
   #error Compile PerfmonBar x86 first
 #endif
 
-#ifnexist SourcePath + bindir + "\Release_x64\PerfmonBar.dll"
+#ifnexist bindir + "\Release_x64\PerfmonBar.dll"
   #error Compile PerfmonBar x64 first
 #endif
 
@@ -66,7 +66,7 @@ VersionInfoProductTextVersion={#app_version}
 UninstallDisplayName={#app_name} {#app_version}
 DefaultDirName={pf}\PerfmonBar
 DefaultGroupName=PerfmonBar
-LicenseFile=..\PerfmonBar\license.txt
+LicenseFile=..\license.txt
 OutputDir=.
 OutputBaseFilename={#app_name}.{#app_version}
 SolidCompression=yes
@@ -106,19 +106,19 @@ Name: reset_settings; Description: {cm:tsk_ResetSettings}; Flags: checkedonce un
 
 
 [Files]
-Source: ..\PerfmonBar\license.txt;              DestDir: {app};                  Flags: ignoreversion
+Source: ..\license.txt;                         DestDir: {app};                  Flags: ignoreversion
 Source: {#bindir}\Release_Win32\PerfmonBar.dll; DestDir: {app};                  Flags: ignoreversion regserver restartreplace uninsrestartdelete; Check: not Is64BitInstallMode()
 Source: {#bindir}\Release_x64\PerfmonBar.dll;   DestDir: {app};                  Flags: ignoreversion regserver restartreplace uninsrestartdelete; Check: Is64BitInstallMode()
 Source: ..\PerfmonBar\config.xml;               DestDir: {userdocs}\PerfmonBar;  Flags: onlyifdoesntexist uninsneveruninstall
 
 
 [Icons]
-Name: {group}\Shortcut to config.xml;            Filename: notepad.exe; Parameters: "{userdocs}\PerfmonBar\config.xml"; Comment: Shortcut to config.xml [{#app_name} {#app_version}]
-Name: {group}\{cm:UninstallProgram,{#app_name}}; Filename: {uninstallexe};                                              Comment: {cm:UninstallProgram,{#app_name}}; WorkingDir: {app}
+Name: {group}\Shortcut to config.xml;            Filename: notepad.exe; Parameters: {userdocs}\PerfmonBar\config.xml; WorkingDir: {app}; Comment: Shortcut to config.xml [{#app_name} {#app_version}]
+Name: {group}\{cm:UninstallProgram,{#app_name}}; Filename: {uninstallexe};                                            WorkingDir: {app}; Comment: {cm:UninstallProgram,{#app_name}}
 
 
 [Run]
-Filename: notepad.exe; Description: {cm:run_ViewConfig}; Parameters: "{userdocs}\PerfmonBar\config.xml"; Flags: nowait postinstall skipifsilent unchecked
+Filename: notepad.exe; Description: {cm:run_ViewConfig}; Parameters: {userdocs}\PerfmonBar\config.xml; Flags: nowait postinstall skipifsilent unchecked
 
 
 [UninstallDelete]
@@ -126,13 +126,7 @@ Type: dirifempty; Name: {app}
 
 
 [Code]
-// Global variables/constants and general functions
 const installer_mutex_name = '{#app_name}' + '_setup_mutex';
-
-
-////////////////////////////////////////
-//  Custom functions and procedures   //
-////////////////////////////////////////
 
 
 // Check if PerfmonBar's settings exist
@@ -198,7 +192,7 @@ end;
 
 function ShouldSkipPage(PageID: Integer): Boolean;
 begin
-  // Hide the license page
+  // Hide the License page if it's an upgrade
   if IsUpgrade() and (PageID = wpLicense) then
     Result := True
   else
