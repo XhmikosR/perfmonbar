@@ -21,14 +21,6 @@
   <PropertyGroup Label="Globals">
     <ProjectGuid>{132096EE-1897-4D28-82C3-54A082CC3CCF}</ProjectGuid>
     <RootNamespace>PerfmonBar</RootNamespace>
-    <SccProjectName>
-    </SccProjectName>
-    <SccAuxPath>
-    </SccAuxPath>
-    <SccLocalPath>
-    </SccLocalPath>
-    <SccProvider>
-    </SccProvider>
     <Keyword>AtlProj</Keyword>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -90,6 +82,7 @@
       <InterfaceIdentifierFileName>PerfmonBar_i.c</InterfaceIdentifierFileName>
       <ProxyFileName>PerfmonBar_p.c</ProxyFileName>
       <ValidateAllParameters>true</ValidateAllParameters>
+      <WarningLevel>3</WarningLevel>
     </Midl>
     <ClCompile>
       <Optimization>Disabled</Optimization>
@@ -98,7 +91,7 @@
       <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
       <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
       <PrecompiledHeader>Use</PrecompiledHeader>
-      <WarningLevel>Level3</WarningLevel>
+      <WarningLevel>Level4</WarningLevel>
       <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
     </ClCompile>
     <ResourceCompile>
@@ -107,13 +100,15 @@
       <AdditionalIncludeDirectories>$(IntDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
     <Link>
-      <RegisterOutput>true</RegisterOutput>
       <AdditionalDependencies>pdh.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <ModuleDefinitionFile>PerfmonBar.def</ModuleDefinitionFile>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <SubSystem>Windows</SubSystem>
       <TargetMachine>MachineX86</TargetMachine>
     </Link>
+    <PreBuildEvent>
+      <Command>..\update_version.bat</Command>
+    </PreBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <Midl>
@@ -123,6 +118,7 @@
       <InterfaceIdentifierFileName>PerfmonBar_i.c</InterfaceIdentifierFileName>
       <ProxyFileName>PerfmonBar_p.c</ProxyFileName>
       <TargetEnvironment>X64</TargetEnvironment>
+      <WarningLevel>3</WarningLevel>
     </Midl>
     <ClCompile>
       <Optimization>Disabled</Optimization>
@@ -130,7 +126,7 @@
       <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
       <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
       <PrecompiledHeader>Use</PrecompiledHeader>
-      <WarningLevel>Level3</WarningLevel>
+      <WarningLevel>Level4</WarningLevel>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
     </ClCompile>
     <ResourceCompile>
@@ -145,6 +141,9 @@
       <SubSystem>Windows</SubSystem>
       <TargetMachine>MachineX64</TargetMachine>
     </Link>
+    <PreBuildEvent>
+      <Command>..\update_version.bat</Command>
+    </PreBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <Midl>
@@ -154,13 +153,14 @@
       <HeaderFileName>PerfmonBar_i.h</HeaderFileName>
       <InterfaceIdentifierFileName>PerfmonBar_i.c</InterfaceIdentifierFileName>
       <ProxyFileName>PerfmonBar_p.c</ProxyFileName>
+      <WarningLevel>3</WarningLevel>
     </Midl>
     <ClCompile>
       <Optimization>MaxSpeed</Optimization>
       <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;_USRDLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
       <PrecompiledHeader>Use</PrecompiledHeader>
-      <WarningLevel>Level3</WarningLevel>
+      <WarningLevel>Level4</WarningLevel>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
       <FunctionLevelLinking>true</FunctionLevelLinking>
@@ -180,6 +180,9 @@
       <TargetMachine>MachineX86</TargetMachine>
       <SetChecksum>true</SetChecksum>
     </Link>
+    <PreBuildEvent>
+      <Command>..\update_version.bat</Command>
+    </PreBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <Midl>
@@ -189,13 +192,14 @@
       <InterfaceIdentifierFileName>PerfmonBar_i.c</InterfaceIdentifierFileName>
       <ProxyFileName>PerfmonBar_p.c</ProxyFileName>
       <TargetEnvironment>X64</TargetEnvironment>
+      <WarningLevel>3</WarningLevel>
     </Midl>
     <ClCompile>
       <Optimization>MaxSpeed</Optimization>
       <PreprocessorDefinitions>_WIN64;_WINDOWS;NDEBUG;_USRDLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
       <PrecompiledHeader>Use</PrecompiledHeader>
-      <WarningLevel>Level3</WarningLevel>
+      <WarningLevel>Level4</WarningLevel>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
       <FunctionLevelLinking>true</FunctionLevelLinking>
@@ -215,6 +219,9 @@
       <TargetMachine>MachineX64</TargetMachine>
       <SetChecksum>true</SetChecksum>
     </Link>
+    <PreBuildEvent>
+      <Command>..\update_version.bat</Command>
+    </PreBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Configuration.cpp" />
@@ -236,16 +243,12 @@
     <ClInclude Include="resource.h" />
     <ClInclude Include="PerfmonBar_i.h" />
     <ClInclude Include="stdafx.h" />
-    <ClInclude Include="targetver.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="PerfBar.rgs" />
     <None Include="PerfmonBar.rgs" />
     <None Include="PerfmonBar.def" />
-    <None Include="config.xml">
-      <DeploymentContent>true</DeploymentContent>
-    </None>
-    <None Include="license.txt" />
+    <None Include="config.xml" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="PerfmonBar.rc" />

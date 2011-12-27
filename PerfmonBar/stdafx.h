@@ -21,7 +21,9 @@
 #define STRICT
 #endif
 
-#include "targetver.h"
+#ifndef WINVER
+#define WINVER 0x0501
+#endif
 
 #define _ATL_APARTMENT_THREADED
 #define _ATL_NO_AUTOMATIC_NAMESPACE
