@@ -16,7 +16,7 @@
 */
 
 #include "stdafx.h"
-#include "configuration.hpp"
+#include "Configuration.hpp"
 
 void Configuration::Initialize()
 {
@@ -390,6 +390,18 @@ HRESULT Configuration::GetConfigPath(tstring & filePath)
             CSIDL_PERSONAL,
             FALSE
         );
+
+    /*
+        TODO: Use SHGetFolderPath and CSIDL_APPDATA
+            HRESULT hr =
+                SHGetFolderPath(
+                    NULL,
+                    CSIDL_APPDATA,//FOLDERID_LocalAppData
+                    NULL,
+                    SHGFP_TYPE_CURRENT,
+                    path
+                );
+    */
 
     if (FAILED(hr)) {
         return hr;

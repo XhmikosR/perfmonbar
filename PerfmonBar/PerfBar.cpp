@@ -17,7 +17,7 @@
 
 #include "stdafx.h"
 #include "PerfBar.h"
-#include "configuration.hpp"
+#include "Configuration.hpp"
 
 #define IDM_RELOAD 1
 #define IDM_EDIT 2
@@ -76,6 +76,8 @@ STDMETHODIMP CPerfBar::GetBandInfo(DWORD dwBandID,
                                    DWORD dwViewMode,
                                    DESKBANDINFO* pdbi)
 {
+    UNREFERENCED_PARAMETER(dwBandID);
+    UNREFERENCED_PARAMETER(dwViewMode);
     HRESULT hr = E_FAIL;
 
     USES_CONVERSION;
@@ -142,6 +144,7 @@ STDMETHODIMP CPerfBar::GetWindow(HWND* phWnd)
 
 STDMETHODIMP CPerfBar::ContextSensitiveHelp(BOOL bHelp)
 {
+    UNREFERENCED_PARAMETER(bHelp);
     return E_NOTIMPL;
 }
 
@@ -162,6 +165,7 @@ STDMETHODIMP CPerfBar::ShowDW(BOOL fShow)
 
 STDMETHODIMP CPerfBar::CloseDW(DWORD dwReserved)
 {
+    UNREFERENCED_PARAMETER(dwReserved);
     ShowDW(FALSE);
 
     if (IsWindow()) {
@@ -175,6 +179,9 @@ STDMETHODIMP CPerfBar::ResizeBorderDW(LPCRECT    prcBorder,
                                       IUnknown*  punkToolbarSite,
                                       BOOL       fReserved)
 {
+    UNREFERENCED_PARAMETER(prcBorder);
+    UNREFERENCED_PARAMETER(punkToolbarSite);
+    UNREFERENCED_PARAMETER(fReserved);
     return E_NOTIMPL;
 }
 
@@ -247,6 +254,11 @@ STDMETHODIMP CPerfBar::GetCommandString(UINT_PTR idCmd,
                                         LPSTR    pszName,
                                         UINT     cchMax)
 {
+    UNREFERENCED_PARAMETER(idCmd);
+    UNREFERENCED_PARAMETER(uFlags);
+    UNREFERENCED_PARAMETER(pwReserved);
+    UNREFERENCED_PARAMETER(pszName);
+    UNREFERENCED_PARAMETER(cchMax);
     return S_OK;
 }
 
@@ -280,6 +292,7 @@ STDMETHODIMP CPerfBar::QueryContextMenu(HMENU hMenu,
                                         UINT  idCmdLast,
                                         UINT  uFlags)
 {
+    UNREFERENCED_PARAMETER(idCmdLast);
     HRESULT hr = S_OK;
 
     if (CMF_DEFAULTONLY & uFlags) {
@@ -310,12 +323,15 @@ STDMETHODIMP CPerfBar::IsDirty()
 
 STDMETHODIMP CPerfBar::Load(LPSTREAM pStream)
 {
+    UNREFERENCED_PARAMETER(pStream);
     return S_OK;
 }
 
 STDMETHODIMP CPerfBar::Save(LPSTREAM pStream,
                             BOOL     bClearDirty)
 {
+    UNREFERENCED_PARAMETER(pStream);
+    UNREFERENCED_PARAMETER(bClearDirty);
     return S_OK;
 }
 
@@ -332,6 +348,11 @@ STDMETHODIMP CPerfBar::GetSizeMax(ULARGE_INTEGER* pcbSize)
 
 LRESULT CPerfBar::OnTimer(UINT uMsg, WPARAM wParam, LPARAM lParam, BOOL& bHandled)
 {
+    UNREFERENCED_PARAMETER(uMsg);
+    UNREFERENCED_PARAMETER(wParam);
+    UNREFERENCED_PARAMETER(lParam);
+    UNREFERENCED_PARAMETER(bHandled);
+
     Invalidate();
 
     return 0;
@@ -339,6 +360,11 @@ LRESULT CPerfBar::OnTimer(UINT uMsg, WPARAM wParam, LPARAM lParam, BOOL& bHandle
 
 LRESULT CPerfBar::OnLButtonDown(UINT uMsg, WPARAM wParam, LPARAM lParam, BOOL& bHandled)
 {
+    UNREFERENCED_PARAMETER(uMsg);
+    UNREFERENCED_PARAMETER(wParam);
+    UNREFERENCED_PARAMETER(lParam);
+    UNREFERENCED_PARAMETER(bHandled);
+
     size_t pageCount = m_config.GetPages().size();
 
     m_currentPage = (++m_currentPage % pageCount);
@@ -428,7 +454,7 @@ void CPerfBar::PaintData(HDC hdc, POINT offset)
         RECT rc;
         GetClientRect(&rc);
 
-        int offsetY = page.OffsetY + (i * (textMetric.tmHeight - textMetric.tmExternalLeading));
+        int offsetY = page.OffsetY + ((int)i * (textMetric.tmHeight - textMetric.tmExternalLeading));
 
         rc.top += offsetY + offset.y;
         rc.bottom += offset.y;
@@ -455,7 +481,7 @@ void CPerfBar::PaintData(HDC hdc, POINT offset)
 
         SetTextColor(hdc, line.Font.Color);
         HFONT oldFont = (HFONT)SelectObject(hdc, font);
-        DrawText(hdc, buf, _tcslen(buf), &rc, DT_LEFT | DT_TOP);
+        DrawText(hdc, buf, (int)_tcslen(buf), &rc, DT_LEFT | DT_TOP);
         SelectObject(hdc, oldFont);
         DeleteObject(font);
     }
@@ -463,12 +489,17 @@ void CPerfBar::PaintData(HDC hdc, POINT offset)
 
 LRESULT CPerfBar::OnPaint(UINT uMsg, WPARAM wParam, LPARAM lParam, BOOL& bHandled)
 {
+    UNREFERENCED_PARAMETER(uMsg);
+    UNREFERENCED_PARAMETER(wParam);
+    UNREFERENCED_PARAMETER(lParam);
+    UNREFERENCED_PARAMETER(bHandled);
+
     PAINTSTRUCT ps      = {0};
     RECT        rect    = {0};
     HDC         hdcMem  = NULL;
     HBITMAP     hbmMem  = NULL;
     HBITMAP     hbmOld  = NULL;
-    HFONT       hfOld = NULL;
+    HFONT       hfOld   = NULL;
 
     BeginPaint(&ps);
 
@@ -528,11 +559,18 @@ LRESULT CPerfBar::OnPaint(UINT uMsg, WPARAM wParam, LPARAM lParam, BOOL& bHandle
 
 LRESULT CPerfBar::OnEraseBackground(UINT uMsg, WPARAM wParam, LPARAM lParam, BOOL& bHandled)
 {
+    UNREFERENCED_PARAMETER(uMsg);
+    UNREFERENCED_PARAMETER(wParam);
+    UNREFERENCED_PARAMETER(lParam);
+    UNREFERENCED_PARAMETER(bHandled);
     return TRUE;
 }
 
 LRESULT CPerfBar::OnCreate(UINT uMsg, WPARAM wParam, LPARAM lParam, BOOL& bHandled)
 {
+    UNREFERENCED_PARAMETER(uMsg);
+    UNREFERENCED_PARAMETER(wParam);
+    UNREFERENCED_PARAMETER(lParam);
     bHandled = FALSE;
 
     HDC hDC = GetDC();
@@ -564,6 +602,10 @@ LRESULT CPerfBar::OnCreate(UINT uMsg, WPARAM wParam, LPARAM lParam, BOOL& bHandl
 
 LRESULT CPerfBar::OnGoodBye(UINT uMsg, WPARAM wParam, LPARAM lParam, BOOL& bHandled)
 {
+    UNREFERENCED_PARAMETER(uMsg);
+    UNREFERENCED_PARAMETER(wParam);
+    UNREFERENCED_PARAMETER(lParam);
+
     bHandled = FALSE;
 
     if (m_font)

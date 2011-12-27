@@ -15,6 +15,7 @@
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 */
+
 // This file will be processed by the MIDL tool to
 // produce the type library (PerfmonBar.tlb) and marshalling code.
 import "oaidl.idl";

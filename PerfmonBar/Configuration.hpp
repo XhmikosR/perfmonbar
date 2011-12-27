@@ -14,6 +14,7 @@
     You should have received a copy of the GNU General Public License
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
+
 #pragma once
 
 class Configuration
@@ -24,8 +25,8 @@ public:
         tstring Counter;
         tstring Prefix;
         tstring Suffix;
-        int Decimals;
-        int Divide;
+        int     Decimals;
+        int     Divide;
 
         Display()
         {
@@ -45,10 +46,10 @@ public:
         Font()
         {
             Family = _T("Arial");
-            Bold = true;
+            Bold   = true;
             Italic = false;
-            Color = 0x00FFFFFF;
-            Size = 8.5;
+            Color  = 0x00FFFFFF;
+            Size   = 8.5;
         }
     };
 
@@ -60,7 +61,7 @@ public:
 
     struct Page
     {
-        int OffsetY;
+        int          OffsetY;
         vector<Line> Lines;
 
         Page()
@@ -79,10 +80,10 @@ public:
     typedef vector<Page> pages_t;
 
 private:
-    counters_t _counters;
-    pages_t _pages;
-    //bool _hasErrors;
-    
+    counters_t  _counters;
+    pages_t     _pages;
+    //bool        _hasErrors;
+
     void Initialize();
     bool ReadCounter(IXMLDOMNodePtr & node, Counter & counter);
     bool ReadCounters(IXMLDOMNodePtr & node, counters_t & counters);
@@ -97,7 +98,6 @@ public:
     bool Read();
 
     //bool HasErrors() { return _hasErrors; }
-
     counters_t & GetCounters() { return _counters; }
     pages_t & GetPages() { return _pages; }
 };
