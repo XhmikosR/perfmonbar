@@ -243,6 +243,7 @@
     <ClInclude Include="resource.h" />
     <ClInclude Include="PerfmonBar_i.h" />
     <ClInclude Include="stdafx.h" />
+    <ClInclude Include="Version.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="PerfBar.rgs" />
