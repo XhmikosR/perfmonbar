@@ -1,18 +1,19 @@
 @ECHO OFF
 SETLOCAL
 
-PUSHD %~dp0%
+PUSHD %~dp0
 
-SET "ASTYLE=AStyle.exe"
+AStyle.exe --version 1>&2 2>NUL
 
-IF NOT EXIST %ASTYLE% (
+IF %ERRORLEVEL% NEQ 0 (
   ECHO.
   ECHO ERROR: Astyle wasn't found!
+  ECHO Visit http://astyle.sourceforge.net/ for download and details.
   PAUSE
   EXIT /B
 )
 
-%ASTYLE% -s4 --indent-switches --indent-namespaces --indent-col1-comments --pad-header^
+AStyle.exe -s4 --indent-switches --indent-namespaces --indent-col1-comments --pad-header^
  --lineend=windows --preserve-date --keep-one-line-blocks --keep-one-line-statements^
  --suffix=none --ignore-exclude-errors --ignore-exclude-errors-x --recursive^
  --exclude=resource.h *.h *.hpp *.cpp

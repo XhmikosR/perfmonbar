@@ -1,5 +1,5 @@
 ;
-; Copyright (C) 2011 XhmikosR
+; Copyright (C) 2011-2012 XhmikosR
 ;
 ; This program is free software: you can redistribute it and/or modify
 ; it under the terms of the GNU General Public License as published by
@@ -54,9 +54,9 @@ AppPublisherURL=http://code.google.com/p/perfmonbar/
 AppSupportURL=http://code.google.com/p/perfmonbar/
 AppUpdatesURL=http://code.google.com/p/perfmonbar/
 AppContact=http://code.google.com/p/perfmonbar/
-AppCopyright=Copyright © 2008, Danny Couture - 2010-2011 XhmikosR
+AppCopyright=Copyright © 2008, Danny Couture - 2010-2012 XhmikosR
 VersionInfoCompany=XhmikosR
-VersionInfoCopyright=Copyright © 2008, Danny Couture - 2010-2011 XhmikosR
+VersionInfoCopyright=Copyright © 2008, Danny Couture - 2010-2012 XhmikosR
 VersionInfoDescription={#app_name} {#app_version} Setup
 VersionInfoTextVersion={#app_version}
 VersionInfoVersion={#app_version}
@@ -102,23 +102,24 @@ en.run_ViewConfig            =View PerfmonBar's configuration file
 
 
 [Tasks]
-Name: reset_settings; Description: {cm:tsk_ResetSettings}; Flags: checkedonce unchecked; Check: ConfigExistsCheck()
+Name: reset_settings; Description: {cm:tsk_ResetSettings}; Flags: checkedonce unchecked; Check: ConfigExists('{userappdata}')
 
 
 [Files]
-Source: ..\license.txt;                         DestDir: {app};                  Flags: ignoreversion
-Source: {#bindir}\Release_Win32\PerfmonBar.dll; DestDir: {app};                  Flags: ignoreversion regserver restartreplace uninsrestartdelete; Check: not Is64BitInstallMode()
-Source: {#bindir}\Release_x64\PerfmonBar.dll;   DestDir: {app};                  Flags: ignoreversion regserver restartreplace uninsrestartdelete; Check: Is64BitInstallMode()
-Source: ..\PerfmonBar\config.xml;               DestDir: {userdocs}\PerfmonBar;  Flags: onlyifdoesntexist uninsneveruninstall
+Source: ..\license.txt;                         DestDir: {app};                    Flags: ignoreversion
+Source: {#bindir}\Release_Win32\PerfmonBar.dll; DestDir: {app};                    Flags: ignoreversion regserver restartreplace uninsrestartdelete; Check: not Is64BitInstallMode()
+Source: {#bindir}\Release_x64\PerfmonBar.dll;   DestDir: {app};                    Flags: ignoreversion regserver restartreplace uninsrestartdelete; Check: Is64BitInstallMode()
+Source: ..\PerfmonBar\config.xml;               DestDir: {userappdata}\PerfmonBar; Flags: uninsneveruninstall;                                       Check: not ConfigExists('{userappdata}') and not ConfigExists('{userdocs}')
+Source: {userdocs}\PerfmonBar\config.xml;       DestDir: {userappdata}\PerfmonBar; Flags: external uninsneveruninstall;                              Check: not ConfigExists('{userappdata}') and ConfigExists('{userdocs}')
 
 
 [Icons]
-Name: {group}\Shortcut to config.xml;            Filename: notepad.exe; Parameters: {userdocs}\PerfmonBar\config.xml; WorkingDir: {app}; Comment: Shortcut to config.xml [{#app_name} {#app_version}]
-Name: {group}\{cm:UninstallProgram,{#app_name}}; Filename: {uninstallexe};                                            WorkingDir: {app}; Comment: {cm:UninstallProgram,{#app_name}}
+Name: {group}\Shortcut to config.xml;            Filename: notepad.exe; Parameters: {userappdata}\PerfmonBar\config.xml; WorkingDir: {app}; Comment: Shortcut to config.xml [{#app_name} {#app_version}]; Flags: excludefromshowinnewinstall
+Name: {group}\{cm:UninstallProgram,{#app_name}}; Filename: {uninstallexe};                                               WorkingDir: {app}; Comment: {cm:UninstallProgram,{#app_name}};                   Flags: excludefromshowinnewinstall
 
 
 [Run]
-Filename: notepad.exe; Description: {cm:run_ViewConfig}; Parameters: {userdocs}\PerfmonBar\config.xml; Flags: nowait postinstall skipifsilent unchecked
+Filename: notepad.exe; Description: {cm:run_ViewConfig}; Parameters: {userappdata}\PerfmonBar\config.xml; Flags: nowait postinstall skipifsilent unchecked
 
 
 [UninstallDelete]
@@ -130,14 +131,14 @@ const installer_mutex_name = '{#app_name}' + '_setup_mutex';
 
 
 // Check if PerfmonBar's settings exist
-function ConfigExistsCheck(): Boolean;
+function ConfigExists(sPath: String): Boolean;
 begin
-  if FileExists(ExpandConstant('{userdocs}\PerfmonBar\config.xml')) then begin
-    Log('Custom Code: Settings are present');
+  if FileExists(ExpandConstant(sPath + '\PerfmonBar\config.xml')) then begin
+    Log('Custom Code: Settings are present in ' + sPath + '\PerfmonBar\config.xml');
     Result := True;
   end
   else begin
-    Log('Custom Code: Settings are NOT present');
+    Log('Custom Code: Settings are NOT present in ' + sPath + '\PerfmonBar\config.xml');
     Result := False;
   end;
 end;
@@ -200,10 +201,10 @@ begin
 end;
 
 
-procedure CleanUpSettings();
+procedure CleanUpSettings(sPath: String);
 begin
-  DeleteFile(ExpandConstant('{userdocs}\PerfmonBar\config.xml'));
-  RemoveDir(ExpandConstant('{userdocs}\PerfmonBar'));
+  DeleteFile(ExpandConstant(sPath + '\PerfmonBar\config.xml'));
+  RemoveDir(ExpandConstant(sPath + '\PerfmonBar'));
 end;
 
 
@@ -218,19 +219,25 @@ end;
 
 procedure CurStepChanged(CurStep: TSetupStep);
 begin
-  if (CurStep = ssInstall) and IsOldBuildInstalled() then
-    UninstallOldVersion();
-  if (CurStep = ssPostInstall) and IsTaskSelected('reset_settings') then
-    CleanUpSettings();
+  if CurStep = ssInstall then begin
+    if IsOldBuildInstalled() then
+      UninstallOldVersion();
+    if IsTaskSelected('reset_settings') then
+      CleanUpSettings('{userappdata}');
+  end;
+  if CurStep = ssPostInstall then begin
+    if ConfigExists('{userappdata}') and ConfigExists('{userdocs}') then
+      CleanUpSettings('{userdocs}');
+  end;
 end;
 
 
 procedure CurUninstallStepChanged(CurUninstallStep: TUninstallStep);
 begin
   // When uninstalling, ask the user to delete PerfmonBar's config file
-  if (CurUninstallStep = usUninstall) and ConfigExistsCheck() then begin
+  if (CurUninstallStep = usUninstall) and ConfigExists('{userappdata}') then begin
     if SuppressibleMsgBox(CustomMessage('msg_DeleteSettings'), mbConfirmation, MB_YESNO or MB_DEFBUTTON2, IDNO) = IDYES then begin
-      CleanUpSettings();
+      CleanUpSettings('{userappdata}');
     end;
   end;
 end;

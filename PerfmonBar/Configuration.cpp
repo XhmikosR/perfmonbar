@@ -387,21 +387,19 @@ HRESULT Configuration::GetConfigPath(tstring & filePath)
         SHGetSpecialFolderPath(
             NULL,
             path,
-            CSIDL_PERSONAL,
+            CSIDL_APPDATA,
             FALSE
         );
 
-    /*
-        TODO: Use SHGetFolderPath and CSIDL_APPDATA
-            HRESULT hr =
-                SHGetFolderPath(
-                    NULL,
-                    CSIDL_APPDATA,//FOLDERID_LocalAppData
-                    NULL,
-                    SHGFP_TYPE_CURRENT,
-                    path
-                );
-    */
+    /*TODO: Use SHGetFolderPath
+    HRESULT hr =
+        SHGetFolderPath(
+            NULL,
+            CSIDL_APPDATA,
+            NULL,
+            SHGFP_TYPE_CURRENT,
+            path
+        );*/
 
     if (FAILED(hr)) {
         return hr;
