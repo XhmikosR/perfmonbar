@@ -82,7 +82,7 @@ public:
 
     STDMETHOD(GetWindow)(HWND* phwnd);
 
-    STDMETHOD(ContextSensitiveHelp)(BOOL  bEnterMode);
+    STDMETHOD(ContextSensitiveHelp)(BOOL bEnterMode);
 
     STDMETHOD(ShowDW)(BOOL bShow);
 

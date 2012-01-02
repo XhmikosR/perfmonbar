@@ -109,7 +109,7 @@ Name: reset_settings; Description: {cm:tsk_ResetSettings}; Flags: checkedonce un
 Source: ..\license.txt;                         DestDir: {app};                    Flags: ignoreversion
 Source: {#bindir}\Release_Win32\PerfmonBar.dll; DestDir: {app};                    Flags: ignoreversion regserver restartreplace uninsrestartdelete; Check: not Is64BitInstallMode()
 Source: {#bindir}\Release_x64\PerfmonBar.dll;   DestDir: {app};                    Flags: ignoreversion regserver restartreplace uninsrestartdelete; Check: Is64BitInstallMode()
-Source: ..\PerfmonBar\config.xml;               DestDir: {userappdata}\PerfmonBar; Flags: uninsneveruninstall;                                       Check: not ConfigExists('{userappdata}') and not ConfigExists('{userdocs}')
+Source: ..\src\config.xml;                      DestDir: {userappdata}\PerfmonBar; Flags: uninsneveruninstall;                                       Check: not ConfigExists('{userappdata}') and not ConfigExists('{userdocs}')
 Source: {userdocs}\PerfmonBar\config.xml;       DestDir: {userappdata}\PerfmonBar; Flags: external uninsneveruninstall;                              Check: not ConfigExists('{userappdata}') and ConfigExists('{userdocs}')
 
 

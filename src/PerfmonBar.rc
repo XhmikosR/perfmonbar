@@ -8,7 +8,7 @@
 // Generated from the TEXTINCLUDE 2 resource.
 //
 #include "Version.h"
-#include "winres.h"
+#include "winresrc.h"
 
 /////////////////////////////////////////////////////////////////////////////
 #undef APSTUDIO_READONLY_SYMBOLS
@@ -34,7 +34,7 @@ END
 2 TEXTINCLUDE 
 BEGIN
     "#include ""Version.h""\r\n"
-    "#include ""winres.h""\r\n"
+    "#include ""winresrc.h""\r\n"
     "\0"
 END
 
@@ -73,7 +73,7 @@ BEGIN
             VALUE "FileDescription", "Performance Monitor Toolbar"
             VALUE "FileVersion", VER_STR
             VALUE "InternalName", "PerfmonBar.dll"
-            VALUE "LegalCopyright", "© 2008 Danny Couture.  All rights reserved."
+            VALUE "LegalCopyright", "© 2008 Danny Couture - 2010-2012 XhmikosR.  All rights reserved."
             VALUE "OriginalFilename", "PerfmonBar.dll"
             VALUE "ProductName", "PerfmonBar"
             VALUE "ProductVersion", VER_STR

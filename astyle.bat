@@ -9,12 +9,15 @@ IF %ERRORLEVEL% NEQ 0 (
   ECHO.
   ECHO ERROR: Astyle wasn't found!
   ECHO Visit http://astyle.sourceforge.net/ for download and details.
-  PAUSE
-  EXIT /B
+  GOTO END
 )
 
-AStyle.exe -s4 --indent-switches --indent-namespaces --indent-col1-comments --pad-header^
- --lineend=windows --preserve-date --keep-one-line-blocks --keep-one-line-statements^
+AStyle.exe^
+ --indent=spaces=4 --indent-switches --indent-namespaces --indent-col1-comments^
+ --pad-header --pad-oper --unpad-paren^
+ --preserve-date^
+ --lineend=windows^
+ --keep-one-line-blocks --keep-one-line-statements^
  --suffix=none --ignore-exclude-errors --ignore-exclude-errors-x --recursive^
  --exclude=resource.h *.h *.hpp *.cpp
 
@@ -24,6 +27,7 @@ IF %ERRORLEVEL% NEQ 0 (
   PAUSE
 )
 
+:END
 POPD
 PAUSE
 ENDLOCAL

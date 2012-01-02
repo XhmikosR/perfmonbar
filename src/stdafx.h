@@ -22,8 +22,12 @@
 #endif
 
 #ifndef WINVER
+#ifdef _WIN64
+#define WINVER 0x0502
+#else
 #define WINVER 0x0501
-#endif
+#endif // _WIN64
+#endif // WINVER
 
 #define _ATL_APARTMENT_THREADED
 #define _ATL_NO_AUTOMATIC_NAMESPACE
