@@ -71,7 +71,6 @@ OutputDir=.
 OutputBaseFilename={#app_name}.{#app_version}
 SolidCompression=yes
 EnableDirDoesntExistWarning=no
-AllowNoIcons=yes
 ShowTasksTreeLines=yes
 DisableDirPage=yes
 DisableProgramGroupPage=yes
@@ -195,9 +194,7 @@ function ShouldSkipPage(PageID: Integer): Boolean;
 begin
   // Hide the License page if it's an upgrade
   if IsUpgrade() and (PageID = wpLicense) then
-    Result := True
-  else
-    Result := False;
+    Result := True;
 end;
 
 
@@ -236,9 +233,8 @@ procedure CurUninstallStepChanged(CurUninstallStep: TUninstallStep);
 begin
   // When uninstalling, ask the user to delete PerfmonBar's config file
   if (CurUninstallStep = usUninstall) and ConfigExists('{userappdata}') then begin
-    if SuppressibleMsgBox(CustomMessage('msg_DeleteSettings'), mbConfirmation, MB_YESNO or MB_DEFBUTTON2, IDNO) = IDYES then begin
+    if SuppressibleMsgBox(CustomMessage('msg_DeleteSettings'), mbConfirmation, MB_YESNO or MB_DEFBUTTON2, IDNO) = IDYES then
       CleanUpSettings('{userappdata}');
-    end;
   end;
 end;
 
