@@ -207,7 +207,10 @@ end;
 
 procedure CurPageChanged(CurPageID: Integer);
 begin
-  if CurPageID = wpSelectTasks then
+  // TODO: find a better way to check if the wpSelectTasks exists?
+  if (CurPageID = wpLicense) and not ConfigExists('{userappdata}') then
+    WizardForm.NextButton.Caption := SetupMessage(msgButtonInstall)
+  else if CurPageID = wpSelectTasks then
     WizardForm.NextButton.Caption := SetupMessage(msgButtonInstall)
   else if CurPageID = wpFinished then
     WizardForm.NextButton.Caption := SetupMessage(msgButtonFinish);
