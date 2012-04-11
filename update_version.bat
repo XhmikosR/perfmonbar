@@ -1,7 +1,7 @@
 @ECHO OFF
 SETLOCAL
 
-PUSHD %~dp0%
+PUSHD %~dp0
 
 SET "SUBWCREV=SubWCRev.exe"
 
