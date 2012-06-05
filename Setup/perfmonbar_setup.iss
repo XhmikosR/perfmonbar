@@ -15,13 +15,13 @@
 ; along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 ; Requirements:
-; Inno Setup v5.4.3(+): http://www.jrsoftware.org/isdl.php
+; Inno Setup: http://www.jrsoftware.org/isdl.php
 
 ; $Id$
 
 
-#if VER < EncodeVer(5,4,3)
-  #error Update your Inno Setup version (5.4.3 or newer)
+#if VER < EncodeVer(5,5,0)
+  #error Update your Inno Setup version (5.5.0 or newer)
 #endif
 
 #define bindir "..\bin"
@@ -77,7 +77,7 @@ DisableProgramGroupPage=yes
 DisableReadyPage=yes
 DisableWelcomePage=yes
 AllowCancelDuringInstall=no
-MinVersion=0,5.1.2600sp3
+MinVersion=5.1.2600sp3
 ArchitecturesAllowed=x86 x64
 ArchitecturesInstallIn64BitMode=x64
 
