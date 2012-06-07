@@ -386,7 +386,7 @@ void CPerfBar::PaintData(HDC hdc, POINT offset)
 
             TCHAR formattedValue[256];
             if (value_it == values.end()) {
-                _tcscpy_s(formattedValue, sizeof(formattedValue) / sizeof(TCHAR), _T("[N/A]"));
+                _tcscpy_s(formattedValue, _countof(formattedValue), _T("[N/A]"));
             } else {
                 double val = value_it->second;
                 if (iit->Divide > 0) {
@@ -396,7 +396,7 @@ void CPerfBar::PaintData(HDC hdc, POINT offset)
                 TCHAR formattingString[256];
                 _stprintf_s(
                     formattingString,
-                    sizeof(formattingString) / sizeof(TCHAR),
+                    _countof(formattingString),
                     _T("%s%d%s"),
                     _T("%."),
                     iit->Decimals > 0 ? iit->Decimals : 0,
@@ -405,7 +405,7 @@ void CPerfBar::PaintData(HDC hdc, POINT offset)
 
                 _stprintf_s(
                     formattedValue,
-                    sizeof(formattedValue) / sizeof(TCHAR),
+                    _countof(formattedValue),
                     formattingString,
                     val
                 );
@@ -413,14 +413,14 @@ void CPerfBar::PaintData(HDC hdc, POINT offset)
 
             _stprintf_s(
                 display,
-                sizeof(display) / sizeof(TCHAR),
+                _countof(display),
                 _T("%s%s%s"),
                 iit->Prefix.c_str(),
                 formattedValue,
                 iit->Suffix.c_str()
             );
 
-            _tcscat_s(buf, sizeof(buf) / sizeof(TCHAR), display);
+            _tcscat_s(buf, _countof(buf), display);
         }
 
         RECT rc;

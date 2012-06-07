@@ -32,7 +32,7 @@ BOOL CPerfMon::Start(vector<pair<tstring, tstring>>& counters)
 
     TCHAR szPathBuffer[1024];
     for (vector<pair<tstring, tstring>>::const_iterator it = counters.begin(); it != counters.end(); ++it) {
-        _tcscpy_s(szPathBuffer, sizeof(szPathBuffer) / sizeof(TCHAR), it->second.c_str());
+        _tcscpy_s(szPathBuffer, _countof(szPathBuffer), it->second.c_str());
 
         pdhStatus = PdhValidatePath(szPathBuffer);
         if (pdhStatus != ERROR_SUCCESS) {
