@@ -6,7 +6,6 @@ PUSHD %~dp0
 AStyle.exe --version 1>&2 2>NUL
 
 IF %ERRORLEVEL% NEQ 0 (
-  ECHO.
   ECHO ERROR: Astyle wasn't found!
   ECHO Visit http://astyle.sourceforge.net/ for download and details.
   GOTO END
