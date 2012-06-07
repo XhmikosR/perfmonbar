@@ -80,8 +80,6 @@ STDMETHODIMP CPerfBar::GetBandInfo(DWORD dwBandID,
     UNREFERENCED_PARAMETER(dwViewMode);
     HRESULT hr = E_FAIL;
 
-    USES_CONVERSION;
-
     if (pdbi) {
         if (pdbi->dwMask & DBIM_MINSIZE) {
             pdbi->ptMinSize.x = 10;
