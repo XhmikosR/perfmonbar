@@ -24,18 +24,18 @@
 
 // CPerfBar
 class ATL_NO_VTABLE CPerfBar :
-    public CComObjectRootEx<CComSingleThreadModel>,
-    public CComCoClass<CPerfBar, &CLSID_PerfBar>,
-    public IDispatchImpl < IPerfBar, &IID_IPerfBar, &LIBID_PerfmonBarLib, /*wMajor =*/ 1, /*wMinor =*/ 0 > ,
+    public ATL::CComObjectRootEx<ATL::CComSingleThreadModel>,
+    public ATL::CComCoClass<CPerfBar, &CLSID_PerfBar>,
+    public ATL::IDispatchImpl < IPerfBar, &IID_IPerfBar, &LIBID_PerfmonBarLib, /*wMajor =*/ 1, /*wMinor =*/ 0 > ,
     public IObjectWithSite,
     public IPersistStream,
     public IDeskBand2,
     public IContextMenu,
-    public CWindowImpl<CPerfBar>
+    public ATL::CWindowImpl<CPerfBar>
 {
 private:
     CPerfMon                    m_perfMonitor;
-    CComQIPtr<IInputObjectSite> m_spInputObjSite;
+    ATL::CComQIPtr<IInputObjectSite> m_spInputObjSite;
     HFONT                       m_font;
     Configuration               m_config;
     size_t                      m_currentPage;
@@ -84,9 +84,7 @@ public:
     STDMETHOD(ContextSensitiveHelp)(BOOL bEnterMode);
 
     STDMETHOD(ShowDW)(BOOL bShow);
-
     STDMETHOD(CloseDW)(DWORD dwReserved);
-
     STDMETHOD(ResizeBorderDW)
     (
         LPCRECT   prcBorder,
@@ -113,13 +111,9 @@ public:
     // IPersistStream methods
 
     STDMETHOD(GetClassID)(LPCLSID pClassID);
-
     STDMETHOD(IsDirty)();
-
     STDMETHOD(Load)(LPSTREAM pStream);
-
     STDMETHOD(Save)(LPSTREAM pStream, BOOL bClearDirty);
-
     STDMETHOD(GetSizeMax)(ULARGE_INTEGER* pcbSize);
 
     ////////////////////////////////////////////////////////////////

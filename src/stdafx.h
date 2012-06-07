@@ -58,13 +58,8 @@
 #include <deque>
 #include <string>
 
-using namespace std;
-using namespace stdext;
-
 #ifdef UNICODE
 typedef std::wstring tstring;
 #else
 typedef std::string tstring;
 #endif
-
-using namespace ATL;

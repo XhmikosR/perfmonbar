@@ -20,7 +20,7 @@
 #include "PerfmonBar_i.h"
 #include "PerfBar.h"
 
-CComModule _Module;
+ATL::CComModule _Module;
 
 BEGIN_OBJECT_MAP(ObjectMap)
 OBJECT_ENTRY(CLSID_PerfBar, CPerfBar)

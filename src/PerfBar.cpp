@@ -25,31 +25,20 @@
 STDMETHODIMP CPerfBar::FinalConstruct()
 {
     m_currentPage = 0;
-
     ReloadConfiguration();
-
     return S_OK;
 }
 
 STDMETHODIMP CPerfBar::EditConfiguration()
 {
     tstring configPath;
-
-    HRESULT hr =
-        m_config.GetConfigPath(configPath);
+    HRESULT hr = m_config.GetConfigPath(configPath);
 
     if (FAILED(hr)) {
         return hr;
     }
 
-    ShellExecute(
-        NULL,
-        _T("edit"),
-        configPath.c_str(),
-        NULL,
-        NULL,
-        SW_SHOW
-    );
+    ShellExecute(NULL, _T("edit"), configPath.c_str(), NULL, NULL, SW_SHOWNORMAL);
 
     return S_OK;
 }
@@ -57,18 +46,15 @@ STDMETHODIMP CPerfBar::EditConfiguration()
 STDMETHODIMP CPerfBar::ReloadConfiguration()
 {
     m_perfMonitor.Stop();
-
     m_config.Read();
-
-    vector<pair<tstring, tstring>> counterNames;
-
+    std::vector<stdext::pair<tstring, tstring>> counterNames;
     Configuration::counters_t& counters = m_config.GetCounters();
+
     for (Configuration::counters_t::iterator it = counters.begin(); it != counters.end(); ++it) {
         counterNames.push_back(make_pair(it->first, it->second.Value));
     }
 
     m_perfMonitor.Start(counterNames);
-
     return S_OK;
 }
 
@@ -192,7 +178,7 @@ STDMETHODIMP CPerfBar::GetCompositionState(BOOL* pfCompositionEnabled)
 STDMETHODIMP CPerfBar::SetSite(IUnknown* punkSite)
 {
     HRESULT                hr          = E_FAIL;
-    CComQIPtr<IOleWindow>  spOleWindow;
+    ATL::CComQIPtr<IOleWindow> spOleWindow;
     RECT                   rect        = {0};
     HWND                   hWndParent  = NULL;
 
@@ -205,12 +191,12 @@ STDMETHODIMP CPerfBar::SetSite(IUnknown* punkSite)
             if (SUCCEEDED(hr)) {
                 ::GetClientRect(hWndParent, &rect);
                 Create(hWndParent, rect, NULL, WS_CHILD);
-
                 m_spInputObjSite = punkSite;
                 hr               = m_spInputObjSite ? S_OK : E_FAIL;
             }
         }
     }
+
     return hr;
 }
 
@@ -261,6 +247,7 @@ STDMETHODIMP CPerfBar::InvokeCommand(LPCMINVOKECOMMANDINFO pici)
                 hr = E_INVALIDARG;
         }
     }
+
     return hr;
 }
 
@@ -342,7 +329,6 @@ LRESULT CPerfBar::OnLButtonDown(UINT uMsg, WPARAM wParam, LPARAM lParam, BOOL& b
     UNREFERENCED_PARAMETER(bHandled);
 
     size_t pageCount = m_config.GetPages().size();
-
     m_currentPage = (++m_currentPage % pageCount);
 
     Invalidate();
@@ -369,20 +355,21 @@ void CPerfBar::PaintData(HDC hdc, POINT offset)
         return;
     }
 
-    hash_map<tstring, double> values = m_perfMonitor.GetValues();
+    stdext::hash_map<tstring, double> values = m_perfMonitor.GetValues();
 
     TEXTMETRIC textMetric;
     GetTextMetrics(hdc, &textMetric);
 
     TCHAR buf[1024];
     TCHAR display[1024];
+
     for (size_t i = 0; i < page.Lines.size(); ++i) {
         buf[0] = 0;
 
         Configuration::Line& line = page.Lines[i];
 
-        for (vector<Configuration::Display>::iterator iit = line.Display.begin(); iit != line.Display.end(); ++iit) {
-            hash_map<tstring, double>::const_iterator value_it = values.find(iit->Counter);
+        for (std::vector<Configuration::Display>::iterator iit = line.Display.begin(); iit != line.Display.end(); ++iit) {
+            stdext::hash_map<tstring, double>::const_iterator value_it = values.find(iit->Counter);
 
             TCHAR formattedValue[256];
             if (value_it == values.end()) {

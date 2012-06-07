@@ -51,12 +51,12 @@ public:
 
     struct Line {
         Font Font;
-        vector<Display> Display;
+        std::vector<Display> Display;
     };
 
     struct Page {
         int          OffsetY;
-        vector<Line> Lines;
+        std::vector<Line> Lines;
 
         Page() {
             OffsetY = 0;
@@ -68,8 +68,8 @@ public:
         tstring Value;
     };
 
-    typedef hash_map<tstring, Counter> counters_t;
-    typedef vector<Page> pages_t;
+    typedef stdext::hash_map<tstring, Counter> counters_t;
+    typedef std::vector<Page> pages_t;
 
 private:
     counters_t  _counters;
