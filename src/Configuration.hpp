@@ -20,31 +20,27 @@
 class Configuration
 {
 public:
-    struct Display
-    {
+    struct Display {
         tstring Counter;
         tstring Prefix;
         tstring Suffix;
         int     Decimals;
         int     Divide;
 
-        Display()
-        {
+        Display() {
             Decimals = 0;
             Divide = 0;
         }
     };
 
-    struct Font
-    {
+    struct Font {
         tstring Family;
         bool    Bold;
         bool    Italic;
         DWORD   Color;
         double  Size;
 
-        Font()
-        {
+        Font() {
             Family = _T("Arial");
             Bold   = true;
             Italic = false;
@@ -53,25 +49,21 @@ public:
         }
     };
 
-    struct Line
-    {
+    struct Line {
         Font Font;
         vector<Display> Display;
     };
 
-    struct Page
-    {
+    struct Page {
         int          OffsetY;
         vector<Line> Lines;
 
-        Page()
-        {
+        Page() {
             OffsetY = 0;
         }
     };
 
-    struct Counter
-    {
+    struct Counter {
         tstring Name;
         tstring Value;
     };
@@ -85,19 +77,19 @@ private:
     //bool        _hasErrors;
 
     void Initialize();
-    bool ReadCounter(IXMLDOMNodePtr & node, Counter & counter);
-    bool ReadCounters(IXMLDOMNodePtr & node, counters_t & counters);
-    bool ReadPages(IXMLDOMNodePtr & node, std::vector<Page> & pages);
-    bool ReadPage(IXMLDOMNodePtr & node, Page & page);
-    bool ReadLines(IXMLDOMNodePtr & node, std::vector<Line> & lines);
-    bool ReadLine(IXMLDOMNodePtr & node, Line & line);
-    bool ReadDisplay(IXMLDOMNodePtr & node, Display & display);
+    bool ReadCounter(IXMLDOMNodePtr& node, Counter& counter);
+    bool ReadCounters(IXMLDOMNodePtr& node, counters_t& counters);
+    bool ReadPages(IXMLDOMNodePtr& node, std::vector<Page>& pages);
+    bool ReadPage(IXMLDOMNodePtr& node, Page& page);
+    bool ReadLines(IXMLDOMNodePtr& node, std::vector<Line>& lines);
+    bool ReadLine(IXMLDOMNodePtr& node, Line& line);
+    bool ReadDisplay(IXMLDOMNodePtr& node, Display& display);
 
 public:
-    HRESULT GetConfigPath(tstring & configPath);
+    HRESULT GetConfigPath(tstring& configPath);
     bool Read();
 
     //bool HasErrors() { return _hasErrors; }
-    counters_t & GetCounters() { return _counters; }
-    pages_t & GetPages() { return _pages; }
+    counters_t& GetCounters() { return _counters; }
+    pages_t& GetPages() { return _pages; }
 };

@@ -62,7 +62,7 @@ STDMETHODIMP CPerfBar::ReloadConfiguration()
 
     vector<pair<tstring, tstring>> counterNames;
 
-    Configuration::counters_t & counters = m_config.GetCounters();
+    Configuration::counters_t& counters = m_config.GetCounters();
     for (Configuration::counters_t::iterator it = counters.begin(); it != counters.end(); ++it) {
         counterNames.push_back(make_pair(it->first, it->second.Value));
     }
@@ -82,28 +82,23 @@ STDMETHODIMP CPerfBar::GetBandInfo(DWORD dwBandID,
 
     USES_CONVERSION;
 
-    if (pdbi)
-    {
-        if (pdbi->dwMask & DBIM_MINSIZE)
-        {
+    if (pdbi) {
+        if (pdbi->dwMask & DBIM_MINSIZE) {
             pdbi->ptMinSize.x = 10;
             pdbi->ptMinSize.y = 10;
         }
 
-        if (pdbi->dwMask & DBIM_MAXSIZE)
-        {
+        if (pdbi->dwMask & DBIM_MAXSIZE) {
             pdbi->ptMaxSize.x = -1;
             pdbi->ptMaxSize.y = -1;
         }
 
-        if (pdbi->dwMask & DBIM_INTEGRAL)
-        {
+        if (pdbi->dwMask & DBIM_INTEGRAL) {
             pdbi->ptIntegral.x = 1;
             pdbi->ptIntegral.y = 1;
         }
 
-        if (pdbi->dwMask & DBIM_ACTUAL)
-        {
+        if (pdbi->dwMask & DBIM_ACTUAL) {
             pdbi->ptActual.x = 0;
             pdbi->ptActual.y = 0;
         }
@@ -116,9 +111,7 @@ STDMETHODIMP CPerfBar::GetBandInfo(DWORD dwBandID,
             pdbi->dwMask &= ~DBIM_BKCOLOR;*/
 
         hr = S_OK;
-    }
-    else
-    {
+    } else {
         hr = E_INVALIDARG;
     }
 
@@ -129,12 +122,9 @@ STDMETHODIMP CPerfBar::GetWindow(HWND* phWnd)
 {
     HRESULT hr = S_OK;
 
-    if (phWnd == NULL)
-    {
+    if (phWnd == NULL) {
         hr = E_INVALIDARG;
-    }
-    else
-    {
+    } else {
         *phWnd = m_hWnd;
         hr     = S_OK;
     }
@@ -150,12 +140,10 @@ STDMETHODIMP CPerfBar::ContextSensitiveHelp(BOOL bHelp)
 
 STDMETHODIMP CPerfBar::ShowDW(BOOL fShow)
 {
-    if (IsWindow())
-    {
+    if (IsWindow()) {
         if (fShow) {
             ShowWindow(SW_SHOW);
-        }
-        else {
+        } else {
             ShowWindow(SW_HIDE);
         }
     }
@@ -185,7 +173,7 @@ STDMETHODIMP CPerfBar::ResizeBorderDW(LPCRECT    prcBorder,
     return E_NOTIMPL;
 }
 
-STDMETHODIMP CPerfBar::CanRenderComposited(BOOL *pfCanRenderComposited)
+STDMETHODIMP CPerfBar::CanRenderComposited(BOOL* pfCanRenderComposited)
 {
     *pfCanRenderComposited = TRUE;
     return S_OK;
@@ -197,7 +185,7 @@ STDMETHODIMP CPerfBar::SetCompositionState(BOOL fCompositionEnabled)
     return S_OK;
 }
 
-STDMETHODIMP CPerfBar::GetCompositionState(BOOL *pfCompositionEnabled)
+STDMETHODIMP CPerfBar::GetCompositionState(BOOL* pfCompositionEnabled)
 {
     *pfCompositionEnabled = m_fCompositionEnabled;
     return S_OK;
@@ -210,16 +198,13 @@ STDMETHODIMP CPerfBar::SetSite(IUnknown* punkSite)
     RECT                   rect        = {0};
     HWND                   hWndParent  = NULL;
 
-    if (punkSite != NULL)
-    {
+    if (punkSite != NULL) {
         spOleWindow = punkSite;
 
-        if (spOleWindow != NULL)
-        {
+        if (spOleWindow != NULL) {
             hr = spOleWindow->GetWindow(&hWndParent);
 
-            if (SUCCEEDED(hr))
-            {
+            if (SUCCEEDED(hr)) {
                 ::GetClientRect(hWndParent, &rect);
                 Create(hWndParent, rect, NULL, WS_CHILD);
 
@@ -232,15 +217,13 @@ STDMETHODIMP CPerfBar::SetSite(IUnknown* punkSite)
 }
 
 STDMETHODIMP CPerfBar::GetSite(REFIID  riid,
-                               LPVOID *ppvReturn)
+                               LPVOID* ppvReturn)
 {
     HRESULT hr = E_FAIL;
 
     if (ppvReturn == NULL) {
         hr = E_INVALIDARG;
-    }
-    else if (m_spInputObjSite != NULL)
-    {
+    } else if (m_spInputObjSite != NULL) {
         *ppvReturn = NULL;
         hr = m_spInputObjSite->QueryInterface(riid, ppvReturn);
     }
@@ -250,7 +233,7 @@ STDMETHODIMP CPerfBar::GetSite(REFIID  riid,
 
 STDMETHODIMP CPerfBar::GetCommandString(UINT_PTR idCmd,
                                         UINT     uFlags,
-                                        UINT    *pwReserved,
+                                        UINT*    pwReserved,
                                         LPSTR    pszName,
                                         UINT     cchMax)
 {
@@ -268,11 +251,8 @@ STDMETHODIMP CPerfBar::InvokeCommand(LPCMINVOKECOMMANDINFO pici)
 
     if (HIWORD(pici->lpVerb) != 0) {
         hr = E_INVALIDARG;
-    }
-    else
-    {
-        switch (LOWORD(pici->lpVerb))
-        {
+    } else {
+        switch (LOWORD(pici->lpVerb)) {
             case IDM_RELOAD:
                 hr = ReloadConfiguration();
                 break;
@@ -297,9 +277,7 @@ STDMETHODIMP CPerfBar::QueryContextMenu(HMENU hMenu,
 
     if (CMF_DEFAULTONLY & uFlags) {
         hr = MAKE_HRESULT(SEVERITY_SUCCESS, 0, 0);
-    }
-    else
-    {
+    } else {
         InsertMenu(hMenu, indexMenu, MF_SEPARATOR | MF_BYPOSITION, idCmdFirst, 0);
         InsertMenu(hMenu, indexMenu, MF_STRING    | MF_BYPOSITION, idCmdFirst + IDM_RELOAD, _T("Performance Monitor - (Reload Configuration)"));
         InsertMenu(hMenu, indexMenu, MF_STRING    | MF_BYPOSITION, idCmdFirst + IDM_EDIT, _T("Performance Monitor - (Edit Configuration)"));
@@ -376,7 +354,7 @@ LRESULT CPerfBar::OnLButtonDown(UINT uMsg, WPARAM wParam, LPARAM lParam, BOOL& b
 
 void CPerfBar::PaintData(HDC hdc, POINT offset)
 {
-    Configuration::pages_t & pages = m_config.GetPages();
+    Configuration::pages_t& pages = m_config.GetPages();
     //Configuration::counters_t & counters = m_config.GetCounters();
 
     if (pages.size() <= 0) {
@@ -387,7 +365,7 @@ void CPerfBar::PaintData(HDC hdc, POINT offset)
         m_currentPage = pages.size() - 1;
     }
 
-    Configuration::Page & page = pages[m_currentPage];
+    Configuration::Page& page = pages[m_currentPage];
 
     if (page.Lines.size() <= 0) {
         return;
@@ -400,22 +378,18 @@ void CPerfBar::PaintData(HDC hdc, POINT offset)
 
     TCHAR buf[1024];
     TCHAR display[1024];
-    for (size_t i = 0; i < page.Lines.size(); ++i)
-    {
+    for (size_t i = 0; i < page.Lines.size(); ++i) {
         buf[0] = 0;
 
-        Configuration::Line & line = page.Lines[i];
+        Configuration::Line& line = page.Lines[i];
 
-        for (vector<Configuration::Display>::iterator iit = line.Display.begin(); iit != line.Display.end(); ++iit)
-        {
+        for (vector<Configuration::Display>::iterator iit = line.Display.begin(); iit != line.Display.end(); ++iit) {
             hash_map<tstring, double>::const_iterator value_it = values.find(iit->Counter);
 
             TCHAR formattedValue[256];
             if (value_it == values.end()) {
                 _tcscpy_s(formattedValue, sizeof(formattedValue) / sizeof(TCHAR), _T("[N/A]"));
-            }
-            else
-            {
+            } else {
                 double val = value_it->second;
                 if (iit->Divide > 0) {
                     val /= iit->Divide;
@@ -608,8 +582,7 @@ LRESULT CPerfBar::OnGoodBye(UINT uMsg, WPARAM wParam, LPARAM lParam, BOOL& bHand
 
     bHandled = FALSE;
 
-    if (m_font)
-    {
+    if (m_font) {
         DeleteObject(m_font);
         m_font = NULL;
     }

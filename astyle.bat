@@ -13,10 +13,10 @@ IF %ERRORLEVEL% NEQ 0 (
 )
 
 AStyle.exe^
- --indent=spaces=4 --indent-switches --indent-namespaces --indent-col1-comments^
- --pad-header --pad-oper --unpad-paren^
- --preserve-date^
- --lineend=windows^
+ --indent=spaces=4 --style=kr --indent-switches --indent-namespaces --indent-col1-comments^
+ --add-brackets --pad-header --pad-oper --unpad-paren^
+ --align-pointer=type --align-reference=type^
+ --preserve-date --lineend=windows --convert-tabs^
  --keep-one-line-blocks --keep-one-line-statements^
  --suffix=none --ignore-exclude-errors --ignore-exclude-errors-x --recursive^
  --exclude=resource.h *.h *.hpp *.cpp

@@ -25,17 +25,11 @@ private:
     counters_t _counters;
 
 public:
-    CPerfMon()
-    {
-        _query = NULL;
-    }
+    CPerfMon() { _query = NULL; }
 
-    virtual ~CPerfMon()
-    {
-        Stop();
-    }
+    virtual ~CPerfMon() { Stop(); }
 
-    BOOL Start(vector<pair<tstring, tstring>> & counters);
+    BOOL Start(vector<pair<tstring, tstring>>& counters);
     VOID Stop();
     hash_map<tstring, double> GetValues();
 };

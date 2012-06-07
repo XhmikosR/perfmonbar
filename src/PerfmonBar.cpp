@@ -29,12 +29,10 @@ END_OBJECT_MAP()
 extern "C"
 BOOL WINAPI DllMain(HINSTANCE hInstance, DWORD dwReason, LPVOID /*lpReserved*/)
 {
-    if (dwReason == DLL_PROCESS_ATTACH)
-    {
+    if (dwReason == DLL_PROCESS_ATTACH) {
         _Module.Init(ObjectMap, hInstance, &LIBID_PerfmonBarLib);
         DisableThreadLibraryCalls(hInstance);
-    }
-    else if (dwReason == DLL_PROCESS_DETACH) {
+    } else if (dwReason == DLL_PROCESS_DETACH) {
         _Module.Term();
     }
     return TRUE;    // ok

@@ -19,7 +19,7 @@
 #include "PerfMonitor.hpp"
 #include "PerfBar.h"
 
-BOOL CPerfMon::Start(vector<pair<tstring, tstring>> & counters)
+BOOL CPerfMon::Start(vector<pair<tstring, tstring>>& counters)
 {
     Stop();
 
@@ -31,8 +31,7 @@ BOOL CPerfMon::Start(vector<pair<tstring, tstring>> & counters)
     }
 
     TCHAR szPathBuffer[1024];
-    for (vector<pair<tstring, tstring>>::const_iterator it = counters.begin(); it != counters.end(); ++it)
-    {
+    for (vector<pair<tstring, tstring>>::const_iterator it = counters.begin(); it != counters.end(); ++it) {
         _tcscpy_s(szPathBuffer, sizeof(szPathBuffer) / sizeof(TCHAR), it->second.c_str());
 
         pdhStatus = PdhValidatePath(szPathBuffer);
@@ -75,8 +74,7 @@ hash_map<tstring, double> CPerfMon::GetValues()
 
     hash_map<tstring, double> values;
 
-    for (counters_t::iterator it = _counters.begin(); it != _counters.end(); ++it)
-    {
+    for (counters_t::iterator it = _counters.begin(); it != _counters.end(); ++it) {
         PDH_FMT_COUNTERVALUE pdhCounterValue;
         pdhStatus = PdhGetFormattedCounterValue(
                         it->second,

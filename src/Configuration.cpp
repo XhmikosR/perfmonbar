@@ -21,8 +21,7 @@
 void Configuration::Initialize()
 {
     static bool ole_initialized = false;
-    if (!ole_initialized)
-    {
+    if (!ole_initialized) {
         CoInitialize(NULL);
         ole_initialized = true;
     }
@@ -31,7 +30,7 @@ void Configuration::Initialize()
     _pages.clear();
 }
 
-bool Configuration::ReadCounter(IXMLDOMNodePtr & node, Counter & counter)
+bool Configuration::ReadCounter(IXMLDOMNodePtr& node, Counter& counter)
 {
     IXMLDOMNamedNodeMapPtr pNamedNodeMap;
     HRESULT hr = node->get_attributes(&pNamedNodeMap);
@@ -70,21 +69,19 @@ bool Configuration::ReadCounter(IXMLDOMNodePtr & node, Counter & counter)
     return true;
 }
 
-bool Configuration::ReadCounters(IXMLDOMNodePtr & node, counters_t & counters)
+bool Configuration::ReadCounters(IXMLDOMNodePtr& node, counters_t& counters)
 {
     IXMLDOMNodePtr childNode;
     HRESULT hr = node->get_firstChild(&childNode);
 
-    while (childNode != 0)
-    {
+    while (childNode != 0) {
         BSTR nodeName;
         hr = childNode->get_nodeName(&nodeName);
         if (FAILED(hr)) {
             return false;
         }
 
-        if (bstr_t(nodeName) == bstr_t("counter"))
-        {
+        if (bstr_t(nodeName) == bstr_t("counter")) {
             Counter newCounter;
             if (ReadCounter(childNode, newCounter)) {
                 counters[newCounter.Name] = newCounter;
@@ -103,21 +100,19 @@ bool Configuration::ReadCounters(IXMLDOMNodePtr & node, counters_t & counters)
     return true;
 }
 
-bool Configuration::ReadPages(IXMLDOMNodePtr & node, std::vector<Page> & pages)
+bool Configuration::ReadPages(IXMLDOMNodePtr& node, std::vector<Page>& pages)
 {
     IXMLDOMNodePtr childNode;
     HRESULT hr = node->get_firstChild(&childNode);
 
-    while (childNode != 0)
-    {
+    while (childNode != 0) {
         BSTR nodeName;
         hr = childNode->get_nodeName(&nodeName);
         if (FAILED(hr)) {
             return false;
         }
 
-        if (bstr_t(nodeName) == bstr_t("page"))
-        {
+        if (bstr_t(nodeName) == bstr_t("page")) {
             Page newPage;
             if (ReadPage(childNode, newPage)) {
                 pages.push_back(newPage);
@@ -136,7 +131,7 @@ bool Configuration::ReadPages(IXMLDOMNodePtr & node, std::vector<Page> & pages)
     return true;
 }
 
-bool Configuration::ReadPage(IXMLDOMNodePtr & node, Page & page)
+bool Configuration::ReadPage(IXMLDOMNodePtr& node, Page& page)
 {
     IXMLDOMNamedNodeMapPtr pNamedNodeMap;
     HRESULT hr = node->get_attributes(&pNamedNodeMap);
@@ -151,8 +146,7 @@ bool Configuration::ReadPage(IXMLDOMNodePtr & node, Page & page)
     }
 
     IXMLDOMNodePtr pAttribute;
-    for (long i = 0; i < itemCount; ++i)
-    {
+    for (long i = 0; i < itemCount; ++i) {
         hr = pNamedNodeMap->get_item(i, &pAttribute);
         if (FAILED(hr)) {
             return false;
@@ -181,8 +175,7 @@ bool Configuration::ReadPage(IXMLDOMNodePtr & node, Page & page)
     IXMLDOMNodePtr childNode;
     hr = node->get_firstChild(&childNode);
 
-    while (childNode != 0)
-    {
+    while (childNode != 0) {
         BSTR nodeName;
         hr = childNode->get_nodeName(&nodeName);
         if (FAILED(hr)) {
@@ -205,21 +198,19 @@ bool Configuration::ReadPage(IXMLDOMNodePtr & node, Page & page)
     return true;
 }
 
-bool Configuration::ReadLines(IXMLDOMNodePtr & node, std::vector<Line> & lines)
+bool Configuration::ReadLines(IXMLDOMNodePtr& node, std::vector<Line>& lines)
 {
     IXMLDOMNodePtr childNode;
     HRESULT hr = node->get_firstChild(&childNode);
 
-    while (childNode != 0)
-    {
+    while (childNode != 0) {
         BSTR nodeName;
         hr = childNode->get_nodeName(&nodeName);
         if (FAILED(hr)) {
             return false;
         }
 
-        if (bstr_t(nodeName) == bstr_t("line"))
-        {
+        if (bstr_t(nodeName) == bstr_t("line")) {
             Line newLine;
             if (ReadLine(childNode, newLine)) {
                 lines.push_back(newLine);
@@ -238,7 +229,7 @@ bool Configuration::ReadLines(IXMLDOMNodePtr & node, std::vector<Line> & lines)
     return true;
 }
 
-bool Configuration::ReadLine(IXMLDOMNodePtr & node, Line & line)
+bool Configuration::ReadLine(IXMLDOMNodePtr& node, Line& line)
 {
     IXMLDOMNamedNodeMapPtr pNamedNodeMap;
     HRESULT hr = node->get_attributes(&pNamedNodeMap);
@@ -253,8 +244,7 @@ bool Configuration::ReadLine(IXMLDOMNodePtr & node, Line & line)
     }
 
     IXMLDOMNodePtr pAttribute;
-    for (long i = 0; i < itemCount; ++i)
-    {
+    for (long i = 0; i < itemCount; ++i) {
         hr = pNamedNodeMap->get_item(i, &pAttribute);
         if (FAILED(hr)) {
             return false;
@@ -277,17 +267,13 @@ bool Configuration::ReadLine(IXMLDOMNodePtr & node, Line & line)
 
         if (name == bstr_t("fontFamily")) {
             line.Font.Family = bstr_t(value);
-        }
-        else if (name == bstr_t("fontBold")) {
+        } else if (name == bstr_t("fontBold")) {
             line.Font.Bold = _tcsicmp(bstr_t(value), _T("true")) == 0;
-        }
-        else if (name == bstr_t("fontItalic")) {
+        } else if (name == bstr_t("fontItalic")) {
             line.Font.Italic = _tcsicmp(bstr_t(value), _T("true")) == 0;
-        }
-        else if (name == bstr_t("fontColor")) {
+        } else if (name == bstr_t("fontColor")) {
             _stscanf_s(bstr_t(value), _T("%X"), &line.Font.Color);
-        }
-        else if (name == bstr_t("fontSize")) {
+        } else if (name == bstr_t("fontSize")) {
             line.Font.Size = atof(bstr_t(value));
         }
     }
@@ -295,16 +281,14 @@ bool Configuration::ReadLine(IXMLDOMNodePtr & node, Line & line)
     IXMLDOMNodePtr childNode;
     hr = node->get_firstChild(&childNode);
 
-    while (childNode != 0)
-    {
+    while (childNode != 0) {
         BSTR nodeName;
         hr = childNode->get_nodeName(&nodeName);
         if (FAILED(hr)) {
             return false;
         }
 
-        if (bstr_t(nodeName) == bstr_t("display"))
-        {
+        if (bstr_t(nodeName) == bstr_t("display")) {
             Display newDisplay;
             if (ReadDisplay(childNode, newDisplay)) {
                 line.Display.push_back(newDisplay);
@@ -323,7 +307,7 @@ bool Configuration::ReadLine(IXMLDOMNodePtr & node, Line & line)
     return true;
 }
 
-bool Configuration::ReadDisplay(IXMLDOMNodePtr & node, Display & display)
+bool Configuration::ReadDisplay(IXMLDOMNodePtr& node, Display& display)
 {
     IXMLDOMNamedNodeMapPtr pNamedNodeMap;
     HRESULT hr = node->get_attributes(&pNamedNodeMap);
@@ -338,8 +322,7 @@ bool Configuration::ReadDisplay(IXMLDOMNodePtr & node, Display & display)
     }
 
     IXMLDOMNodePtr pAttribute;
-    for (long i = 0; i < itemCount; ++i)
-    {
+    for (long i = 0; i < itemCount; ++i) {
         hr = pNamedNodeMap->get_item(i, &pAttribute);
         if (FAILED(hr)) {
             return false;
@@ -362,17 +345,13 @@ bool Configuration::ReadDisplay(IXMLDOMNodePtr & node, Display & display)
 
         if (name == bstr_t("prefix")) {
             display.Prefix = bstr_t(value);
-        }
-        else if (name == bstr_t("suffix")) {
+        } else if (name == bstr_t("suffix")) {
             display.Suffix = bstr_t(value);
-        }
-        else if (name == bstr_t("counter")) {
+        } else if (name == bstr_t("counter")) {
             display.Counter = bstr_t(value);
-        }
-        else if (name == bstr_t("divide")) {
+        } else if (name == bstr_t("divide")) {
             display.Divide = atoi(bstr_t(value));
-        }
-        else if (name == bstr_t("decimals")) {
+        } else if (name == bstr_t("decimals")) {
             display.Decimals = atoi(bstr_t(value));
         }
     }
@@ -380,7 +359,7 @@ bool Configuration::ReadDisplay(IXMLDOMNodePtr & node, Display & display)
     return true;
 }
 
-HRESULT Configuration::GetConfigPath(tstring & filePath)
+HRESULT Configuration::GetConfigPath(tstring& filePath)
 {
     TCHAR path[MAX_PATH];
     HRESULT hr =
@@ -445,13 +424,11 @@ bool Configuration::Read()
         return false;
     }
 
-    if (bstr_t("perfbar") == bstr_t(name))
-    {
+    if (bstr_t("perfbar") == bstr_t(name)) {
         IXMLDOMNodePtr childNode;
         hr = pDocRoot->get_firstChild(&childNode);
 
-        while (childNode != 0)
-        {
+        while (childNode != 0) {
             BSTR nodeName;
             hr = childNode->get_nodeName(&nodeName);
             if (FAILED(hr)) {
@@ -460,8 +437,7 @@ bool Configuration::Read()
 
             if (bstr_t(nodeName) == bstr_t("counters")) {
                 ReadCounters(childNode, _counters);
-            }
-            else if (bstr_t(nodeName) == bstr_t("pages")) {
+            } else if (bstr_t(nodeName) == bstr_t("pages")) {
                 ReadPages(childNode, _pages);
             }
 

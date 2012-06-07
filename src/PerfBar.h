@@ -42,8 +42,7 @@ private:
     BOOL                        m_fCompositionEnabled;
 
 public:
-    CPerfBar()
-    {
+    CPerfBar() {
     }
 
     DECLARE_REGISTRY_RESOURCEID(IDR_PERFBAR)
@@ -95,14 +94,14 @@ public:
         BOOL      bReserved
     );
 
-    STDMETHOD(CanRenderComposited)(BOOL *pfCanRenderComposited);
+    STDMETHOD(CanRenderComposited)(BOOL* pfCanRenderComposited);
     STDMETHOD(SetCompositionState)(BOOL fCompositionEnabled);
-    STDMETHOD(GetCompositionState)(BOOL *pfCompositionEnabled);
+    STDMETHOD(GetCompositionState)(BOOL* pfCompositionEnabled);
 
     ///////////////////////////////////////////////////////////////
     // IObjectWithSite methods
 
-    STDMETHOD(SetSite)(IUnknown *pUnkSite);
+    STDMETHOD(SetSite)(IUnknown* pUnkSite);
 
     STDMETHOD(GetSite)
     (
@@ -128,7 +127,7 @@ public:
 
     STDMETHOD(GetCommandString)(UINT_PTR idCmd,
                                 UINT     uFlags,
-                                UINT    *pwReserved,
+                                UINT*    pwReserved,
                                 LPSTR    pszName,
                                 UINT     cchMax);
 
