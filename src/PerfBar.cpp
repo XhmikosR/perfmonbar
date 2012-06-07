@@ -341,7 +341,7 @@ void CPerfBar::PaintData(HDC hdc, POINT offset)
     Configuration::pages_t& pages = m_config.GetPages();
     //Configuration::counters_t & counters = m_config.GetCounters();
 
-    if (pages.size() <= 0) {
+    if (pages.empty()) {
         return;
     }
 
@@ -351,7 +351,7 @@ void CPerfBar::PaintData(HDC hdc, POINT offset)
 
     Configuration::Page& page = pages[m_currentPage];
 
-    if (page.Lines.size() <= 0) {
+    if (page.Lines.empty()) {
         return;
     }
 

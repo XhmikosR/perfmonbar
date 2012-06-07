@@ -55,7 +55,7 @@ public:
     };
 
     struct Page {
-        int          OffsetY;
+        int               OffsetY;
         std::vector<Line> Lines;
 
         Page() {
