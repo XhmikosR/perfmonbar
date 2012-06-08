@@ -23,8 +23,7 @@ BOOL CPerfMon::Start(std::vector<stdext::pair<tstring, tstring>>& counters)
 {
     Stop();
 
-    PDH_STATUS pdhStatus =
-        PdhOpenQuery(NULL, 0, &_query);
+    PDH_STATUS pdhStatus = PdhOpenQuery(NULL, 0, &_query);
 
     if (pdhStatus != ERROR_SUCCESS) {
         return FALSE;

@@ -20,7 +20,7 @@
 #include "Configuration.hpp"
 
 #define IDM_RELOAD 1
-#define IDM_EDIT 2
+#define IDM_EDIT   2
 
 STDMETHODIMP CPerfBar::FinalConstruct()
 {
@@ -110,7 +110,7 @@ STDMETHODIMP CPerfBar::GetWindow(HWND* phWnd)
         hr = E_INVALIDARG;
     } else {
         *phWnd = m_hWnd;
-        hr     = S_OK;
+        hr = S_OK;
     }
 
     return hr;
@@ -147,9 +147,9 @@ STDMETHODIMP CPerfBar::CloseDW(DWORD dwReserved)
     return S_OK;
 }
 
-STDMETHODIMP CPerfBar::ResizeBorderDW(LPCRECT    prcBorder,
-                                      IUnknown*  punkToolbarSite,
-                                      BOOL       fReserved)
+STDMETHODIMP CPerfBar::ResizeBorderDW(LPCRECT   prcBorder,
+                                      IUnknown* punkToolbarSite,
+                                      BOOL      fReserved)
 {
     UNREFERENCED_PARAMETER(prcBorder);
     UNREFERENCED_PARAMETER(punkToolbarSite);
@@ -177,10 +177,10 @@ STDMETHODIMP CPerfBar::GetCompositionState(BOOL* pfCompositionEnabled)
 
 STDMETHODIMP CPerfBar::SetSite(IUnknown* punkSite)
 {
-    HRESULT                hr          = E_FAIL;
+    HRESULT hr      = E_FAIL;
     ATL::CComQIPtr<IOleWindow> spOleWindow;
-    RECT                   rect        = {0};
-    HWND                   hWndParent  = NULL;
+    RECT rect       = {0};
+    HWND hWndParent = NULL;
 
     if (punkSite != NULL) {
         spOleWindow = punkSite;
@@ -192,7 +192,7 @@ STDMETHODIMP CPerfBar::SetSite(IUnknown* punkSite)
                 ::GetClientRect(hWndParent, &rect);
                 Create(hWndParent, rect, NULL, WS_CHILD);
                 m_spInputObjSite = punkSite;
-                hr               = m_spInputObjSite ? S_OK : E_FAIL;
+                hr = m_spInputObjSite ? S_OK : E_FAIL;
             }
         }
     }
@@ -265,7 +265,7 @@ STDMETHODIMP CPerfBar::QueryContextMenu(HMENU hMenu,
     } else {
         InsertMenu(hMenu, indexMenu, MF_SEPARATOR | MF_BYPOSITION, idCmdFirst, 0);
         InsertMenu(hMenu, indexMenu, MF_STRING    | MF_BYPOSITION, idCmdFirst + IDM_RELOAD, _T("Performance Monitor - (Reload Configuration)"));
-        InsertMenu(hMenu, indexMenu, MF_STRING    | MF_BYPOSITION, idCmdFirst + IDM_EDIT, _T("Performance Monitor - (Edit Configuration)"));
+        InsertMenu(hMenu, indexMenu, MF_STRING    | MF_BYPOSITION, idCmdFirst + IDM_EDIT,   _T("Performance Monitor - (Edit Configuration)"));
 
         hr = MAKE_HRESULT(SEVERITY_SUCCESS, FACILITY_NULL, 3);
     }
@@ -453,12 +453,12 @@ LRESULT CPerfBar::OnPaint(UINT uMsg, WPARAM wParam, LPARAM lParam, BOOL& bHandle
     UNREFERENCED_PARAMETER(lParam);
     UNREFERENCED_PARAMETER(bHandled);
 
-    PAINTSTRUCT ps      = {0};
-    RECT        rect    = {0};
-    HDC         hdcMem  = NULL;
-    HBITMAP     hbmMem  = NULL;
-    HBITMAP     hbmOld  = NULL;
-    HFONT       hfOld   = NULL;
+    PAINTSTRUCT ps     = {0};
+    RECT        rect   = {0};
+    HDC         hdcMem = NULL;
+    HBITMAP     hbmMem = NULL;
+    HBITMAP     hbmOld = NULL;
+    HFONT       hfOld  = NULL;
 
     BeginPaint(&ps);
 
@@ -574,4 +574,3 @@ LRESULT CPerfBar::OnGoodBye(UINT uMsg, WPARAM wParam, LPARAM lParam, BOOL& bHand
 
     return 0;
 }
-

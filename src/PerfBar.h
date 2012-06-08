@@ -34,12 +34,12 @@ class ATL_NO_VTABLE CPerfBar :
     public ATL::CWindowImpl<CPerfBar>
 {
 private:
-    CPerfMon                    m_perfMonitor;
+    CPerfMon      m_perfMonitor;
     ATL::CComQIPtr<IInputObjectSite> m_spInputObjSite;
-    HFONT                       m_font;
-    Configuration               m_config;
-    size_t                      m_currentPage;
-    BOOL                        m_fCompositionEnabled;
+    HFONT         m_font;
+    Configuration m_config;
+    size_t        m_currentPage;
+    BOOL          m_fCompositionEnabled;
 
 public:
     CPerfBar() {
