@@ -23,7 +23,6 @@ AStyle.exe^
 IF %ERRORLEVEL% NEQ 0 (
   ECHO.
   ECHO ERROR: Something went wrong!
-  PAUSE
 )
 
 :END

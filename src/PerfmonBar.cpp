@@ -26,7 +26,6 @@ BEGIN_OBJECT_MAP(ObjectMap)
 OBJECT_ENTRY(CLSID_PerfBar, CPerfBar)
 END_OBJECT_MAP()
 
-extern "C"
 BOOL WINAPI DllMain(HINSTANCE hInstance, DWORD dwReason, LPVOID /*lpReserved*/)
 {
     if (dwReason == DLL_PROCESS_ATTACH) {
