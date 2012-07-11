@@ -20,8 +20,8 @@
 ; $Id$
 
 
-#if VER < EncodeVer(5,5,0)
-  #error Update your Inno Setup version (5.5.0 or newer)
+#if VER < EncodeVer(5,5,1)
+  #error Update your Inno Setup version (5.5.1 or newer)
 #endif
 
 #define bindir "..\bin"
@@ -87,17 +87,17 @@ Name: en; MessagesFile: compiler:Default.isl
 
 
 [Messages]
-BeveledLabel          ={#app_name} {#app_version}
-SetupAppTitle         =Setup - {#app_name}
-SetupWindowTitle      =Setup - {#app_name}
+BeveledLabel ={#app_name} {#app_version}
+SetupAppTitle =Setup - {#app_name}
+SetupWindowTitle =Setup - {#app_name}
 WinVersionTooLowError =This program only works on Windows XP SP3 or newer.
 
 
 [CustomMessages]
-en.msg_DeleteSettings        =Do you also want to delete {#app_name}'s settings?%n%nIf you plan on installing {#app_name} again then you do not have to delete them.
+en.msg_DeleteSettings =Do you also want to delete {#app_name}'s settings?%n%nIf you plan on installing {#app_name} again then you do not have to delete them.
 en.msg_SetupIsRunningWarning ={#app_name} setup is already running!
-en.tsk_ResetSettings         =Reset {#app_name}'s settings
-en.run_ViewConfig            =View PerfmonBar's configuration file
+en.tsk_ResetSettings =Reset {#app_name}'s settings
+en.run_ViewConfig =View PerfmonBar's configuration file
 
 
 [Tasks]
