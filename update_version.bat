@@ -28,6 +28,6 @@ ECHO Something went wrong when generating the revision number.
 ECHO I'll use VER_NUM=9999 for now.
 
 ECHO #pragma once> "src\Version.h"
-ECHO #define VER_NUM 1,0,2,9999 >> "src\Version.h"
-ECHO #define VER_STR "1.0.2.9999" >> "src\Version.h"
+ECHO #define VER_NUM 1,0,2,9999>> "src\Version.h"
+ECHO #define VER_STR "1.0.2.9999">> "src\Version.h"
 GOTO END
