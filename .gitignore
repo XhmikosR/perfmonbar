@@ -1,0 +1,12 @@
+/bin
+/*.opensdf
+/*.sdf
+/*.suo
+/Setup/PerfmonBar*.exe
+/src/*.aps
+/src/*.user
+/src/dlldata.c
+/src/PerfmonBar_i.c
+/src/PerfmonBar_i.h
+/src/PerfmonBar_p.c
+/src/Version.h
