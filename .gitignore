@@ -1,4 +1,5 @@
 /bin
+/ipch
 /*.opensdf
 /*.sdf
 /*.suo
