@@ -17,8 +17,6 @@
 ; Requirements:
 ; Inno Setup: http://www.jrsoftware.org/isdl.php
 
-; $Id$
-
 
 #if VER < EncodeVer(5,5,1)
   #error Update your Inno Setup version (5.5.1 or newer)
