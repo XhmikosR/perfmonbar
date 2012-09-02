@@ -57,7 +57,7 @@ fi
 
 VER_FULL="_T(\"$VER ($HASH)$VER_FULL\")"
 
-VERSION_INFO+="#define VER_HASH L\"$HASH\"\n"
+VERSION_INFO+="#define VER_HASH \"$HASH\"\n"
 VERSION_INFO+="#define VER_NUM 1,0,2,$VER\n"
 VERSION_INFO+="#define VER_STR \"1,0,2,$VER\""
 
