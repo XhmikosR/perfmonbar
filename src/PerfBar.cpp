@@ -16,6 +16,9 @@
 */
 
 #include "stdafx.h"
+#include <hash_map>
+#include <vector>
+#include <atlctl.h>
 #include "PerfBar.h"
 #include "Configuration.hpp"
 

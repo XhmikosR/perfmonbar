@@ -16,6 +16,9 @@
 */
 
 #include "stdafx.h"
+#include <hash_map>
+#include <vector>
+#include <pdh.h>
 #include "PerfMonitor.hpp"
 #include "PerfBar.h"
 

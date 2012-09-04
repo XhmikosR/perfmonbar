@@ -17,6 +17,10 @@
 
 #pragma once
 
+#include <hash_map>
+#include <vector>
+#include <comdef.h>
+
 class Configuration
 {
 public:

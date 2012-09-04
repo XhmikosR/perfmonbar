@@ -17,6 +17,10 @@
 
 #pragma once
 
+#include <hash_map>
+#include <vector>
+#include <pdh.h>
+
 class CPerfMon
 {
     typedef std::vector<stdext::pair<tstring, HCOUNTER>> counters_t;

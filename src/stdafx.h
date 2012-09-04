@@ -41,21 +41,11 @@
 #define _ATL_CSTRING_EXPLICIT_CONSTRUCTORS  // some CString constructors will be explicit
 #endif
 
-#include "resource.h"
 #include <atlbase.h>
 #include <atlcom.h>
 #include <atlctl.h>
-
 #include <atlwin.h>
-#include <comdef.h>
-#include <shlobj.h>
-#include <shlguid.h>
-#include <pdh.h>
-#include <process.h>
 
-#include <hash_map>
-#include <vector>
-#include <deque>
 #include <string>
 
 #ifdef UNICODE

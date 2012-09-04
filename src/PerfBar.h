@@ -18,6 +18,8 @@
 #pragma once
 
 #include "resource.h"       // main symbols
+#include <shlobj.h>
+#include <atlctl.h>
 #include "PerfmonBar_i.h"
 #include "PerfMonitor.hpp"
 #include "Configuration.hpp"

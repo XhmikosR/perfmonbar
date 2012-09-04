@@ -16,6 +16,9 @@
 */
 
 #include "stdafx.h"
+#include <vector>
+#include <shlobj.h>
+#include <comdef.h>
 #include "Configuration.hpp"
 
 void Configuration::Initialize()
