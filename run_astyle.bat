@@ -20,10 +20,7 @@ SET ASTYLE_OPTIONS=--indent=spaces=4 --style=kr^
 astyle %ASTYLE_OPTIONS% --exclude=resource.h src\*.h src\*.cpp
 
 
-IF %ERRORLEVEL% NEQ 0 (
-  ECHO.
-  ECHO ERROR: Something went wrong!
-)
+IF %ERRORLEVEL% NEQ 0 (ECHO. & ECHO ERROR: Something went wrong!)
 
 :END
 POPD

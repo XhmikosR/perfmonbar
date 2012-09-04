@@ -33,7 +33,7 @@ public:
 
         Display() {
             Decimals = 0;
-            Divide = 0;
+            Divide   = 0;
         }
     };
 
@@ -76,8 +76,8 @@ public:
     typedef std::vector<Page> pages_t;
 
 private:
-    counters_t  _counters;
-    pages_t     _pages;
+    counters_t _counters;
+    pages_t    _pages;
 
     void Initialize();
     bool ReadCounter(IXMLDOMNodePtr& node, Counter& counter);
