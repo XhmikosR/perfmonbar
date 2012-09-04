@@ -42,13 +42,13 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Configuration.hpp">
+    <ClInclude Include="Configuration.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="PerfBar.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="PerfMonitor.hpp">
+    <ClInclude Include="PerfMonitor.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="PerfmonBar_i.h">

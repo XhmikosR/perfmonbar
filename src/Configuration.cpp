@@ -19,7 +19,7 @@
 #include <vector>
 #include <shlobj.h>
 #include <comdef.h>
-#include "Configuration.hpp"
+#include "Configuration.h"
 
 void Configuration::Initialize()
 {

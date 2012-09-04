@@ -21,8 +21,8 @@
 #include <shlobj.h>
 #include <atlctl.h>
 #include "PerfmonBar_i.h"
-#include "PerfMonitor.hpp"
-#include "Configuration.hpp"
+#include "PerfMonitor.h"
+#include "Configuration.h"
 
 // CPerfBar
 class ATL_NO_VTABLE CPerfBar :

@@ -19,7 +19,7 @@
 #include <hash_map>
 #include <vector>
 #include <pdh.h>
-#include "PerfMonitor.hpp"
+#include "PerfMonitor.h"
 #include "PerfBar.h"
 
 BOOL CPerfMon::Start(std::vector<stdext::pair<tstring, tstring>>& counters)

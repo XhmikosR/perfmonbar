@@ -240,9 +240,9 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Configuration.hpp" />
+    <ClInclude Include="Configuration.h" />
     <ClInclude Include="PerfBar.h" />
-    <ClInclude Include="PerfMonitor.hpp" />
+    <ClInclude Include="PerfMonitor.h" />
     <ClInclude Include="resource.h" />
     <ClInclude Include="PerfmonBar_i.h" />
     <ClInclude Include="stdafx.h" />
