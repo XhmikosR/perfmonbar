@@ -78,11 +78,7 @@ stdext::hash_map<tstring, double> CPerfMon::GetValues()
 
     for (counters_t::iterator it = _counters.begin(); it != _counters.end(); ++it) {
         PDH_FMT_COUNTERVALUE pdhCounterValue;
-        pdhStatus = PdhGetFormattedCounterValue(
-                        it->second,
-                        PDH_FMT_DOUBLE,
-                        NULL,
-                        &pdhCounterValue);
+        pdhStatus = PdhGetFormattedCounterValue(it->second, PDH_FMT_DOUBLE, NULL, &pdhCounterValue);
 
         if (pdhStatus == ERROR_SUCCESS) {
             values[it->first] = pdhCounterValue.doubleValue;

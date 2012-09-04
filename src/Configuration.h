@@ -78,7 +78,6 @@ public:
 private:
     counters_t  _counters;
     pages_t     _pages;
-    //bool        _hasErrors;
 
     void Initialize();
     bool ReadCounter(IXMLDOMNodePtr& node, Counter& counter);
@@ -93,7 +92,6 @@ public:
     HRESULT GetConfigPath(tstring& configPath);
     bool Read();
 
-    //bool HasErrors() { return _hasErrors; }
     counters_t& GetCounters() { return _counters; }
     pages_t& GetPages() { return _pages; }
 };

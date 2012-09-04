@@ -61,9 +61,7 @@ STDMETHODIMP CPerfBar::ReloadConfiguration()
     return S_OK;
 }
 
-STDMETHODIMP CPerfBar::GetBandInfo(DWORD dwBandID,
-                                   DWORD dwViewMode,
-                                   DESKBANDINFO* pdbi)
+STDMETHODIMP CPerfBar::GetBandInfo(DWORD dwBandID, DWORD dwViewMode, DESKBANDINFO* pdbi)
 {
     UNREFERENCED_PARAMETER(dwBandID);
     UNREFERENCED_PARAMETER(dwViewMode);
@@ -203,8 +201,7 @@ STDMETHODIMP CPerfBar::SetSite(IUnknown* punkSite)
     return hr;
 }
 
-STDMETHODIMP CPerfBar::GetSite(REFIID  riid,
-                               LPVOID* ppvReturn)
+STDMETHODIMP CPerfBar::GetSite(REFIID riid, LPVOID* ppvReturn)
 {
     HRESULT hr = E_FAIL;
 
@@ -293,8 +290,7 @@ STDMETHODIMP CPerfBar::Load(LPSTREAM pStream)
     return S_OK;
 }
 
-STDMETHODIMP CPerfBar::Save(LPSTREAM pStream,
-                            BOOL     bClearDirty)
+STDMETHODIMP CPerfBar::Save(LPSTREAM pStream, BOOL bClearDirty)
 {
     UNREFERENCED_PARAMETER(pStream);
     UNREFERENCED_PARAMETER(bClearDirty);
@@ -470,9 +466,7 @@ LRESULT CPerfBar::OnPaint(UINT uMsg, WPARAM wParam, LPARAM lParam, BOOL& bHandle
     ::GetClientRect(parent, &rect);
 
     hdcMem = CreateCompatibleDC(ps.hdc);
-    hbmMem = CreateCompatibleBitmap(ps.hdc,
-                                    rect.right - rect.left,
-                                    rect.bottom - rect.top);
+    hbmMem = CreateCompatibleBitmap(ps.hdc, rect.right - rect.left, rect.bottom - rect.top);
 
     hbmOld = (HBITMAP)SelectObject(hdcMem, hbmMem);
     hfOld = (HFONT)SelectObject(hdcMem, m_font);

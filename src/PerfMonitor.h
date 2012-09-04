@@ -25,7 +25,7 @@ class CPerfMon
 {
     typedef std::vector<stdext::pair<tstring, HCOUNTER>> counters_t;
 private:
-    HQUERY _query;
+    HQUERY     _query;
     counters_t _counters;
 
 public:
