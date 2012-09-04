@@ -34,6 +34,6 @@ public:
     virtual ~CPerfMon() { Stop(); }
 
     BOOL Start(std::vector<stdext::pair<tstring, tstring>>& counters);
-    VOID Stop();
+    void Stop();
     stdext::hash_map<tstring, double> GetValues();
 };

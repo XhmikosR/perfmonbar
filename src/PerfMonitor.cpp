@@ -52,7 +52,7 @@ BOOL CPerfMon::Start(std::vector<stdext::pair<tstring, tstring>>& counters)
     return TRUE;
 }
 
-VOID CPerfMon::Stop()
+void CPerfMon::Stop()
 {
     for (counters_t::iterator it = _counters.begin(); it != _counters.end(); ++it) {
         PdhRemoveCounter(it->second);

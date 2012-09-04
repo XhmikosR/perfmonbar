@@ -163,8 +163,8 @@ public:
 
     /////////////////////////////////////////////////////////////////
     // CPerfBar Methods
-    VOID PaintData(HDC hdc, POINT offset);
-    VOID DestroyBar();
+    void PaintData(HDC hdc, POINT offset);
+    void DestroyBar();
 };
 
 OBJECT_ENTRY_AUTO(__uuidof(PerfBar), CPerfBar)
