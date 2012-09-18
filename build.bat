@@ -1,5 +1,5 @@
 @ECHO OFF
-REM  Copyright (C) 2011 XhmikosR
+REM  Copyright (C) 2011-2012 XhmikosR
 REM
 REM  This program is free software: you can redistribute it and/or modify
 REM  it under the terms of the GNU General Public License as published by
@@ -96,7 +96,7 @@ CALL "%VS100COMNTOOLS%..\..\VC\vcvarsall.bat" %build_type%
 CALL :SUBMSVC %BUILDTYPE% x64
 
 IF /I "%BUILDTYPE%" == "Clean" GOTO END
-CALL "Setup\build_installer.bat"
+CALL "setup\build_installer.bat"
 
 
 :END
