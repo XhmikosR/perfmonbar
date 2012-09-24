@@ -1,9 +1,10 @@
-/bin
-/ipch
 /*.opensdf
 /*.sdf
 /*.suo
-/Setup/PerfmonBar*.exe
+/bin
+/build.user.bat
+/ipch
+/setup/PerfmonBar*.exe
 /src/*.aps
 /src/*.user
 /src/dlldata.c
