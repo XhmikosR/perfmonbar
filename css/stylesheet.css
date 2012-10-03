@@ -222,21 +222,24 @@ hr {
 /* Links
    a, a:hover, a:visited
 */
-a {
+a:link {
     color: #63c0f5;
     text-shadow: 0 0 5px rgba(104, 182, 255, 0.5);
+}
+a:visited {
+    color: MediumVioletRed;
 }
 
 /* Clearfix */
 .cf:before, .cf:after {
-    content:"";
-    display:table;
+    content: "";
+    display: table;
 }
 
 .cf:after {
-    clear:both;
+    clear: both;
 }
 
 .cf {
-    zoom:1;
+    zoom: 1;
 }
