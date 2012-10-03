@@ -4,7 +4,7 @@
 		<meta http-equiv="Content-Type" content="text/html;charset=utf-8">
 		<meta http-equiv="X-UA-Compatible" content="chrome=1">
 		<title>Perfmonbar</title>
-		<link rel="stylesheet" type="text/css" href="css/stylesheet.min.css" media="screen" />
+		<link rel="stylesheet" type="text/css" href="css/pack.css" />
 		<link rel="shortcut icon" href="favicon.ico" />
 	</head>
 	<body>
@@ -28,9 +28,9 @@
 					<li>Windows XP SP3 or newer</li>
 				</ul>
 				<h1>Screenshots</h1>
-				<p><img src="http://xhmikosr.github.com/perfmonbar/img/PerfmonBar_screenshot1.jpg" alt="PerfmonBar_screenshot1" width="575" height="310"></p>
-				<p><img src="http://xhmikosr.github.com/perfmonbar/img/PerfmonBar_screenshot2.png" alt="PerfmonBar_screenshot2" width="766" height="37"></p>
-				<p><img src="http://xhmikosr.github.com/perfmonbar/img/PerfmonBar_screenshot3.jpg" alt="PerfmonBar_screenshot3" width="800" height="30"></p>
+				<a class="fancybox" href="img/screenshot.jpg" title="PerfmonBar screenshot">
+					<img src="img/screenshot.thumb.jpg" alt="PerfmonBar screenshot" width="300" height="166"/>
+				</a>
 				<h1>Notes</h1>
 				<ul>
 					<li>You will have to edit the default <code>config.xml</code> to match your system.</li>
@@ -38,7 +38,12 @@
 				</ul>
 			</section>
 		</div>
+		<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+		<script type="text/javascript" src="js/jquery.fancybox.min.js"></script>
 		<script type="text/javascript">
+			$(document).ready(function() {
+				$(".fancybox").fancybox();
+			});
 			var _gaq=[['_setAccount','UA-34374820-2'],['_trackPageview']];
 			(function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
 			g.async=true;g.src='//www.google-analytics.com/ga.js';
