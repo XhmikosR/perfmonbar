@@ -5,7 +5,7 @@ SET PATH=C:\MSYS\bin;%PATH%
 
 ECHO Minifying and combining css files...
 
-cleancss stylesheet.css -o stylesheet.min.css
+cleancss css\stylesheet.css -o css\stylesheet.min.css
 
 ENDLOCAL
 PAUSE
