@@ -8,7 +8,7 @@ body {
     font-family: Monaco, "Bitstream Vera Sans Mono", "Lucida Console", Terminal, monospace;
 }
 
-/* General & 'Reset' Stuff */
+/* General & "Reset" Stuff */
 .container {
     width: 90%;
     max-width: 600px;
@@ -80,7 +80,7 @@ header h2 {
 }
 
 section img {
-    max-width: 100%
+    max-width: 100%;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -220,12 +220,13 @@ hr {
 }
 
 /* Links
-   a, a:hover, a:visited
+   a:link, a:hover, a:visited
 */
 a:link {
     color: #63c0f5;
     text-shadow: 0 0 5px rgba(104, 182, 255, 0.5);
 }
+
 a:visited {
     color: MediumVioletRed;
 }
