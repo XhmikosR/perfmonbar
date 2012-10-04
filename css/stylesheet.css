@@ -93,7 +93,7 @@ h1, h2, h3, h4, h5, h6 {
                  0 0 10px rgba(181, 232, 83, 0.1);
 }
 
-#main_content h1 {
+/*#main_content h1 {
     font-size: 30px;
 }
 
@@ -181,7 +181,7 @@ hr {
     border: 0;
     border-bottom: 1px dashed #b5e853;
     color: #b5e853;
-}
+}*/
 
 /* Buttons
 */
@@ -232,7 +232,7 @@ a:visited {
 }
 
 /* Clearfix */
-.cf:before, .cf:after {
+/*.cf:before, .cf:after {
     content: "";
     display: table;
 }
@@ -243,4 +243,4 @@ a:visited {
 
 .cf {
     zoom: 1;
-}
+}*/
