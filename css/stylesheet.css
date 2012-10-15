@@ -228,7 +228,7 @@ a:link {
 }
 
 a:visited {
-    color: MediumVioletRed;
+    color: #C71585; /*MediumVioletRed*/
 }
 
 /* Clearfix */
