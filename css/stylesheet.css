@@ -228,19 +228,19 @@ a:link {
 }
 
 a:visited {
-    color: #C71585; /*MediumVioletRed*/
+    color: #c71585; /*MediumVioletRed*/
 }
 
 /* Clearfix */
-/*.cf:before, .cf:after {
+/*.clearfix:before, .clearfix:after {
     content: "";
     display: table;
 }
 
-.cf:after {
+.clearfix:after {
     clear: both;
 }
 
-.cf {
+.clearfix {
     zoom: 1;
 }*/
