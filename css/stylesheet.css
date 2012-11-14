@@ -23,7 +23,7 @@ h1, h2, h3, h4, h5, h6 {
     font-family: Monaco, "Bitstream Vera Sans Mono", "Lucida Console", Terminal, monospace;
     font-weight: normal;
     letter-spacing: -0.03em;
-    margin: 0 0 20px;
+    margin: 15px 0;
     text-shadow: 0 1px 1px rgba(0, 0, 0, 0.1),
                  0 0 5px rgba(181, 232, 83, 0.1),
                  0 0 10px rgba(181, 232, 83, 0.1);
@@ -43,7 +43,6 @@ header {
     border-bottom: 1px dashed #b5e853;
     margin: 0 0 40px 0;
     padding: 20px 0;
-    width: 100%;
 }
 
 header h1 {
@@ -66,6 +65,7 @@ header h2 {
     color: #666;
     font-size: 18px;
     font-weight: 300;
+    margin: 0 0 20px 5px;
 }
 
 #downloads .btn {
@@ -78,11 +78,6 @@ header h2 {
 */
 #main_content {
     -webkit-font-smoothing: antialiased;
-    width: 100%;
-}
-
-section img {
-    max-width: 100%;
 }
 
 /*#main_content h1 {
@@ -155,7 +150,6 @@ pre {
 
 table {
     margin: 0 0 20px 0;
-    width: 100%;
 }
 
 th {
@@ -201,7 +195,7 @@ hr {
 .btn .icon {
     display: inline-block;
     float: left;
-    margin: 1px 8px 0 0;
+    margin: 4px 8px 0 0;
     width: 16px;
     height: 16px;
 }
