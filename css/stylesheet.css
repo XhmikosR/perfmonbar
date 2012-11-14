@@ -216,6 +216,10 @@ a:visited {
     color: #c71585; /*MediumVioletRed*/
 }
 
+a.btn:focus {
+    outline: none;
+}
+
 /* Clearfix */
 /*.clearfix:before,
 .clearfix:after {
