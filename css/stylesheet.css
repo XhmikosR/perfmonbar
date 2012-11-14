@@ -1,18 +1,18 @@
 body {
-    margin: 0;
-    padding: 0;
     background: #151515 url(../img/bkg.png) 0 0;
     color: #eaeaea;
     font: 16px;
-    line-height: 1.5;
     font-family: Monaco, "Bitstream Vera Sans Mono", "Lucida Console", Terminal, monospace;
+    line-height: 1.5;
+    margin: 0;
+    padding: 0;
 }
 
 /* General & "Reset" Stuff */
 .container {
-    width: 90%;
-    max-width: 600px;
     margin: 0 auto;
+    max-width: 600px;
+    width: 90%;
 }
 
 section {
@@ -21,7 +21,14 @@ section {
 }
 
 h1, h2, h3, h4, h5, h6 {
+    color: #b5e853;
+    font-family: Monaco, "Bitstream Vera Sans Mono", "Lucida Console", Terminal, monospace;
+    font-weight: normal;
+    letter-spacing: -0.03em;
     margin: 0 0 20px;
+    text-shadow: 0 1px 1px rgba(0, 0, 0, 0.1),
+                 0 0 5px rgba(181, 232, 83, 0.1),
+                 0 0 10px rgba(181, 232, 83, 0.1);
 }
 
 li {
@@ -35,23 +42,23 @@ li {
 */
 header {
     background: rgba(0, 0, 0, 0.1);
-    width: 100%;
     border-bottom: 1px dashed #b5e853;
-    padding: 20px 0;
     margin: 0 0 40px 0;
+    padding: 20px 0;
+    width: 100%;
 }
 
 header h1 {
+    color: #b5e853;
+    font-family: Monaco, "Bitstream Vera Sans Mono", "Lucida Console", Terminal, monospace;
     font-size: 30px;
+    font-weight: bold;
+    letter-spacing: -1px;
     line-height: 1.5;
     margin: 0 0 0 -40px;
-    font-weight: bold;
-    font-family: Monaco, "Bitstream Vera Sans Mono", "Lucida Console", Terminal, monospace;
-    color: #b5e853;
     text-shadow: 0 1px 1px rgba(0, 0, 0, 0.1),
                  0 0 5px rgba(181, 232, 83, 0.1),
                  0 0 10px rgba(181, 232, 83, 0.1);
-    letter-spacing: -1px;
     -webkit-font-smoothing: antialiased;
 }
 
@@ -61,15 +68,15 @@ header h1:before {
 }
 
 header h2 {
+    color: #666;
     font-size: 18px;
     font-weight: 300;
-    color: #666;
 }
 
 #downloads .btn {
     display: inline-block;
-    text-align: center;
     margin: 0;
+    text-align: center;
 }
 
 /* Main Content
@@ -81,16 +88,6 @@ header h2 {
 
 section img {
     max-width: 100%;
-}
-
-h1, h2, h3, h4, h5, h6 {
-    font-weight: normal;
-    font-family: Monaco, "Bitstream Vera Sans Mono", "Lucida Console", Terminal, monospace;
-    color: #b5e853;
-    letter-spacing: -0.03em;
-    text-shadow: 0 1px 1px rgba(0, 0, 0, 0.1),
-                 0 0 5px rgba(181, 232, 83, 0.1),
-                 0 0 10px rgba(181, 232, 83, 0.1);
 }
 
 /*#main_content h1 {
@@ -111,15 +108,15 @@ h1, h2, h3, h4, h5, h6 {
 
 #main_content h5 {
     font-size: 12px;
-    text-transform: uppercase;
     margin: 0 0 5px 0;
+    text-transform: uppercase;
 }
 
 #main_content h6 {
-    font-size: 12px;
-    text-transform: uppercase;
     color: #999;
+    font-size: 12px;
     margin: 0 0 5px 0;
+    text-transform: uppercase;
 }
 
 dt {
@@ -132,44 +129,44 @@ ul li {
 }
 
 ul li:before {
+    color: #b5e853;
     content: ">>";
     font-family: Monaco, "Bitstream Vera Sans Mono", "Lucida Console", Terminal, monospace;
     font-size: 13px;
-    color: #b5e853;
+    line-height: 16px;
     margin-left: -37px;
     margin-right: 21px;
-    line-height: 16px;
 }
 
 blockquote {
+    border-left: 1px dotted #666;
     color: #aaa;
     padding-left: 10px;
-    border-left: 1px dotted #666;
 }
 
 pre {
     background: rgba(0, 0, 0, 0.9);
     border: 1px solid rgba(255, 255, 255, 0.15);
-    padding: 10px;
-    font-size: 14px;
-    color: #b5e853;
     border-radius: 2px;
+    color: #b5e853;
+    font-size: 14px;
     -moz-border-radius: 2px;
-    -webkit-border-radius: 2px;
-    text-wrap: normal;
     overflow: auto;
     overflow-y: hidden;
+    padding: 10px;
+    text-wrap: normal;
+    -webkit-border-radius: 2px;
 }
 
 table {
-    width: 100%;
     margin: 0 0 20px 0;
+    width: 100%;
 }
 
 th {
-    text-align: left;
     border-bottom: 1px dashed #b5e853;
     padding: 5px 10px;
+    text-align: left;
 }
 
 td {
@@ -177,50 +174,51 @@ td {
 }
 
 hr {
-    height: 0;
     border: 0;
     border-bottom: 1px dashed #b5e853;
     color: #b5e853;
+    height: 0;
 }*/
 
 /* Buttons
 */
 .btn {
-    display: inline-block;
-    background: -webkit-linear-gradient(top, rgba(40, 40, 40, 0.3), rgba(35, 35, 35, 0.3) 50%, rgba(10, 10, 10, 0.3) 50%, rgba(0, 0, 0, 0.3));
-    padding: 8px 18px;
-    border-radius: 50px;
+    background-image: -webkit-linear-gradient(top, rgba(40, 40, 40, 0.3), rgba(35, 35, 35, 0.3) 50%, rgba(10, 10, 10, 0.3) 50%, rgba(0, 0, 0, 0.3));
+    background-image: -moz-linear-gradient(top, rgba(40, 40, 40, 0.3), rgba(35, 35, 35, 0.3) 50%, rgba(10, 10, 10, 0.3) 50%, rgba(0, 0, 0, 0.3));
     border: 2px solid rgba(0, 0, 0, 0.7);
     border-bottom: 2px solid rgba(0, 0, 0, 0.7);
+    border-radius: 50px;
     border-top: 2px solid rgba(0, 0, 0, 1);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.05);
     color: rgba(255, 255, 255, 0.8);
+    display: inline-block;
     font-family: Helvetica, Arial, sans-serif;
-    font-weight: bold;
     font-size: 16px;
+    font-weight: bold;
+    padding: 8px 18px;
     text-decoration: none;
     text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.75);
-    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.05);
 }
 
 .btn:hover {
-    background: -webkit-linear-gradient(top, rgba(40, 40, 40, 0.6), rgba(35, 35, 35, 0.6) 50%, rgba(10, 10, 10, 0.8) 50%, rgba(0, 0, 0, 0.8));
+    background-image: -webkit-linear-gradient(top, rgba(40, 40, 40, 0.6), rgba(35, 35, 35, 0.6) 50%, rgba(10, 10, 10, 0.8) 50%, rgba(0, 0, 0, 0.8));
+    background-image: -moz-linear-gradient(top, rgba(40, 40, 40, 0.6), rgba(35, 35, 35, 0.6) 50%, rgba(10, 10, 10, 0.8) 50%, rgba(0, 0, 0, 0.8));
 }
 
 .btn .icon {
     display: inline-block;
+    float: left;
+    margin: 1px 8px 0 0;
     width: 16px;
     height: 16px;
-    margin: 1px 8px 0 0;
-    float: left;
 }
 
 .btn-github .icon {
-    opacity: 0.6;
     background: url(../img/blacktocat.png) 0 0 no-repeat;
+    opacity: 0.6;
 }
 
 /* Links
-   a:link, a:hover, a:visited
 */
 a:link {
     color: #63c0f5;
@@ -232,7 +230,8 @@ a:visited {
 }
 
 /* Clearfix */
-/*.clearfix:before, .clearfix:after {
+/*.clearfix:before,
+.clearfix:after {
     content: "";
     display: table;
 }
