@@ -135,13 +135,13 @@ blockquote {
 }
 
 pre {
-    -webkit-border-radius: 2px;
     background: rgba(0, 0, 0, 0.9);
     border: 1px solid rgba(255, 255, 255, 0.15);
     border-radius: 2px;
+    -moz-border-radius: 2px;
+    -webkit-border-radius: 2px;
     color: #b5e853;
     font-size: 14px;
-    -moz-border-radius: 2px;
     overflow: auto;
     overflow-y: hidden;
     padding: 10px;
