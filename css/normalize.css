@@ -84,10 +84,10 @@ strong {
  * Corrects font family set oddly in Safari 5 and Chrome.
  */
 
-code,
+code/*,
 kbd,
 pre,
-samp {
+samp*/ {
     font-family: monospace, serif;
     font-size: 1em;
 }
@@ -96,25 +96,25 @@ samp {
  * Improves readability of pre-formatted text in all browsers.
  */
 
-pre {
+/*pre {
     white-space: pre;
     white-space: pre-wrap;
     word-wrap: break-word;
-}
+}*/
 
 /*
  * Addresses inconsistent and variable font size in all browsers.
  */
 
-small {
+/*small {
     font-size: 80%;
-}
+}*/
 
 /*
  * Prevents `sub` and `sup` affecting `line-height` in all browsers.
  */
 
-sub,
+/*sub,
 sup {
     font-size: 75%;
     line-height: 0;
@@ -128,7 +128,7 @@ sup {
 
 sub {
     bottom: -0.25em;
-}
+}*/
 
 /* ==========================================================================
    Embedded content
