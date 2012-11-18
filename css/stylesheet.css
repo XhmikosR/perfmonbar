@@ -138,8 +138,8 @@ pre {
     background: rgba(0, 0, 0, 0.9);
     border: 1px solid rgba(255, 255, 255, 0.15);
     border-radius: 2px;
-    -moz-border-radius: 2px;
     -webkit-border-radius: 2px;
+       -moz-border-radius: 2px;
     color: #b5e853;
     font-size: 14px;
     overflow: auto;
@@ -172,8 +172,11 @@ hr {
 /* Buttons
 */
 .btn {
-    background: -moz-linear-gradient(top, rgba(40, 40, 40, 0.3), rgba(35, 35, 35, 0.3) 50%, rgba(10, 10, 10, 0.3) 50%, rgba(0, 0, 0, 0.3));
-    background: -webkit-linear-gradient(top, rgba(40, 40, 40, 0.3), rgba(35, 35, 35, 0.3) 50%, rgba(10, 10, 10, 0.3) 50%, rgba(0, 0, 0, 0.3));
+    background-image: -webkit-linear-gradient(top, rgba(40, 40, 40, 0.3), rgba(35, 35, 35, 0.3) 50%, rgba(10, 10, 10, 0.3) 50%, rgba(0, 0, 0, 0.3));       /* Chrome, Safari4+ */
+    background-image:    -moz-linear-gradient(top, rgba(40, 40, 40, 0.3), rgba(35, 35, 35, 0.3) 50%, rgba(10, 10, 10, 0.3) 50%, rgba(0, 0, 0, 0.3));       /* FF3.6+ */
+    background-image:     -ms-linear-gradient(top, rgba(40, 40, 40, 0.3), rgba(35, 35, 35, 0.3) 50%, rgba(10, 10, 10, 0.3) 50%, rgba(0, 0, 0, 0.3));       /* IE10+ */
+    background-image:      -o-linear-gradient(top, rgba(40, 40, 40, 0.3), rgba(35, 35, 35, 0.3) 50%, rgba(10, 10, 10, 0.3) 50%, rgba(0, 0, 0, 0.3));       /* Opera 11.10+ */
+    background-image:         linear-gradient(to bottom, rgba(40, 40, 40, 0.3), rgba(35, 35, 35, 0.3) 50%, rgba(10, 10, 10, 0.3) 50%, rgba(0, 0, 0, 0.3)); /* W3C */
     border: 2px solid rgba(0, 0, 0, 0.7);
     border-bottom: 2px solid rgba(0, 0, 0, 0.7);
     border-radius: 50px;
@@ -188,8 +191,11 @@ hr {
 }
 
 .btn:hover {
-    background: -moz-linear-gradient(top, rgba(40, 40, 40, 0.6), rgba(35, 35, 35, 0.6) 50%, rgba(10, 10, 10, 0.8) 50%, rgba(0, 0, 0, 0.8));
-    background: -webkit-linear-gradient(top, rgba(40, 40, 40, 0.6), rgba(35, 35, 35, 0.6) 50%, rgba(10, 10, 10, 0.8) 50%, rgba(0, 0, 0, 0.8));
+    background-image: -webkit-linear-gradient(top, rgba(40, 40, 40, 0.6), rgba(35, 35, 35, 0.6) 50%, rgba(10, 10, 10, 0.8) 50%, rgba(0, 0, 0, 0.8));       /* Chrome, Safari4+ */
+    background-image:    -moz-linear-gradient(top, rgba(40, 40, 40, 0.6), rgba(35, 35, 35, 0.6) 50%, rgba(10, 10, 10, 0.8) 50%, rgba(0, 0, 0, 0.8));       /* FF3.6+ */
+    background-image:     -ms-linear-gradient(top, rgba(40, 40, 40, 0.6), rgba(35, 35, 35, 0.6) 50%, rgba(10, 10, 10, 0.8) 50%, rgba(0, 0, 0, 0.8));       /* IE10+ */
+    background-image:      -o-linear-gradient(top, rgba(40, 40, 40, 0.6), rgba(35, 35, 35, 0.6) 50%, rgba(10, 10, 10, 0.8) 50%, rgba(0, 0, 0, 0.8));       /* Opera 11.10+ */
+    background-image:         linear-gradient(to bottom, rgba(40, 40, 40, 0.6), rgba(35, 35, 35, 0.6) 50%, rgba(10, 10, 10, 0.8) 50%, rgba(0, 0, 0, 0.8)); /* W3C */
 }
 
 .btn .icon {
