@@ -1,5 +1,5 @@
 body {
-    background: #151515 url("../img/bkg.png") 0 0;
+    background: #151515 0 0 url("../img/bkg.png");
     color: #eaeaea;
     font: 16px/1.5 Monaco, "Bitstream Vera Sans Mono", "Lucida Console", Terminal, monospace;
     margin: 0;
@@ -207,7 +207,7 @@ hr {
 }
 
 .btn-github .icon {
-    background: url("../img/blacktocat.png") 0 0 no-repeat;
+    background: 0 0 no-repeat url("../img/blacktocat.png");
     opacity: 0.6;
 }
 
