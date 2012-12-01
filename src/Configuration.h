@@ -31,9 +31,9 @@ public:
         int     Decimals;
         int     Divide;
 
-        Display() {
-            Decimals = 0;
-            Divide   = 0;
+        Display()
+            : Decimals(0)
+            , Divide(0) {
         }
     };
 
@@ -44,12 +44,12 @@ public:
         DWORD   Color;
         double  Size;
 
-        Font() {
-            Family = _T("Arial");
-            Bold   = true;
-            Italic = false;
-            Color  = 0x00FFFFFF;
-            Size   = 8.5;
+        Font()
+            : Family(_T("Arial"))
+            , Bold(true)
+            , Italic(false)
+            , Color(0x00FFFFFF)
+            , Size(8.5) {
         }
     };
 
@@ -62,8 +62,8 @@ public:
         int               OffsetY;
         std::vector<Line> Lines;
 
-        Page() {
-            OffsetY = 0;
+        Page()
+            : OffsetY(0) {
         }
     };
 
