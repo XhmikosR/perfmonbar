@@ -2,6 +2,7 @@
 /*.sdf
 /*.suo
 /bin
+/bin12
 /build.user.bat
 /ipch
 /setup/PerfmonBar*.exe

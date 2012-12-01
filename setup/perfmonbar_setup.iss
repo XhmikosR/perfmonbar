@@ -18,11 +18,15 @@
 ; Inno Setup: http://www.jrsoftware.org/isdl.php
 
 
-#if VER < EncodeVer(5,5,1)
-  #error Update your Inno Setup version (5.5.1 or newer)
+#if VER < EncodeVer(5,5,2)
+  #error Update your Inno Setup version (5.5.2 or newer)
 #endif
 
-#define bindir "..\bin"
+#if defined(VS2012)
+  #define bindir "..\bin12"
+#else
+  #define bindir "..\bin"
+#endif
 
 #ifnexist bindir + "\Release_Win32\PerfmonBar.dll"
   #error Compile PerfmonBar x86 first
