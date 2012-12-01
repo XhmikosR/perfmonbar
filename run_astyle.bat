@@ -17,7 +17,7 @@ SET ASTYLE_OPTIONS=--indent=spaces=4 --style=kr^
  --ignore-exclude-errors --ignore-exclude-errors-x^
  --formatted
 
-astyle %ASTYLE_OPTIONS% --exclude=resource.h src\*.h src\*.cpp
+astyle %ASTYLE_OPTIONS% --exclude=resource.h --exclude=Version.h src\*.h src\*.cpp
 
 
 IF %ERRORLEVEL% NEQ 0 (ECHO. & ECHO ERROR: Something went wrong!)
