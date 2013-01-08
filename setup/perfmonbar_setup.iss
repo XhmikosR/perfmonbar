@@ -1,5 +1,5 @@
 ;
-; Copyright (C) 2011-2012 XhmikosR
+; Copyright (C) 2011-2013 XhmikosR
 ;
 ; This program is free software: you can redistribute it and/or modify
 ; it under the terms of the GNU General Public License as published by
@@ -22,11 +22,7 @@
   #error Update your Inno Setup version (5.5.2 or newer)
 #endif
 
-#if defined(VS2012)
-  #define bindir "..\bin12"
-#else
-  #define bindir "..\bin"
-#endif
+#define bindir "..\bin12"
 
 #ifnexist bindir + "\Release_Win32\PerfmonBar.dll"
   #error Compile PerfmonBar x86 first

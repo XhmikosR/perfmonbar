@@ -1,5 +1,5 @@
 @ECHO OFF
-REM  Copyright (C) 2011-2012 XhmikosR
+REM  Copyright (C) 2011-2013 XhmikosR
 REM
 REM  This program is free software: you can redistribute it and/or modify
 REM  it under the terms of the GNU General Public License as published by
@@ -19,7 +19,7 @@ SETLOCAL ENABLEEXTENSIONS
 CD /D %~dp0
 
 rem Check the building environment
-IF NOT DEFINED VS100COMNTOOLS CALL :SUBMSG "ERROR" "Visual Studio 2010 NOT FOUND!"
+IF NOT DEFINED VS110COMNTOOLS CALL :SUBMSG "ERROR" "Visual Studio 2012 NOT FOUND!"
 
 
 rem Check for the help switches
@@ -85,14 +85,14 @@ IF "%ARCH%" == "x86" GOTO x86
 
 
 :x86
-CALL "%VS100COMNTOOLS%..\..\VC\vcvarsall.bat" x86
+CALL "%VS110COMNTOOLS%..\..\VC\vcvarsall.bat" x86
 CALL :SUBMSVC %BUILDTYPE% Win32
 IF "%ARCH%" == "x86" GOTO END
 
 
 :x64
 IF DEFINED PROGRAMFILES(x86) (SET build_type=amd64) ELSE (SET build_type=x86_amd64)
-CALL "%VS100COMNTOOLS%..\..\VC\vcvarsall.bat" %build_type%
+CALL "%VS110COMNTOOLS%..\..\VC\vcvarsall.bat" %build_type%
 CALL :SUBMSVC %BUILDTYPE% x64
 
 IF /I "%BUILDTYPE%" == "Clean" GOTO END
