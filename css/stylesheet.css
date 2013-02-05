@@ -18,7 +18,7 @@ section {
     margin: 0 0 20px 0;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1, h2, h3/*, h4, h5, h6*/ {
     color: #b5e853;
     font-family: Monaco, "Bitstream Vera Sans Mono", "Lucida Console", Terminal, monospace;
     font-weight: normal;
@@ -39,7 +39,7 @@ li {
      h2     - project description
 */
 header {
-    background: rgba(0, 0, 0, 0.1);
+    background-color: rgba(0, 0, 0, 0.1);
     border-bottom: 1px dashed #b5e853;
     margin: 0 0 40px 0;
     padding: 20px 0;
@@ -51,9 +51,9 @@ header h1 {
     font: bold 30px/1.5 Monaco, "Bitstream Vera Sans Mono", "Lucida Console", Terminal, monospace;
     letter-spacing: -1px;
     margin: 0 0 0 -40px;
-    text-shadow: 0 1px 1px rgba(0, 0, 0, 0.1),
-                 0 0 5px rgba(181, 232, 83, 0.1),
-                 0 0 10px rgba(181, 232, 83, 0.1);
+    text-shadow: 0 1px 1px  rgba(0, 0, 0, 0.1),
+                 0 0   5px  rgba(181, 232, 83, 0.1),
+                 0 0   10px rgba(181, 232, 83, 0.1);
 }
 
 header h1:before {
@@ -66,12 +66,6 @@ header h2 {
     font-size: 18px;
     font-weight: 300;
     margin: 0 0 20px 5px;
-}
-
-#downloads .btn {
-    display: inline-block;
-    margin: 0;
-    text-align: center;
 }
 
 /* Main Content
@@ -137,9 +131,9 @@ blockquote {
 pre {
     background: rgba(0, 0, 0, 0.9);
     border: 1px solid rgba(255, 255, 255, 0.15);
-    border-radius: 2px;
     -webkit-border-radius: 2px;
        -moz-border-radius: 2px;
+            border-radius: 2px;
     color: #b5e853;
     font-size: 14px;
     overflow: auto;
@@ -178,18 +172,20 @@ hr {
     background-image:      -o-linear-gradient(top, rgba(40, 40, 40, 0.3), rgba(35, 35, 35, 0.3) 50%, rgba(10, 10, 10, 0.3) 50%, rgba(0, 0, 0, 0.3));       /* Opera 11.10+ */
     background-image:         linear-gradient(to bottom, rgba(40, 40, 40, 0.3), rgba(35, 35, 35, 0.3) 50%, rgba(10, 10, 10, 0.3) 50%, rgba(0, 0, 0, 0.3)); /* W3C */
     border: 2px solid rgba(0, 0, 0, 0.7);
-    border-bottom: 2px solid rgba(0, 0, 0, 0.7);
-    border-radius: 50px;
-    border-top: 2px solid rgba(0, 0, 0, 1);
+    -webkit-border-radius: 50px;
+       -moz-border-radius: 50px;
+            border-radius: 50px;
     -webkit-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.05);
        -moz-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.05);
             box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.05);
     color: rgba(255, 255, 255, 0.8);
     display: inline-block;
     font: bold 16px/1.5 Helvetica, Arial, sans-serif;
+    margin: 0;
     padding: 8px 18px;
+    text-align: center;
     text-decoration: none;
-    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.75);
+    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.75) !important;
 }
 
 .btn:hover {
@@ -201,16 +197,13 @@ hr {
 }
 
 .btn .icon {
+    background: 0 0 no-repeat url("../img/blacktocat.png");
     display: inline-block;
-    float: left;
     margin: 4px 8px 0 0;
+    opacity: 0.75;
+    vertical-align: top;
     width: 16px;
     height: 16px;
-}
-
-.btn-github .icon {
-    background: 0 0 no-repeat url("../img/blacktocat.png");
-    opacity: 0.6;
 }
 
 /* Links
