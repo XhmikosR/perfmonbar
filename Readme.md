@@ -1,4 +1,4 @@
-More info: http://xhmikosr.github.com/perfmonbar/
+More info: http://xhmikosr.github.io/perfmonbar/
 
 # Notes
 * You will have to edit the default `config.xml` to match your system.
