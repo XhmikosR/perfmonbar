@@ -1,7 +1,10 @@
-body {
+html {
     background: #151515 0 0 url("../img/bkg.png");
-    color: #eaeaea;
     font: 16px/1.5 Monaco, "Bitstream Vera Sans Mono", "Lucida Console", Terminal, monospace;
+    color: #eaeaea;
+}
+
+body {
     margin: 0;
     padding: 0;
 }
