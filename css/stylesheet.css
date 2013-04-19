@@ -1,13 +1,10 @@
 /*csslint box-sizing: false, font-sizes: false,
   qualified-headings: false, unique-headings: false*/
 
-html {
-    background: #151515 0 0 url("../img/bkg.png");
-    font: 16px/1.5 Monaco, "Bitstream Vera Sans Mono", "Lucida Console", Terminal, monospace;
-    color: #eaeaea;
-}
-
 body {
+    background: #151515 0 0 url("../img/bkg.png");
+    color: #eaeaea;
+    font: 16px/1.5 Monaco, "Bitstream Vera Sans Mono", "Lucida Console", Terminal, monospace;
     margin: 0;
     padding: 0;
 }

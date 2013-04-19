@@ -28,19 +28,13 @@ summary {
    ========================================================================== */
 
 /**
- * 1. Prevent system color scheme's background color being used in Firefox, IE,
- *    and Opera.
- * 2. Prevent system color scheme's text color being used in Firefox, IE, and
- *    Opera.
- * 4. Prevent iOS text size adjust after orientation change, without disabling
+ * 2. Prevent iOS text size adjust after orientation change, without disabling
  *    user zoom.
  */
 
 html {
-    background: #fff; /* 1 */
-    color: #000; /* 2 */
-    -ms-text-size-adjust: 100%; /* 4 */
-    -webkit-text-size-adjust: 100%; /* 4 */
+    -webkit-text-size-adjust: 100%; /* 2 */
+    -ms-text-size-adjust: 100%; /* 2 */
 }
 
 /* ==========================================================================
