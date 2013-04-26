@@ -73,12 +73,7 @@ public:
     ///////////////////////////////////////////////////////////////
     // IDeskBand methods
 
-    STDMETHOD(GetBandInfo)
-    (
-        DWORD         dwBandID,
-        DWORD         dwViewMode,
-        DESKBANDINFO* pdbi
-    );
+    STDMETHOD(GetBandInfo)(DWORD dwBandID, DWORD dwViewMode, DESKBANDINFO* pdbi);
 
     STDMETHOD(GetWindow)(HWND* phwnd);
 
@@ -86,12 +81,7 @@ public:
 
     STDMETHOD(ShowDW)(BOOL bShow);
     STDMETHOD(CloseDW)(DWORD dwReserved);
-    STDMETHOD(ResizeBorderDW)
-    (
-        LPCRECT   prcBorder,
-        IUnknown* punkToolbarSite,
-        BOOL      bReserved
-    );
+    STDMETHOD(ResizeBorderDW)(LPCRECT prcBorder, IUnknown* punkToolbarSite, BOOL bReserved);
 
     STDMETHOD(CanRenderComposited)(BOOL* pfCanRenderComposited);
     STDMETHOD(SetCompositionState)(BOOL fCompositionEnabled);
@@ -101,12 +91,7 @@ public:
     // IObjectWithSite methods
 
     STDMETHOD(SetSite)(IUnknown* pUnkSite);
-
-    STDMETHOD(GetSite)
-    (
-        REFIID  riid,
-        LPVOID* ppvSite
-    );
+    STDMETHOD(GetSite)(REFIID riid, LPVOID* ppvSite);
 
     ///////////////////////////////////////////////////////////////
     // IPersistStream methods
