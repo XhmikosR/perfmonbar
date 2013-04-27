@@ -22,9 +22,6 @@
 #include "PerfBar.h"
 #include "Configuration.h"
 
-#define IDM_RELOAD 1
-#define IDM_EDIT   2
-
 STDMETHODIMP CPerfBar::FinalConstruct()
 {
     m_currentPage = 0;

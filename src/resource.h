@@ -2,6 +2,8 @@
 // Microsoft Visual C++ generated include file.
 // Used by PerfmonBar.rc
 //
+#define IDM_RELOAD                      1
+#define IDM_EDIT                        2
 #define IDS_PROJNAME                    100
 #define IDR_PERFMONBAR                  101
 #define IDR_PERFBAR                     102
