@@ -26,8 +26,9 @@ BEGIN_OBJECT_MAP(ObjectMap)
 OBJECT_ENTRY(CLSID_PerfBar, CPerfBar)
 END_OBJECT_MAP()
 
-BOOL WINAPI DllMain(HINSTANCE hInstance, DWORD dwReason, LPVOID /*lpReserved*/)
+BOOL WINAPI DllMain(HINSTANCE hInstance, DWORD dwReason, LPVOID lpReserved)
 {
+    UNREFERENCED_PARAMETER(lpReserved);
     if (dwReason == DLL_PROCESS_ATTACH) {
         _Module.Init(ObjectMap, hInstance, &LIBID_PerfmonBarLib);
         DisableThreadLibraryCalls(hInstance);
