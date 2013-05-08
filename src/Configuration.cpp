@@ -364,7 +364,7 @@ bool Configuration::ReadDisplay(IXMLDOMNodePtr& node, Display& display)
 
 HRESULT Configuration::GetConfigPath(tstring& filePath)
 {
-    TCHAR path[MAX_PATH];
+    TCHAR path[MAX_PATH] = {0};
     HRESULT hr = SHGetFolderPath(NULL, CSIDL_APPDATA, NULL, SHGFP_TYPE_CURRENT, path);
 
     if (FAILED(hr)) {

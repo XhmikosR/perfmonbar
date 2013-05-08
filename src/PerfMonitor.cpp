@@ -32,7 +32,7 @@ BOOL CPerfMon::Start(std::vector<stdext::pair<tstring, tstring>>& counters)
         return FALSE;
     }
 
-    TCHAR szPathBuffer[1024];
+    TCHAR szPathBuffer[1024] = {0};
     for (std::vector<stdext::pair<tstring, tstring>>::const_iterator it = counters.begin(); it != counters.end(); ++it) {
         _tcscpy_s(szPathBuffer, _countof(szPathBuffer), it->second.c_str());
 

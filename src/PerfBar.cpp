@@ -356,8 +356,8 @@ void CPerfBar::PaintData(HDC hdc, POINT offset)
     TEXTMETRIC textMetric;
     GetTextMetrics(hdc, &textMetric);
 
-    TCHAR buf[1024];
-    TCHAR display[1024];
+    TCHAR buf[1024] = {0};
+    TCHAR display[1024] = {0};
 
     for (size_t i = 0; i < page.Lines.size(); ++i) {
         buf[0] = 0;
@@ -367,7 +367,7 @@ void CPerfBar::PaintData(HDC hdc, POINT offset)
         for (std::vector<Configuration::Display>::iterator iit = line.Display.begin(); iit != line.Display.end(); ++iit) {
             stdext::hash_map<tstring, double>::const_iterator value_it = values.find(iit->Counter);
 
-            TCHAR formattedValue[256];
+            TCHAR formattedValue[256] = {0};
             if (value_it == values.end()) {
                 _tcscpy_s(formattedValue, _countof(formattedValue), _T("[N/A]"));
             } else {
@@ -376,7 +376,7 @@ void CPerfBar::PaintData(HDC hdc, POINT offset)
                     val /= iit->Divide;
                 }
 
-                TCHAR formattingString[256];
+                TCHAR formattingString[256] = {0};
                 _stprintf_s(
                     formattingString,
                     _countof(formattingString),
