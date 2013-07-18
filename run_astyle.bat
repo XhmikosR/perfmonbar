@@ -21,7 +21,7 @@ SET ASTYLE_OPTIONS=--indent=spaces=4 --style=kr^
  --recursive^
  --ignore-exclude-errors --ignore-exclude-errors-x^
  --formatted^
- --exclude=bin --exclude=bin12
+ --exclude=bin --exclude=bin
 
 
 :Start

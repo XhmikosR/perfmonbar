@@ -2,7 +2,6 @@
 /*.sdf
 /*.suo
 /bin
-/bin12
 /build.user.bat
 /ipch
 /setup/PerfmonBar*.exe
@@ -13,4 +12,4 @@
 /src/PerfmonBar_i.h
 /src/PerfmonBar_p.c
 /src/Version.h
-/AStyle.exe
+/[Aa][Ss]tyle.exe

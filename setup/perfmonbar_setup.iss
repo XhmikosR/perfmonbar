@@ -22,7 +22,7 @@
   #error Update your Inno Setup version (5.5.2 or newer)
 #endif
 
-#define bindir "..\bin12"
+#define bindir "..\bin"
 
 #ifnexist bindir + "\Release_Win32\PerfmonBar.dll"
   #error Compile PerfmonBar x86 first
