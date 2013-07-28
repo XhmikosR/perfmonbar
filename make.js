@@ -8,13 +8,13 @@
  */
 
 (function () {
-    'use strict';
+    "use strict";
 
-    require('shelljs/make');
-    var fs = require('fs'),
-        cleanCSS = require('clean-css'),
-        UglifyJS = require('uglify-js'),
-        ROOT_DIR = __dirname + '/';     // absolute path to project's root
+    require("shelljs/make");
+    var fs = require("fs"),
+        cleanCSS = require("clean-css"),
+        UglifyJS = require("uglify-js"),
+        ROOT_DIR = __dirname + "/";     // absolute path to project's root
 
     //
     // make minify
@@ -24,9 +24,9 @@
         echo();
         echo("### Minifying css files...");
 
-        var inCss = cat(['css/jquery.fancybox.css',
-                         'css/normalize.css',
-                         'css/stylesheet.css'
+        var inCss = cat(["css/jquery.fancybox.css",
+                         "css/normalize.css",
+                         "css/stylesheet.css"
         ]);
 
         var outCss = cleanCSS.process(inCss, {
@@ -34,16 +34,16 @@
             keepSpecialComments: 0
         });
 
-        fs.writeFileSync('css/pack.css', outCss, 'utf8');
+        fs.writeFileSync("css/pack.css", outCss, "utf8");
 
         echo();
-        echo('### Finished' + ' ' + 'css/pack.css' + '.');
+        echo("### Finished" + " " + "css/pack.css" + ".");
 
 
         echo();
         echo("### Minifying js files...");
 
-        var inJs = cat(['js/jquery.fancybox.js']);
+        var inJs = cat(["js/jquery.fancybox.js"]);
 
         var minifiedJs = UglifyJS.minify(inJs, {
             compress: true,
@@ -52,10 +52,10 @@
             warnings: false
         });
 
-        fs.writeFileSync('js/jquery.fancybox.min.js', minifiedJs.code, 'utf8');
+        fs.writeFileSync("js/jquery.fancybox.min.js", minifiedJs.code, "utf8");
 
         echo();
-        echo('### Finished' + ' ' + 'js/jquery.fancybox.min.js' + '.');
+        echo("### Finished" + " " + "js/jquery.fancybox.min.js" + ".");
     };
 
 
