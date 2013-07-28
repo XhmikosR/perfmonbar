@@ -23,7 +23,6 @@ section {
 
 h1, h2, h3/*, h4, h5, h6*/ {
     color: #b5e853;
-    font-family: Monaco, "Bitstream Vera Sans Mono", "Lucida Console", Terminal, monospace;
     font-weight: normal;
     letter-spacing: -0.03em;
     margin: 15px 0;
@@ -119,7 +118,6 @@ ul li {
 ul li:before {
     color: #b5e853;
     content: ">>";
-    font-family: Monaco, "Bitstream Vera Sans Mono", "Lucida Console", Terminal, monospace;
     font-size: 13px;
     line-height: 16px;
     margin-left: -37px;
@@ -176,7 +174,7 @@ hr {
 }
 
 .btn {
-    background-image: -webkit-linear-gradient(top, rgba(40, 40, 40, 0.3), rgba(35, 35, 35, 0.3) 50%, rgba(10, 10, 10, 0.3) 50%, rgba(0, 0, 0, 0.3));       /* Chrome, Safari4+ */
+    background-image: -webkit-linear-gradient(top, rgba(40, 40, 40, 0.3), rgba(35, 35, 35, 0.3) 50%, rgba(10, 10, 10, 0.3) 50%, rgba(0, 0, 0, 0.3));       /* Chrome10+, Safari5.1+ */
     background-image:    -moz-linear-gradient(top, rgba(40, 40, 40, 0.3), rgba(35, 35, 35, 0.3) 50%, rgba(10, 10, 10, 0.3) 50%, rgba(0, 0, 0, 0.3));       /* FF3.6+ */
     background-image:     -ms-linear-gradient(top, rgba(40, 40, 40, 0.3), rgba(35, 35, 35, 0.3) 50%, rgba(10, 10, 10, 0.3) 50%, rgba(0, 0, 0, 0.3));       /* IE10+ */
     background-image:      -o-linear-gradient(top, rgba(40, 40, 40, 0.3), rgba(35, 35, 35, 0.3) 50%, rgba(10, 10, 10, 0.3) 50%, rgba(0, 0, 0, 0.3));       /* Opera 11.10+ */
@@ -199,7 +197,7 @@ hr {
 }
 
 .btn:hover {
-    background-image: -webkit-linear-gradient(top, rgba(40, 40, 40, 0.6), rgba(35, 35, 35, 0.6) 50%, rgba(10, 10, 10, 0.8) 50%, rgba(0, 0, 0, 0.8));       /* Chrome, Safari4+ */
+    background-image: -webkit-linear-gradient(top, rgba(40, 40, 40, 0.6), rgba(35, 35, 35, 0.6) 50%, rgba(10, 10, 10, 0.8) 50%, rgba(0, 0, 0, 0.8));       /* Chrome10+, Safari5.1+ */
     background-image:    -moz-linear-gradient(top, rgba(40, 40, 40, 0.6), rgba(35, 35, 35, 0.6) 50%, rgba(10, 10, 10, 0.8) 50%, rgba(0, 0, 0, 0.8));       /* FF3.6+ */
     background-image:     -ms-linear-gradient(top, rgba(40, 40, 40, 0.6), rgba(35, 35, 35, 0.6) 50%, rgba(10, 10, 10, 0.8) 50%, rgba(0, 0, 0, 0.8));       /* IE10+ */
     background-image:      -o-linear-gradient(top, rgba(40, 40, 40, 0.6), rgba(35, 35, 35, 0.6) 50%, rgba(10, 10, 10, 0.8) 50%, rgba(0, 0, 0, 0.8));       /* Opera 11.10+ */
