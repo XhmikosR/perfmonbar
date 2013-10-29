@@ -12,7 +12,7 @@
 
     require("shelljs/make");
     var fs = require("fs"),
-        cleanCSS = require("clean-css"),
+        CleanCSS = require("clean-css"),
         UglifyJS = require("uglify-js"),
         ROOT_DIR = __dirname + "/";     // absolute path to project's root
 
@@ -29,12 +29,12 @@
                          "css/stylesheet.css"
         ]);
 
-        var outCss = cleanCSS.process(inCss, {
-            removeEmpty: true,
-            keepSpecialComments: 0
-        });
+        var minifier = new CleanCSS({
+                keepSpecialComments: 0,
+                selectorsMergeMode: "ie8"
+            });
 
-        fs.writeFileSync("css/pack.css", outCss, "utf8");
+        fs.writeFileSync("css/pack.css", minifier.minify(inCss), "utf8");
 
         echo();
         echo("### Finished css/pack.css.");
