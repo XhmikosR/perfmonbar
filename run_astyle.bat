@@ -3,14 +3,14 @@ SETLOCAL
 
 PUSHD %~dp0
 
-SET "AStyleVerMin=2.03"
+SET "AStyleVerMin=2.04"
 astyle --version 2>NUL || (ECHO. & ECHO ERROR: AStyle not found & GOTO End)
 CALL :SubCheckVer || GOTO End
 
 rem  http://astyle.sourceforge.net/astyle.html
 SET ASTYLE_OPTIONS=--indent=spaces=4 --style=kr^
  --indent-switches --indent-namespaces --indent-col1-comments^
- --pad-header --pad-oper --unpad-paren^
+ --attach-inlines --pad-header --pad-oper --unpad-paren^
  --align-pointer=type --align-reference=type^
  --close-templates^
  --add-brackets^
@@ -21,11 +21,11 @@ SET ASTYLE_OPTIONS=--indent=spaces=4 --style=kr^
  --recursive^
  --ignore-exclude-errors --ignore-exclude-errors-x^
  --formatted^
- --exclude=bin --exclude=bin
+ --exclude=bin
 
 
 :Start
-astyle %ASTYLE_OPTIONS% --exclude=resource.h --exclude=Version.h src\*.h src\*.cpp
+astyle %ASTYLE_OPTIONS% --exclude=PerfmonBar_i.h --exclude=resource.h --exclude=Version.h src\*.h src\*.cpp
 
 IF %ERRORLEVEL% NEQ 0 (ECHO. & ECHO ERROR: Something went wrong!)
 

@@ -28,7 +28,7 @@
 class ATL_NO_VTABLE CPerfBar :
     public ATL::CComObjectRootEx<ATL::CComSingleThreadModel>,
     public ATL::CComCoClass<CPerfBar, &CLSID_PerfBar>,
-    public ATL::IDispatchImpl < IPerfBar, &IID_IPerfBar, &LIBID_PerfmonBarLib, /*wMajor =*/ 1, /*wMinor =*/ 0 > ,
+    public ATL::IDispatchImpl <IPerfBar, &IID_IPerfBar, &LIBID_PerfmonBarLib, /*wMajor =*/ 1, /*wMinor =*/ 0> ,
     public IObjectWithSite,
     public IPersistStream,
     public IDeskBand2,
