@@ -173,6 +173,7 @@ hr {
 }
 
 .btn {
+    background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, rgba(40, 40, 40, 0.3)), color-stop(50%, rgba(10, 10, 10, 0.3)), color-stop(100%, rgba(0, 0, 0, 0.3))); /* Chrome,Safari4+ */
     background-image: -webkit-linear-gradient(top, rgba(40, 40, 40, 0.3), rgba(35, 35, 35, 0.3) 50%, rgba(10, 10, 10, 0.3) 50%, rgba(0, 0, 0, 0.3));       /* Chrome10+, Safari5.1+ */
     background-image:    -moz-linear-gradient(top, rgba(40, 40, 40, 0.3), rgba(35, 35, 35, 0.3) 50%, rgba(10, 10, 10, 0.3) 50%, rgba(0, 0, 0, 0.3));       /* FF3.6+ */
     background-image:     -ms-linear-gradient(top, rgba(40, 40, 40, 0.3), rgba(35, 35, 35, 0.3) 50%, rgba(10, 10, 10, 0.3) 50%, rgba(0, 0, 0, 0.3));       /* IE10+ */
@@ -196,6 +197,7 @@ hr {
 }
 
 .btn:hover {
+    background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, rgba(40, 40, 40, 0.8)), color-stop(50%, rgba(10, 10, 10, 0.8)), color-stop(100%, rgba(0, 0, 0, 0.8))); /* Chrome,Safari4+ */
     background-image: -webkit-linear-gradient(top, rgba(40, 40, 40, 0.6), rgba(35, 35, 35, 0.6) 50%, rgba(10, 10, 10, 0.8) 50%, rgba(0, 0, 0, 0.8));       /* Chrome10+, Safari5.1+ */
     background-image:    -moz-linear-gradient(top, rgba(40, 40, 40, 0.6), rgba(35, 35, 35, 0.6) 50%, rgba(10, 10, 10, 0.8) 50%, rgba(0, 0, 0, 0.8));       /* FF3.6+ */
     background-image:     -ms-linear-gradient(top, rgba(40, 40, 40, 0.6), rgba(35, 35, 35, 0.6) 50%, rgba(10, 10, 10, 0.8) 50%, rgba(0, 0, 0, 0.8));       /* IE10+ */
