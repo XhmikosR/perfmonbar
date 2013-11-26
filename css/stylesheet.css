@@ -1,14 +1,16 @@
 /*csslint box-sizing: false, font-sizes: false,
   qualified-headings: false, unique-headings: false*/
 
+html {
+    font: 16px/1.5 Monaco, "Bitstream Vera Sans Mono", "Lucida Console", Terminal, monospace;
+}
+
 body {
     background: #151515 0 0 url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAhQAAAIUAQMAAAB4tCemAAAABlBMVEUaGhobGxsh/u4NAAAEZUlEQVR4Xu3cMXKrUAyFYVK5ZQcsFZbqJVC6ip7RGfE/ObVcnVswOEEfnUYIXZZjeUTEc/mJiPhd3usnju062yLiuP6wP6/j/bfoP49VP/ao65ft9Q5K8vm4oNebXB6/F1Rn8SpX/xg3bNg4FoFvY7sgBaWR5hUpV6R+KiIEjRs2bGQ61oG8oAsUVPngztikglzHOm7YsEFyzaWEG2TiJHV9kpmsIw5lC7nfMWzYoDqo2kGGUoeCtGQoXDc8xw0bNpR1KSB45IrUSB0hsuoJqoivGTZsSCMVUEC0jK0yOM+qxl3HDRs29mdrA7SyQen4WkVyXcSdsacNGzaqbHiE0mwQqQJCLVkVtSob6ChoreOGDRvxlKGEoTNS9ELkFi0xU23MGzZs8PBVPdgM/9FV4Aovrd113LBhg95qdEiRuCRmRVYWiHnDhg2CqBgiXr2Z8PFAVu2C6m1NGzZsVL81omn0sWhmtciIOzvPGzZsfL6rupb8BFKLOvDqgDJ4/YJhw0YVtdXCUgFbeMTfqRa51LjThg0bjPuRhHt5SwuhZYG7cbCOGzZsVO36c7+/YkCwFQu9B6brBI0bNmz8X7uSZlt1oCW3J2vNBs4bNmxUEm7tKl4YBGchoxJAvQA7v2DYsAGtKYA+IMjoNYVupHEn63HDho1a9RIr6qlsRyMf3DlZN8xbn9OGDRtXUBnMsGYkJW9GymjTAopdxw0bNg6F94GqKIjXWcwQ5oG1P8cNGzaUcAli4yq7U6gOGHJhC+G4YcOGOqpUsVQMWnS+qqNAeavY/Rw3bNhgb/8BpIGWV81hCWIsUC7ZedqwYYPBP12vnwrPMxqxvQdbd4hz2rBhg6ctGgcymBJs+6loenE2b9iwQQ82NS2MuiQh6t6g5Jg3bNhg1p8u133pQg9WkWwRKONYxw0bNvY7Q1DycmASO9gxoL9xGDds2KBsuM7aY1hl4p41KHnLHTds2GAiMD43WJemRe1AlyEP67hhw0ZNq/QaVy6bWvq2lT6OvUwbNmxo8fE05YUqYKkTeO1V/+Be04YNG7yc+uxyBVupeM/KovN1jhs2bETwZar2wYrgWYypa+7Fs9g6btiwcWw8d0WUVkE0Aj6/VkXunjds2NDQtILw6Xf1zX8itaqoOMcNGzbY8ofGK1Y+S6kDj2F8oHIdN2zYYGdVyGCLSrQW1tJGBvaglBg3bNgIqZWEW88qXf5b95LBDOu4YcPGTkerd7kYqeZLf8ywkpiPddqwYUNWUCykluUtWtSi+KUgnjds2OgfmeztAl7AKkUzEcgLsG8YNmywqUp0GwVggoUkzGerK2PPGzZsMApwVNaQLzw1EnNCnzsFxw0bNkjHuorIHqTKln0C7A+cN2zYCDqqfEWdSav8mYa02+WtwbRhw0ab56ffqnqWdKxDub1xsJ/jhg0bC5upg9F/igXeEAjPg1z2ac0aNmzgK1yLrYFbuqlRC+tepZ3jhg0bf770157PeGvQXxgUnnn6Hyfy2veDKbwtAAAAAElFTkSuQmCC");
     color: #eaeaea;
-    font: 16px/1.5 Monaco, "Bitstream Vera Sans Mono", "Lucida Console", Terminal, monospace;
     padding: 0;
 }
 
-/* General & "Reset" Stuff */
 .container {
     margin: 0 auto;
     max-width: 600px;
@@ -16,7 +18,6 @@ body {
 }
 
 section {
-    /*display: block;*/ /*inherited from normalize.css*/
     margin: 0 0 20px 0;
 }
 
