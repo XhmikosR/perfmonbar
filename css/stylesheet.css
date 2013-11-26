@@ -206,7 +206,7 @@ hr {
     background-image:         linear-gradient(to bottom, rgba(40, 40, 40, 0.6), rgba(35, 35, 35, 0.6) 50%, rgba(10, 10, 10, 0.8) 50%, rgba(0, 0, 0, 0.8)); /* W3C */
 }
 
-.btn .icon {
+.icon-github {
     background: 0 0 no-repeat url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAAAPFBMVEX///////////////////////////////////////////////////////////////////////////////8gsV51AAAAFHRSTlMADBgkMDxIVGBrb3eDj5unsrO8v5xuV1EAAAB+SURBVHgBXc9BdsNACATRHgdh7AEppO5/1zwrrPJ3sOrShydAuv6s4npF7KbWfTehW9CfT2HEw+wrMEpyQgwFrmw9GIc6xdaLUdqIUDFKgdiWjNM24rQnI5+FshV+AlwhdcoJ/34XsKTApeL4AYTpoDTTC2FBr4nrBpi4f/m/vx0LDaSfJU8AAAAASUVORK5CYII=");
     display: inline-block;
     margin: 4px 8px 0 0;
