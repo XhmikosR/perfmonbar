@@ -1,9 +1,12 @@
 /*.opensdf
 /*.sdf
 /*.suo
+/[Aa][Ss]tyle.exe
 /bin
 /build.user.bat
+/cov-int
 /ipch
+/PerfmonBar.tgz
 /setup/PerfmonBar*.exe
 /src/*.aps
 /src/*.user
@@ -12,4 +15,3 @@
 /src/PerfmonBar_i.h
 /src/PerfmonBar_p.c
 /src/Version.h
-/[Aa][Ss]tyle.exe
