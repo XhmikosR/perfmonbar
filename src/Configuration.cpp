@@ -25,8 +25,10 @@ void Configuration::Initialize()
 {
     static bool ole_initialized = false;
     if (!ole_initialized) {
-        CoInitialize(nullptr);
-        ole_initialized = true;
+        if (SUCCEEDED(CoInitialize(nullptr))) {
+            ole_initialized = true;
+        }
+
     }
 
     _counters.clear();

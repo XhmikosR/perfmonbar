@@ -44,7 +44,7 @@ private:
     BOOL          m_fCompositionEnabled;
 
 public:
-    CPerfBar() {}
+    CPerfBar() : m_font(nullptr), m_currentPage(0), m_fCompositionEnabled(false) {}
 
     DECLARE_REGISTRY_RESOURCEID(IDR_PERFBAR)
 
