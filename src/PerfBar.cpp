@@ -38,7 +38,7 @@ STDMETHODIMP CPerfBar::EditConfiguration()
         return hr;
     }
 
-    ShellExecute(NULL, _T("edit"), configPath.c_str(), NULL, NULL, SW_SHOWNORMAL);
+    ShellExecute(nullptr, _T("edit"), configPath.c_str(), nullptr, nullptr, SW_SHOWNORMAL);
 
     return S_OK;
 }
@@ -104,7 +104,7 @@ STDMETHODIMP CPerfBar::GetWindow(HWND* phWnd)
 {
     HRESULT hr = S_OK;
 
-    if (phWnd == NULL) {
+    if (phWnd == nullptr) {
         hr = E_INVALIDARG;
     } else {
         *phWnd = m_hWnd;
@@ -178,17 +178,17 @@ STDMETHODIMP CPerfBar::SetSite(IUnknown* punkSite)
     HRESULT hr      = E_FAIL;
     ATL::CComQIPtr<IOleWindow> spOleWindow;
     RECT rect       = {0};
-    HWND hWndParent = NULL;
+    HWND hWndParent = nullptr;
 
-    if (punkSite != NULL) {
+    if (punkSite != nullptr) {
         spOleWindow = punkSite;
 
-        if (spOleWindow != NULL) {
+        if (spOleWindow != nullptr) {
             hr = spOleWindow->GetWindow(&hWndParent);
 
             if (SUCCEEDED(hr)) {
                 ::GetClientRect(hWndParent, &rect);
-                Create(hWndParent, rect, NULL, WS_CHILD);
+                Create(hWndParent, rect, nullptr, WS_CHILD);
                 m_spInputObjSite = punkSite;
                 hr = m_spInputObjSite ? S_OK : E_FAIL;
             }
@@ -202,10 +202,10 @@ STDMETHODIMP CPerfBar::GetSite(REFIID riid, LPVOID* ppvReturn)
 {
     HRESULT hr = E_FAIL;
 
-    if (ppvReturn == NULL) {
+    if (ppvReturn == nullptr) {
         hr = E_INVALIDARG;
-    } else if (m_spInputObjSite != NULL) {
-        *ppvReturn = NULL;
+    } else if (m_spInputObjSite != nullptr) {
+        *ppvReturn = nullptr;
         hr = m_spInputObjSite->QueryInterface(riid, ppvReturn);
     }
 
@@ -296,7 +296,7 @@ STDMETHODIMP CPerfBar::Save(LPSTREAM pStream, BOOL bClearDirty)
 
 STDMETHODIMP CPerfBar::GetSizeMax(ULARGE_INTEGER* pcbSize)
 {
-    if (pcbSize == NULL) {
+    if (pcbSize == nullptr) {
         return E_INVALIDARG;
     }
 
@@ -451,10 +451,10 @@ LRESULT CPerfBar::OnPaint(UINT uMsg, WPARAM wParam, LPARAM lParam, BOOL& bHandle
 
     PAINTSTRUCT ps     = {0};
     RECT        rect   = {0};
-    HDC         hdcMem = NULL;
-    HBITMAP     hbmMem = NULL;
-    HBITMAP     hbmOld = NULL;
-    HFONT       hfOld  = NULL;
+    HDC         hdcMem = nullptr;
+    HBITMAP     hbmMem = nullptr;
+    HBITMAP     hbmOld = nullptr;
+    HFONT       hfOld  = nullptr;
 
     BeginPaint(&ps);
 
@@ -548,7 +548,7 @@ LRESULT CPerfBar::OnCreate(UINT uMsg, WPARAM wParam, LPARAM lParam, BOOL& bHandl
 
     ReleaseDC(hDC);
 
-    SetTimer(1000, 1000, NULL);
+    SetTimer(1000, 1000, nullptr);
 
     return 0;
 }
@@ -563,7 +563,7 @@ LRESULT CPerfBar::OnGoodBye(UINT uMsg, WPARAM wParam, LPARAM lParam, BOOL& bHand
 
     if (m_font) {
         DeleteObject(m_font);
-        m_font = NULL;
+        m_font = nullptr;
     }
 
     return 0;

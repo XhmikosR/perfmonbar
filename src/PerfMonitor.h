@@ -29,7 +29,7 @@ private:
     counters_t _counters;
 
 public:
-    CPerfMon() { _query = NULL; }
+    CPerfMon() { _query = nullptr; }
 
     virtual ~CPerfMon() { Stop(); }
 

@@ -25,7 +25,7 @@ void Configuration::Initialize()
 {
     static bool ole_initialized = false;
     if (!ole_initialized) {
-        CoInitialize(NULL);
+        CoInitialize(nullptr);
         ole_initialized = true;
     }
 
@@ -365,7 +365,7 @@ bool Configuration::ReadDisplay(IXMLDOMNodePtr& node, Display& display)
 HRESULT Configuration::GetConfigPath(tstring& filePath)
 {
     TCHAR path[MAX_PATH] = {0};
-    HRESULT hr = SHGetFolderPath(NULL, CSIDL_APPDATA, NULL, SHGFP_TYPE_CURRENT, path);
+    HRESULT hr = SHGetFolderPath(nullptr, CSIDL_APPDATA, nullptr, SHGFP_TYPE_CURRENT, path);
 
     if (FAILED(hr)) {
         return hr;

@@ -26,7 +26,7 @@ BOOL CPerfMon::Start(std::vector<stdext::pair<tstring, tstring>>& counters)
 {
     Stop();
 
-    PDH_STATUS pdhStatus = PdhOpenQuery(NULL, 0, &_query);
+    PDH_STATUS pdhStatus = PdhOpenQuery(nullptr, 0, &_query);
 
     if (pdhStatus != ERROR_SUCCESS) {
         return FALSE;
@@ -62,7 +62,7 @@ void CPerfMon::Stop()
         PdhCloseQuery(_query);
     }
 
-    _query = NULL;
+    _query = nullptr;
     _counters.clear();
 }
 
@@ -78,7 +78,7 @@ stdext::hash_map<tstring, double> CPerfMon::GetValues()
 
     for (counters_t::iterator it = _counters.begin(); it != _counters.end(); ++it) {
         PDH_FMT_COUNTERVALUE pdhCounterValue;
-        pdhStatus = PdhGetFormattedCounterValue(it->second, PDH_FMT_DOUBLE, NULL, &pdhCounterValue);
+        pdhStatus = PdhGetFormattedCounterValue(it->second, PDH_FMT_DOUBLE, nullptr, &pdhCounterValue);
 
         if (pdhStatus == ERROR_SUCCESS) {
             values[it->first] = pdhCounterValue.doubleValue;
