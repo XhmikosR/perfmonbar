@@ -21,13 +21,14 @@
 #define STRICT
 #endif
 
-#ifndef WINVER
-#   ifdef _WIN64
-#       define WINVER 0x0502
-#   else
-#       define WINVER 0x0501
-#   endif // _WIN64
-#endif // WINVER
+#pragma once
+
+// Including SDKDDKVer.h defines the highest available Windows platform.
+
+// If you wish to build your application for a previous Windows platform, include WinSDKVer.h and
+// set the _WIN32_WINNT macro to the platform you wish to support before including SDKDDKVer.h.
+
+#include <SDKDDKVer.h>
 
 #ifndef _ATL_APARTMENT_THREADED
 #define _ATL_APARTMENT_THREADED

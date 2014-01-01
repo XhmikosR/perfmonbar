@@ -1,5 +1,5 @@
 ;
-; Copyright (C) 2011-2013 XhmikosR
+; Copyright (C) 2011-2014 XhmikosR
 ;
 ; This program is free software: you can redistribute it and/or modify
 ; it under the terms of the GNU General Public License as published by
@@ -52,9 +52,9 @@ AppPublisherURL=http://code.google.com/p/perfmonbar/
 AppSupportURL=http://code.google.com/p/perfmonbar/
 AppUpdatesURL=http://code.google.com/p/perfmonbar/
 AppContact=http://code.google.com/p/perfmonbar/
-AppCopyright=Copyright © 2008, Danny Couture - 2010-2013 XhmikosR
+AppCopyright=Copyright © 2008, Danny Couture - 2010-2014 XhmikosR
 VersionInfoCompany=XhmikosR
-VersionInfoCopyright=Copyright © 2008, Danny Couture - 2010-2013 XhmikosR
+VersionInfoCopyright=Copyright © 2008, Danny Couture - 2010-2014 XhmikosR
 VersionInfoDescription={#app_name} {#app_version} Setup
 VersionInfoTextVersion={#app_version}
 VersionInfoVersion={#app_version}
@@ -75,7 +75,7 @@ DisableProgramGroupPage=yes
 DisableReadyPage=yes
 DisableWelcomePage=yes
 AllowCancelDuringInstall=no
-MinVersion=5.1.2600sp3
+MinVersion=6.0
 ArchitecturesAllowed=x86 x64
 ArchitecturesInstallIn64BitMode=x64
 
@@ -85,17 +85,17 @@ Name: en; MessagesFile: compiler:Default.isl
 
 
 [Messages]
-BeveledLabel ={#app_name} {#app_version}
-SetupAppTitle =Setup - {#app_name}
-SetupWindowTitle =Setup - {#app_name}
-WinVersionTooLowError =This program only works on Windows XP SP3 or newer.
+BeveledLabel={#app_name} {#app_version}
+SetupAppTitle=Setup - {#app_name}
+SetupWindowTitle=Setup - {#app_name}
+WinVersionTooLowError=This program only works on Windows Vista or newer.
 
 
 [CustomMessages]
-en.msg_DeleteSettings =Do you also want to delete {#app_name}'s settings?%n%nIf you plan on installing {#app_name} again then you do not have to delete them.
-en.msg_SetupIsRunningWarning ={#app_name} setup is already running!
-en.tsk_ResetSettings =Reset {#app_name}'s settings
-en.run_ViewConfig =View PerfmonBar's configuration file
+en.msg_DeleteSettings=Do you also want to delete {#app_name}'s settings?%n%nIf you plan on installing {#app_name} again then you do not have to delete them.
+en.msg_SetupIsRunningWarning={#app_name} setup is already running!
+en.tsk_ResetSettings=Reset {#app_name}'s settings
+en.run_ViewConfig=View PerfmonBar's configuration file
 
 
 [Tasks]
