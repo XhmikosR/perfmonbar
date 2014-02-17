@@ -41,7 +41,7 @@ li {
      h2     - project description
 */
 header {
-    background-color: black;
+    background-color: #191919;
     background-color: rgba(0, 0, 0, 0.1);
     border-bottom: 1px dashed #b5e853;
     margin: 0 0 40px 0;
@@ -131,7 +131,9 @@ blockquote {
 }
 
 pre {
-    background: rgba(0, 0, 0, 0.9);
+    background-color: black;
+    background-color: rgba(0, 0, 0, 0.9);
+    border: 1px solid #404040;
     border: 1px solid rgba(255, 255, 255, 0.15);
     -webkit-border-radius: 2px;
        -moz-border-radius: 2px;
@@ -207,7 +209,7 @@ hr {
 }
 
 .icon-github {
-    background: 0 0 no-repeat url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAAAPFBMVEX///////////////////////////////////////////////////////////////////////////////8gsV51AAAAFHRSTlMADBgkMDxIVGBrb3eDj5unsrO8v5xuV1EAAAB+SURBVHgBXc9BdsNACATRHgdh7AEppO5/1zwrrPJ3sOrShydAuv6s4npF7KbWfTehW9CfT2HEw+wrMEpyQgwFrmw9GIc6xdaLUdqIUDFKgdiWjNM24rQnI5+FshV+AlwhdcoJ/34XsKTApeL4AYTpoDTTC2FBr4nrBpi4f/m/vx0LDaSfJU8AAAAASUVORK5CYII=");
+    background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAAAPFBMVEX///////////////////////////////////////////////////////////////////////////////8gsV51AAAAFHRSTlMADBgkMDxIVGBrb3eDj5unsrO8v5xuV1EAAAB+SURBVHgBXc9BdsNACATRHgdh7AEppO5/1zwrrPJ3sOrShydAuv6s4npF7KbWfTehW9CfT2HEw+wrMEpyQgwFrmw9GIc6xdaLUdqIUDFKgdiWjNM24rQnI5+FshV+AlwhdcoJ/34XsKTApeL4AYTpoDTTC2FBr4nrBpi4f/m/vx0LDaSfJU8AAAAASUVORK5CYII=");
     display: inline-block;
     margin: 4px 8px 0 0;
     opacity: 0.75;
@@ -229,16 +231,11 @@ a:visited {
 
 /* Clearfix */
 /*
-.clearfix {
-    zoom: 1;
-}
-
 .clearfix:before,
 .clearfix:after {
-    content: "";
     display: table;
+    content: " ";
 }
-
 .clearfix:after {
     clear: both;
 }*/
