@@ -273,11 +273,11 @@ bool Configuration::ReadLine(IXMLDOMNodePtr& node, Line& line)
         if (name == bstr_t("fontFamily")) {
             line.Font.Family = bstr_t(value);
         } else if (name == bstr_t("fontBold")) {
-            line.Font.Bold = _tcsicmp(bstr_t(value), _T("true")) == 0;
+            line.Font.Bold = _wcsicmp(bstr_t(value), L"true") == 0;
         } else if (name == bstr_t("fontItalic")) {
-            line.Font.Italic = _tcsicmp(bstr_t(value), _T("true")) == 0;
+            line.Font.Italic = _wcsicmp(bstr_t(value), L"true") == 0;
         } else if (name == bstr_t("fontColor")) {
-            _stscanf_s(bstr_t(value), _T("%X"), &line.Font.Color);
+            swscanf_s(bstr_t(value), L"%X", &line.Font.Color);
         } else if (name == bstr_t("fontSize")) {
             line.Font.Size = atof(bstr_t(value));
         }
@@ -364,16 +364,16 @@ bool Configuration::ReadDisplay(IXMLDOMNodePtr& node, Display& display)
     return true;
 }
 
-HRESULT Configuration::GetConfigPath(tstring& filePath)
+HRESULT Configuration::GetConfigPath(std::wstring& filePath)
 {
-    TCHAR path[MAX_PATH] = {0};
-    HRESULT hr = SHGetFolderPath(nullptr, CSIDL_APPDATA, nullptr, SHGFP_TYPE_CURRENT, path);
+    wchar_t path[MAX_PATH] = {0};
+    HRESULT hr = SHGetFolderPathW(nullptr, CSIDL_APPDATA, nullptr, SHGFP_TYPE_CURRENT, path);
 
     if (FAILED(hr)) {
         return hr;
     }
 
-    filePath = tstring(path) + _T("\\PerfmonBar\\config.xml");
+    filePath = std::wstring(path) + L"\\PerfmonBar\\config.xml";
     return S_OK;
 }
 
@@ -389,7 +389,7 @@ bool Configuration::Read()
     }
 
     VARIANT_BOOL success;
-    tstring configPath;
+    std::wstring configPath;
     hr = GetConfigPath(configPath);
     if (hr != S_OK) {
         return false;

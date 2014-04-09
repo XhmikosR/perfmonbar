@@ -23,7 +23,7 @@
 
 class CPerfMon
 {
-    typedef std::vector<stdext::pair<tstring, HCOUNTER>> counters_t;
+    typedef std::vector<stdext::pair<std::wstring, HCOUNTER>> counters_t;
 private:
     HQUERY     _query;
     counters_t _counters;
@@ -33,7 +33,7 @@ public:
 
     virtual ~CPerfMon() { Stop(); }
 
-    BOOL Start(std::vector<stdext::pair<tstring, tstring>>& counters);
+    BOOL Start(std::vector<stdext::pair<std::wstring, std::wstring>>& counters);
     void Stop();
-    stdext::hash_map<tstring, double> GetValues();
+    stdext::hash_map<std::wstring, double> GetValues();
 };

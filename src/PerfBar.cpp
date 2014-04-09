@@ -31,14 +31,14 @@ STDMETHODIMP CPerfBar::FinalConstruct()
 
 STDMETHODIMP CPerfBar::EditConfiguration()
 {
-    tstring configPath;
+    std::wstring configPath;
     HRESULT hr = m_config.GetConfigPath(configPath);
 
     if (FAILED(hr)) {
         return hr;
     }
 
-    ShellExecute(nullptr, _T("edit"), configPath.c_str(), nullptr, nullptr, SW_SHOWNORMAL);
+    ShellExecuteW(nullptr, L"edit", configPath.c_str(), nullptr, nullptr, SW_SHOWNORMAL);
 
     return S_OK;
 }
@@ -47,7 +47,7 @@ STDMETHODIMP CPerfBar::ReloadConfiguration()
 {
     m_perfMonitor.Stop();
     m_config.Read();
-    std::vector<stdext::pair<tstring, tstring>> counterNames;
+    std::vector<stdext::pair<std::wstring, std::wstring>> counterNames;
     Configuration::counters_t& counters = m_config.GetCounters();
 
     for (Configuration::counters_t::iterator it = counters.begin(); it != counters.end(); ++it) {
@@ -260,9 +260,9 @@ STDMETHODIMP CPerfBar::QueryContextMenu(HMENU hMenu,
     if (CMF_DEFAULTONLY & uFlags) {
         hr = MAKE_HRESULT(SEVERITY_SUCCESS, 0, 0);
     } else {
-        InsertMenu(hMenu, indexMenu, MF_SEPARATOR | MF_BYPOSITION, idCmdFirst, 0);
-        InsertMenu(hMenu, indexMenu, MF_STRING    | MF_BYPOSITION, idCmdFirst + IDM_RELOAD, _T("Performance Monitor - (Reload Configuration)"));
-        InsertMenu(hMenu, indexMenu, MF_STRING    | MF_BYPOSITION, idCmdFirst + IDM_EDIT,   _T("Performance Monitor - (Edit Configuration)"));
+        InsertMenuW(hMenu, indexMenu, MF_SEPARATOR | MF_BYPOSITION, idCmdFirst, 0);
+        InsertMenuW(hMenu, indexMenu, MF_STRING    | MF_BYPOSITION, idCmdFirst + IDM_RELOAD, L"Performance Monitor - (Reload Configuration)");
+        InsertMenuW(hMenu, indexMenu, MF_STRING    | MF_BYPOSITION, idCmdFirst + IDM_EDIT,   L"Performance Monitor - (Edit Configuration)");
 
         hr = MAKE_HRESULT(SEVERITY_SUCCESS, FACILITY_NULL, 3);
     }
@@ -351,13 +351,13 @@ void CPerfBar::PaintData(HDC hdc, POINT offset)
         return;
     }
 
-    stdext::hash_map<tstring, double> values = m_perfMonitor.GetValues();
+    stdext::hash_map<std::wstring, double> values = m_perfMonitor.GetValues();
 
     TEXTMETRIC textMetric;
     GetTextMetrics(hdc, &textMetric);
 
-    TCHAR buf[1024] = {0};
-    TCHAR display[1024] = {0};
+    wchar_t buf[1024] = {0};
+    wchar_t display[1024] = {0};
 
     for (size_t i = 0; i < page.Lines.size(); ++i) {
         buf[0] = 0;
@@ -365,28 +365,28 @@ void CPerfBar::PaintData(HDC hdc, POINT offset)
         Configuration::Line& line = page.Lines[i];
 
         for (std::vector<Configuration::Display>::iterator iit = line.Display.begin(); iit != line.Display.end(); ++iit) {
-            stdext::hash_map<tstring, double>::const_iterator value_it = values.find(iit->Counter);
+            stdext::hash_map<std::wstring, double>::const_iterator value_it = values.find(iit->Counter);
 
-            TCHAR formattedValue[256] = {0};
+            wchar_t formattedValue[256] = {0};
             if (value_it == values.end()) {
-                _tcscpy_s(formattedValue, _countof(formattedValue), _T("[N/A]"));
+                wcscpy_s(formattedValue, _countof(formattedValue), L"[N/A]");
             } else {
                 double val = value_it->second;
                 if (iit->Divide > 0) {
                     val /= iit->Divide;
                 }
 
-                TCHAR formattingString[256] = {0};
-                _stprintf_s(
+                wchar_t formattingString[256] = {0};
+                swprintf_s(
                     formattingString,
                     _countof(formattingString),
-                    _T("%s%d%s"),
-                    _T("%."),
+                    L"%s%d%s",
+                    L"%.",
                     iit->Decimals > 0 ? iit->Decimals : 0,
-                    _T("f")
+                    L"f"
                 );
 
-                _stprintf_s(
+                swprintf_s(
                     formattedValue,
                     _countof(formattedValue),
                     formattingString,
@@ -394,16 +394,16 @@ void CPerfBar::PaintData(HDC hdc, POINT offset)
                 );
             }
 
-            _stprintf_s(
+            swprintf_s(
                 display,
                 _countof(display),
-                _T("%s%s%s"),
+                L"%s%s%s",
                 iit->Prefix.c_str(),
                 formattedValue,
                 iit->Suffix.c_str()
             );
 
-            _tcscat_s(buf, _countof(buf), display);
+            wcscat_s(buf, _countof(buf), display);
         }
 
         RECT rc;
@@ -417,7 +417,7 @@ void CPerfBar::PaintData(HDC hdc, POINT offset)
         rc.right += offset.x;
 
         HFONT font =
-            CreateFont(
+            CreateFontW(
                 -MulDiv((int)line.Font.Size, GetDeviceCaps(hdc, LOGPIXELSY), 72),
                 0,
                 0,
@@ -436,7 +436,7 @@ void CPerfBar::PaintData(HDC hdc, POINT offset)
 
         SetTextColor(hdc, line.Font.Color);
         HFONT oldFont = (HFONT)SelectObject(hdc, font);
-        DrawText(hdc, buf, (int)_tcslen(buf), &rc, DT_LEFT | DT_TOP);
+        DrawTextW(hdc, buf, (int)wcslen(buf), &rc, DT_LEFT | DT_TOP);
         SelectObject(hdc, oldFont);
         DeleteObject(font);
     }
@@ -529,7 +529,7 @@ LRESULT CPerfBar::OnCreate(UINT uMsg, WPARAM wParam, LPARAM lParam, BOOL& bHandl
     HDC hDC = GetDC();
 
     m_font =
-        CreateFont(
+        CreateFontW(
             -MulDiv(8, GetDeviceCaps(hDC, LOGPIXELSY), 72),
             0,
             0,
@@ -543,7 +543,7 @@ LRESULT CPerfBar::OnCreate(UINT uMsg, WPARAM wParam, LPARAM lParam, BOOL& bHandl
             0,
             0,
             0,
-            _T("Arial")
+            L"Arial"
         );
 
     ReleaseDC(hDC);

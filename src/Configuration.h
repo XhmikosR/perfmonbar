@@ -25,11 +25,11 @@ class Configuration
 {
 public:
     struct Display {
-        tstring Counter;
-        tstring Prefix;
-        tstring Suffix;
-        int     Decimals;
-        int     Divide;
+        std::wstring Counter;
+        std::wstring Prefix;
+        std::wstring Suffix;
+        int          Decimals;
+        int          Divide;
 
         Display()
             : Decimals(0)
@@ -38,14 +38,14 @@ public:
     };
 
     struct Font {
-        tstring Family;
-        bool    Bold;
-        bool    Italic;
-        DWORD   Color;
-        double  Size;
+        std::wstring Family;
+        bool         Bold;
+        bool         Italic;
+        DWORD        Color;
+        double       Size;
 
         Font()
-            : Family(_T("Arial"))
+            : Family(L"Arial")
             , Bold(true)
             , Italic(false)
             , Color(0x00FFFFFF)
@@ -68,11 +68,11 @@ public:
     };
 
     struct Counter {
-        tstring Name;
-        tstring Value;
+        std::wstring Name;
+        std::wstring Value;
     };
 
-    typedef stdext::hash_map<tstring, Counter> counters_t;
+    typedef stdext::hash_map<std::wstring, Counter> counters_t;
     typedef std::vector<Page> pages_t;
 
 private:
@@ -89,7 +89,7 @@ private:
     bool ReadDisplay(IXMLDOMNodePtr& node, Display& display);
 
 public:
-    HRESULT GetConfigPath(tstring& configPath);
+    HRESULT GetConfigPath(std::wstring& configPath);
     bool Read();
 
     counters_t& GetCounters() { return _counters; }

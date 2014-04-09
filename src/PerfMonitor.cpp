@@ -22,7 +22,7 @@
 #include "PerfMonitor.h"
 #include "PerfBar.h"
 
-BOOL CPerfMon::Start(std::vector<stdext::pair<tstring, tstring>>& counters)
+BOOL CPerfMon::Start(std::vector<stdext::pair<std::wstring, std::wstring>>& counters)
 {
     Stop();
 
@@ -32,17 +32,17 @@ BOOL CPerfMon::Start(std::vector<stdext::pair<tstring, tstring>>& counters)
         return FALSE;
     }
 
-    TCHAR szPathBuffer[1024] = {0};
-    for (std::vector<stdext::pair<tstring, tstring>>::const_iterator it = counters.begin(); it != counters.end(); ++it) {
-        _tcscpy_s(szPathBuffer, _countof(szPathBuffer), it->second.c_str());
+    wchar_t szPathBuffer[1024] = {0};
+    for (std::vector<stdext::pair<std::wstring, std::wstring>>::const_iterator it = counters.begin(); it != counters.end(); ++it) {
+        wcscpy_s(szPathBuffer, _countof(szPathBuffer), it->second.c_str());
 
-        pdhStatus = PdhValidatePath(szPathBuffer);
+        pdhStatus = PdhValidatePathW(szPathBuffer);
         if (pdhStatus != ERROR_SUCCESS) {
             continue;
         }
 
         HCOUNTER counter = 0;
-        pdhStatus = PdhAddCounter(_query, szPathBuffer, 0, &counter) ;
+        pdhStatus = PdhAddCounterW(_query, szPathBuffer, 0, &counter) ;
 
         if (pdhStatus == ERROR_SUCCESS) {
             _counters.push_back(make_pair(it->first, counter));
@@ -66,15 +66,15 @@ void CPerfMon::Stop()
     _counters.clear();
 }
 
-stdext::hash_map<tstring, double> CPerfMon::GetValues()
+stdext::hash_map<std::wstring, double> CPerfMon::GetValues()
 {
     PDH_STATUS pdhStatus = PdhCollectQueryData(_query);
 
     if (pdhStatus != ERROR_SUCCESS) {
-        return stdext::hash_map<tstring, double>();
+        return stdext::hash_map<std::wstring, double>();
     }
 
-    stdext::hash_map<tstring, double> values;
+    stdext::hash_map<std::wstring, double> values;
 
     for (counters_t::iterator it = _counters.begin(); it != _counters.end(); ++it) {
         PDH_FMT_COUNTERVALUE pdhCounterValue;
