@@ -50,7 +50,7 @@ STDMETHODIMP CPerfBar::ReloadConfiguration()
     std::vector<stdext::pair<std::wstring, std::wstring>> counterNames;
     Configuration::counters_t& counters = m_config.GetCounters();
 
-    for (Configuration::counters_t::iterator it = counters.begin(); it != counters.end(); ++it) {
+    for (auto it = counters.begin(); it != counters.end(); ++it) {
         counterNames.push_back(make_pair(it->first, it->second.Value));
     }
 
@@ -364,7 +364,7 @@ void CPerfBar::PaintData(HDC hdc, POINT offset)
 
         Configuration::Line& line = page.Lines[i];
 
-        for (std::vector<Configuration::Display>::iterator iit = line.Display.begin(); iit != line.Display.end(); ++iit) {
+        for (auto iit = line.Display.begin(); iit != line.Display.end(); ++iit) {
             stdext::hash_map<std::wstring, double>::const_iterator value_it = values.find(iit->Counter);
 
             wchar_t formattedValue[256] = {0};

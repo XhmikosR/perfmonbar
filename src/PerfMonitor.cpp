@@ -33,7 +33,7 @@ BOOL CPerfMon::Start(std::vector<stdext::pair<std::wstring, std::wstring>>& coun
     }
 
     wchar_t szPathBuffer[1024] = {0};
-    for (std::vector<stdext::pair<std::wstring, std::wstring>>::const_iterator it = counters.begin(); it != counters.end(); ++it) {
+    for (auto it = counters.begin(); it != counters.end(); ++it) {
         wcscpy_s(szPathBuffer, _countof(szPathBuffer), it->second.c_str());
 
         pdhStatus = PdhValidatePathW(szPathBuffer);
@@ -54,7 +54,7 @@ BOOL CPerfMon::Start(std::vector<stdext::pair<std::wstring, std::wstring>>& coun
 
 void CPerfMon::Stop()
 {
-    for (counters_t::iterator it = _counters.begin(); it != _counters.end(); ++it) {
+    for (auto it = _counters.begin(); it != _counters.end(); ++it) {
         PdhRemoveCounter(it->second);
     }
 
@@ -76,7 +76,7 @@ stdext::hash_map<std::wstring, double> CPerfMon::GetValues()
 
     stdext::hash_map<std::wstring, double> values;
 
-    for (counters_t::iterator it = _counters.begin(); it != _counters.end(); ++it) {
+    for (auto it = _counters.begin(); it != _counters.end(); ++it) {
         PDH_FMT_COUNTERVALUE pdhCounterValue;
         pdhStatus = PdhGetFormattedCounterValue(it->second, PDH_FMT_DOUBLE, nullptr, &pdhCounterValue);
 
