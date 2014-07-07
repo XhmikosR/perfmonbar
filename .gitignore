@@ -6,6 +6,7 @@
 /build.user.bat
 /cov-int
 /ipch
+/PerfmonBar.lzma
 /PerfmonBar.tgz
 /setup/PerfmonBar*.exe
 /src/*.aps

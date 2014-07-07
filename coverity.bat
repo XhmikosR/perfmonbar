@@ -1,6 +1,6 @@
 @ECHO OFF
 REM
-REM  Copyright (C) 2013 XhmikosR
+REM  Copyright (C) 2013-2014 XhmikosR
 REM
 REM  This program is free software: you can redistribute it and/or modify
 REM  it under the terms of the GNU General Public License as published by
@@ -20,7 +20,7 @@ SETLOCAL
 
 PUSHD %~dp0
 
-IF NOT DEFINED COVDIR SET "COVDIR=H:\progs\thirdparty\cov-analysis-win64-6.6.1"
+IF NOT DEFINED COVDIR SET "COVDIR=H:\progs\thirdparty\cov-analysis-win64-7.5.0"
 IF DEFINED COVDIR IF NOT EXIST "%COVDIR%" (
   ECHO.
   ECHO ERROR: Coverity not found in "%COVDIR%"
@@ -34,29 +34,48 @@ IF %ERRORLEVEL% NEQ 0 (
   GOTO End
 )
 
+
+:Cleanup
 IF EXIST "cov-int" RD /q /s "cov-int"
+IF EXIST "PerfmonBar.lzma" DEL "PerfmonBar.lzma"
+IF EXIST "PerfmonBar.tar"  DEL "PerfmonBar.tar"
+IF EXIST "PerfmonBar.tgz"  DEL "PerfmonBar.tgz"
 
+
+:Main
 "%COVDIR%\bin\cov-build.exe" --dir cov-int "build.bat" Rebuild All
-
-IF EXIST "PerfmonBar.tar" DEL "PerfmonBar.tar"
-IF EXIST "PerfmonBar.tgz" DEL "PerfmonBar.tgz"
 
 
 :tar
 tar --version 1>&2 2>NUL || (ECHO. & ECHO ERROR: tar not found & GOTO SevenZip)
-tar czvf "PerfmonBar.tgz" "cov-int"
+tar caf "PerfmonBar.lzma" "cov-int"
 GOTO End
 
 
 :SevenZip
-IF NOT EXIST "%PROGRAMFILES%\7za.exe" (
-  ECHO.
-  ECHO ERROR: "%PROGRAMFILES%\7za.exe" not found
+CALL :SubDetectSevenzipPath
+
+rem Coverity is totally bogus with lzma...
+rem And since I cannot replicate the arguments with 7-Zip, just use tar/gzip.
+IF EXIST "%SEVENZIP%" (
+  "%SEVENZIP%" a -ttar "PerfmonBar.tar" "cov-int"
+  "%SEVENZIP%" a -tgzip "PerfmonBar.tgz" "PerfmonBar.tar"
+  IF EXIST "PerfmonBar.tar" DEL "PerfmonBar.tar"
   GOTO End
 )
-"%PROGRAMFILES%\7za.exe" a -ttar "PerfmonBar.tar" "cov-int"
-"%PROGRAMFILES%\7za.exe" a -tgzip "PerfmonBar.tgz" "PerfmonBar.tar"
-IF EXIST "PerfmonBar.tar" DEL "PerfmonBar.tar"
+
+
+:SubDetectSevenzipPath
+FOR %%G IN (7z.exe) DO (SET "SEVENZIP_PATH=%%~$PATH:G")
+IF EXIST "%SEVENZIP_PATH%" (SET "SEVENZIP=%SEVENZIP_PATH%" & EXIT /B)
+
+FOR %%G IN (7za.exe) DO (SET "SEVENZIP_PATH=%%~$PATH:G")
+IF EXIST "%SEVENZIP_PATH%" (SET "SEVENZIP=%SEVENZIP_PATH%" & EXIT /B)
+
+FOR /F "tokens=2*" %%A IN (
+  'REG QUERY "HKLM\SOFTWARE\7-Zip" /v "Path" 2^>NUL ^| FIND "REG_SZ" ^|^|
+   REG QUERY "HKLM\SOFTWARE\Wow6432Node\7-Zip" /v "Path" 2^>NUL ^| FIND "REG_SZ"') DO SET "SEVENZIP=%%B\7z.exe"
+EXIT /B
 
 
 :End
