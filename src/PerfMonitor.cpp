@@ -16,6 +16,7 @@
 */
 
 #include "stdafx.h"
+#include <atlbase.h>
 #include <hash_map>
 #include <vector>
 #include <pdh.h>

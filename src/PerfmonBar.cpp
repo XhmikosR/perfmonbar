@@ -16,6 +16,7 @@
 */
 
 #include "stdafx.h"
+#include <atlbase.h>
 #include "resource.h"
 #include "PerfmonBar_i.h"
 #include "PerfBar.h"
@@ -39,7 +40,7 @@ BOOL WINAPI DllMain(HINSTANCE hInstance, DWORD dwReason, LPVOID lpReserved)
 }
 
 // Used to determine whether the DLL can be unloaded by OLE
-STDAPI DllCanUnloadNow(void)
+STDAPI DllCanUnloadNow()
 {
     return (_Module.GetLockCount() == 0) ? S_OK : S_FALSE;
 }
@@ -51,13 +52,13 @@ STDAPI DllGetClassObject(REFCLSID rclsid, REFIID riid, LPVOID* ppv)
 }
 
 // DllRegisterServer - Adds entries to the system registry
-STDAPI DllRegisterServer(void)
+STDAPI DllRegisterServer()
 {
     return _Module.RegisterServer(TRUE);
 }
 
 // DllUnregisterServer - Removes entries from the system registry
-STDAPI DllUnregisterServer(void)
+STDAPI DllUnregisterServer()
 {
     return _Module.UnregisterServer(TRUE);
 }
