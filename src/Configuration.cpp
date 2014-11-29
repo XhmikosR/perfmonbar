@@ -80,7 +80,7 @@ bool Configuration::ReadCounters(IXMLDOMNodePtr& node, counters_t& counters)
     IXMLDOMNodePtr childNode;
     HRESULT hr = node->get_firstChild(&childNode);
 
-    while (childNode != 0) {
+    while (childNode != nullptr) {
         ATL::CComBSTR nodeName;
         hr = childNode->get_nodeName(&nodeName);
         if (FAILED(hr)) {
@@ -111,7 +111,7 @@ bool Configuration::ReadPages(IXMLDOMNodePtr& node, std::vector<Page>& pages)
     IXMLDOMNodePtr childNode;
     HRESULT hr = node->get_firstChild(&childNode);
 
-    while (childNode != 0) {
+    while (childNode != nullptr) {
         ATL::CComBSTR nodeName;
         hr = childNode->get_nodeName(&nodeName);
         if (FAILED(hr)) {
@@ -181,7 +181,7 @@ bool Configuration::ReadPage(IXMLDOMNodePtr& node, Page& page)
     IXMLDOMNodePtr childNode;
     hr = node->get_firstChild(&childNode);
 
-    while (childNode != 0) {
+    while (childNode != nullptr) {
         ATL::CComBSTR nodeName;
         hr = childNode->get_nodeName(&nodeName);
         if (FAILED(hr)) {
@@ -209,7 +209,7 @@ bool Configuration::ReadLines(IXMLDOMNodePtr& node, std::vector<Line>& lines)
     IXMLDOMNodePtr childNode;
     HRESULT hr = node->get_firstChild(&childNode);
 
-    while (childNode != 0) {
+    while (childNode != nullptr) {
         ATL::CComBSTR nodeName;
         hr = childNode->get_nodeName(&nodeName);
         if (FAILED(hr)) {
@@ -287,7 +287,7 @@ bool Configuration::ReadLine(IXMLDOMNodePtr& node, Line& line)
     IXMLDOMNodePtr childNode;
     hr = node->get_firstChild(&childNode);
 
-    while (childNode != 0) {
+    while (childNode != nullptr) {
         ATL::CComBSTR nodeName;
         hr = childNode->get_nodeName(&nodeName);
         if (FAILED(hr)) {
@@ -418,7 +418,7 @@ bool Configuration::Read()
         IXMLDOMNodePtr childNode;
         hr = pDocRoot->get_firstChild(&childNode);
 
-        while (childNode != 0) {
+        while (childNode != nullptr) {
             ATL::CComBSTR nodeName;
             hr = childNode->get_nodeName(&nodeName);
             if (FAILED(hr)) {

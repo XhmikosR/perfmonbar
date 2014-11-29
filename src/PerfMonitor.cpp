@@ -42,8 +42,8 @@ BOOL CPerfMon::Start(std::vector<stdext::pair<std::wstring, std::wstring>>& coun
             continue;
         }
 
-        HCOUNTER counter = 0;
-        pdhStatus = PdhAddCounterW(_query, szPathBuffer, 0, &counter) ;
+        HCOUNTER counter = nullptr;
+        pdhStatus = PdhAddCounterW(_query, szPathBuffer, 0, &counter);
 
         if (pdhStatus == ERROR_SUCCESS) {
             _counters.push_back(make_pair(it->first, counter));
