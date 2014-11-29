@@ -80,16 +80,16 @@ private:
     pages_t    _pages;
 
     void Initialize();
-    bool ReadCounter(IXMLDOMNodePtr& node, Counter& counter);
-    bool ReadCounters(IXMLDOMNodePtr& node, counters_t& counters);
-    bool ReadPages(IXMLDOMNodePtr& node, std::vector<Page>& pages);
-    bool ReadPage(IXMLDOMNodePtr& node, Page& page);
-    bool ReadLines(IXMLDOMNodePtr& node, std::vector<Line>& lines);
-    bool ReadLine(IXMLDOMNodePtr& node, Line& line);
-    bool ReadDisplay(IXMLDOMNodePtr& node, Display& display);
+    static bool ReadCounter(IXMLDOMNodePtr& node, Counter& counter);
+    static bool ReadCounters(IXMLDOMNodePtr& node, counters_t& counters);
+    static bool ReadPages(IXMLDOMNodePtr& node, std::vector<Page>& pages);
+    static bool ReadPage(IXMLDOMNodePtr& node, Page& page);
+    static bool ReadLines(IXMLDOMNodePtr& node, std::vector<Line>& lines);
+    static bool ReadLine(IXMLDOMNodePtr& node, Line& line);
+    static bool ReadDisplay(IXMLDOMNodePtr& node, Display& display);
 
 public:
-    HRESULT GetConfigPath(std::wstring& configPath);
+    static HRESULT GetConfigPath(std::wstring& configPath);
     bool Read();
 
     counters_t& GetCounters() { return _counters; }
