@@ -18,28 +18,24 @@
   </counters>
   <pages>
     <!-- use left button click on the performance bar to switch between the pages -->
-    <page offsetY="1">
+    <page offsetY="4">
       <lines>
-        <line fontFamily="Arial" fontSize="8" fontItalic="false" fontBold="true" fontColor="FFFFFF">
+        <line fontFamily="Segoe UI" fontSize="8" fontItalic="false" fontBold="true" fontColor="FFFFFF">
           <display prefix="CPU: " suffix="% " counter="cpu"/>
           <!--<display prefix="@" suffix=" " counter="cpufreq"/>-->
-          <display prefix="|| RAM: " suffix=" MB" counter="mem" decimals="1" divide="1048576"/>
-          <!--<<display prefix="|| RAM: " suffix=" GB" counter="mem" decimals="2" divide="1073741824"/>-->
-          <!--<display prefix="CONT: " counter="contention"/>-->
+          <display prefix="· RAM: " suffix=" MB" counter="mem" decimals="1" divide="1048576"/>
+          <!--<<display prefix="· RAM: " suffix=" GB" counter="mem" decimals="2" divide="1073741824"/>-->
         </line>
-        <line>
+        <line fontFamily="Segoe UI" fontSize="8" fontItalic="false" fontBold="true" fontColor="FFFFFF">
           <display prefix="Proc: " suffix="" counter="processCount"/>
-          <display prefix="||D: " suffix="KB/s" counter="netin" decimals="0" divide="1024"/>
-          <display prefix="||U: " suffix="KB/s" counter="netout" decimals="0" divide="1024"/>
-          <!--<display prefix="TCP: " suffix=" " counter="tcp"/>-->
-          <!--<display prefix="GC: " suffix="% " counter="gc"/>-->
-          <!--<display prefix="NEW: " counter="alloc" decimals="2" divide="1048576"/>-->
+          <display prefix=" · D: " suffix="KB/s" counter="netin" decimals="0" divide="1024"/>
+          <display prefix=" || U: " suffix="KB/s" counter="netout" decimals="0" divide="1024"/>
         </line>
       </lines>
     </page>
-    <page offsetY="1">
+    <page offsetY="4">
       <lines>
-        <line>
+        <line fontFamily="Segoe UI" fontSize="8" fontItalic="false" fontBold="true" fontColor="FFFFFF">
           <display prefix="Free C: " suffix=" GB" counter="freediskC" decimals="1" divide="1024"/>
         </line>
       </lines>
