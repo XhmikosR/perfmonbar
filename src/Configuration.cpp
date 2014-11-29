@@ -277,7 +277,7 @@ bool Configuration::ReadLine(IXMLDOMNodePtr& node, Line& line)
         } else if (name == bstr_t("fontItalic")) {
             line.Font.Italic = _wcsicmp(bstr_t(value), L"true") == 0;
         } else if (name == bstr_t("fontColor")) {
-            swscanf_s(bstr_t(value), L"%X", &line.Font.Color);
+            swscanf_s(bstr_t(value), L"%lX", &line.Font.Color);
         } else if (name == bstr_t("fontSize")) {
             line.Font.Size = atof(bstr_t(value));
         }
