@@ -16,6 +16,7 @@
 */
 
 #include "stdafx.h"
+#include <atlbase.h>
 #include <vector>
 #include <shlobj.h>
 #include <comdef.h>
@@ -80,13 +81,13 @@ bool Configuration::ReadCounters(IXMLDOMNodePtr& node, counters_t& counters)
     HRESULT hr = node->get_firstChild(&childNode);
 
     while (childNode != 0) {
-        BSTR nodeName;
+        ATL::CComBSTR nodeName;
         hr = childNode->get_nodeName(&nodeName);
         if (FAILED(hr)) {
             return false;
         }
 
-        if (bstr_t(nodeName) == bstr_t("counter")) {
+        if (nodeName == "counter") {
             Counter newCounter;
             if (ReadCounter(childNode, newCounter)) {
                 counters[newCounter.Name] = newCounter;
@@ -111,13 +112,13 @@ bool Configuration::ReadPages(IXMLDOMNodePtr& node, std::vector<Page>& pages)
     HRESULT hr = node->get_firstChild(&childNode);
 
     while (childNode != 0) {
-        BSTR nodeName;
+        ATL::CComBSTR nodeName;
         hr = childNode->get_nodeName(&nodeName);
         if (FAILED(hr)) {
             return false;
         }
 
-        if (bstr_t(nodeName) == bstr_t("page")) {
+        if (nodeName == "page") {
             Page newPage;
             if (ReadPage(childNode, newPage)) {
                 pages.push_back(newPage);
@@ -157,7 +158,7 @@ bool Configuration::ReadPage(IXMLDOMNodePtr& node, Page& page)
             return false;
         }
 
-        BSTR nodeName;
+        ATL::CComBSTR nodeName;
         hr = pAttribute->get_nodeName(&nodeName);
         if (FAILED(hr)) {
             return false;
@@ -181,13 +182,13 @@ bool Configuration::ReadPage(IXMLDOMNodePtr& node, Page& page)
     hr = node->get_firstChild(&childNode);
 
     while (childNode != 0) {
-        BSTR nodeName;
+        ATL::CComBSTR nodeName;
         hr = childNode->get_nodeName(&nodeName);
         if (FAILED(hr)) {
             return false;
         }
 
-        if (bstr_t(nodeName) == bstr_t("lines")) {
+        if (nodeName == "lines") {
             ReadLines(childNode, page.Lines);
         }
 
@@ -209,13 +210,13 @@ bool Configuration::ReadLines(IXMLDOMNodePtr& node, std::vector<Line>& lines)
     HRESULT hr = node->get_firstChild(&childNode);
 
     while (childNode != 0) {
-        BSTR nodeName;
+        ATL::CComBSTR nodeName;
         hr = childNode->get_nodeName(&nodeName);
         if (FAILED(hr)) {
             return false;
         }
 
-        if (bstr_t(nodeName) == bstr_t("line")) {
+        if (nodeName == "line") {
             Line newLine;
             if (ReadLine(childNode, newLine)) {
                 lines.push_back(newLine);
@@ -255,7 +256,7 @@ bool Configuration::ReadLine(IXMLDOMNodePtr& node, Line& line)
             return false;
         }
 
-        BSTR nodeName;
+        ATL::CComBSTR nodeName;
         hr = pAttribute->get_nodeName(&nodeName);
         if (FAILED(hr)) {
             return false;
@@ -287,13 +288,13 @@ bool Configuration::ReadLine(IXMLDOMNodePtr& node, Line& line)
     hr = node->get_firstChild(&childNode);
 
     while (childNode != 0) {
-        BSTR nodeName;
+        ATL::CComBSTR nodeName;
         hr = childNode->get_nodeName(&nodeName);
         if (FAILED(hr)) {
             return false;
         }
 
-        if (bstr_t(nodeName) == bstr_t("display")) {
+        if (nodeName == "display") {
             Display newDisplay;
             if (ReadDisplay(childNode, newDisplay)) {
                 line.Display.push_back(newDisplay);
@@ -333,7 +334,7 @@ bool Configuration::ReadDisplay(IXMLDOMNodePtr& node, Display& display)
             return false;
         }
 
-        BSTR nodeName;
+        ATL::CComBSTR nodeName;
         hr = pAttribute->get_nodeName(&nodeName);
         if (FAILED(hr)) {
             return false;
@@ -407,26 +408,26 @@ bool Configuration::Read()
         return false;
     }
 
-    BSTR name;
+    ATL::CComBSTR name;
     hr = pDocRoot->get_nodeName(&name);
     if (FAILED(hr)) {
         return false;
     }
 
-    if (bstr_t("perfbar") == bstr_t(name)) {
+    if (name == "perfbar") {
         IXMLDOMNodePtr childNode;
         hr = pDocRoot->get_firstChild(&childNode);
 
         while (childNode != 0) {
-            BSTR nodeName;
+            ATL::CComBSTR nodeName;
             hr = childNode->get_nodeName(&nodeName);
             if (FAILED(hr)) {
                 return false;
             }
 
-            if (bstr_t(nodeName) == bstr_t("counters")) {
+            if (nodeName == "counters") {
                 ReadCounters(childNode, _counters);
-            } else if (bstr_t(nodeName) == bstr_t("pages")) {
+            } else if (nodeName == "pages") {
                 ReadPages(childNode, _pages);
             }
 
