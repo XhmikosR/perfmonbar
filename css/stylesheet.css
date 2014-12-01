@@ -225,6 +225,10 @@ a:link {
     text-shadow: 0 0 5px rgba(104, 182, 255, 0.5);
 }
 
+a:hover {
+    color: #0088d5;
+}
+
 a:visited {
     color: #c71585; /*MediumVioletRed*/
 }
