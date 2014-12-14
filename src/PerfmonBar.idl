@@ -18,8 +18,10 @@
 
 // This file will be processed by the MIDL tool to
 // produce the type library (PerfmonBar.tlb) and marshalling code.
+midl_pragma warning(disable:2111) // identifier length exceeds 31 characters
 import "oaidl.idl";
 import "ocidl.idl";
+midl_pragma warning(default:2111) // identifier length exceeds 31 characters
 
 [
     object,
@@ -30,7 +32,7 @@ import "ocidl.idl";
     pointer_default(unique)
 ]
 
-interface IPerfBar : IDispatch{
+interface IPerfBar : IDispatch {
 };
 [
     uuid(61DF45AB-F973-476A-9A6C-1056B1DDCF98),

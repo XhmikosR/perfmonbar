@@ -91,7 +91,7 @@
       <ProxyFileName>PerfmonBar_p.c</ProxyFileName>
       <TargetEnvironment>Win32</TargetEnvironment>
       <ValidateAllParameters>true</ValidateAllParameters>
-      <WarningLevel>3</WarningLevel>
+      <WarningLevel>4</WarningLevel>
     </Midl>
     <ClCompile>
       <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
@@ -129,7 +129,7 @@
       <PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ProxyFileName>PerfmonBar_p.c</ProxyFileName>
       <TargetEnvironment>X64</TargetEnvironment>
-      <WarningLevel>3</WarningLevel>
+      <WarningLevel>4</WarningLevel>
     </Midl>
     <ClCompile>
       <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
@@ -165,7 +165,7 @@
       <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ProxyFileName>PerfmonBar_p.c</ProxyFileName>
       <TargetEnvironment>Win32</TargetEnvironment>
-      <WarningLevel>3</WarningLevel>
+      <WarningLevel>4</WarningLevel>
     </Midl>
     <ClCompile>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
@@ -206,7 +206,7 @@
       <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ProxyFileName>PerfmonBar_p.c</ProxyFileName>
       <TargetEnvironment>X64</TargetEnvironment>
-      <WarningLevel>3</WarningLevel>
+      <WarningLevel>4</WarningLevel>
     </Midl>
     <ClCompile>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
