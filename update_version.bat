@@ -28,7 +28,7 @@ IF EXIST "build.user.bat" (
   IF DEFINED MSYS (SET MPCHC_MSYS=%MSYS%) ELSE (GOTO MissingVar)
 )
 
-SET PATH=%MPCHC_MSYS%\bin;%MPCHC_GIT%\cmd;%PATH%
+SET PATH=%MSYS%\bin;%GIT%\cmd;%PATH%
 FOR %%G IN (bash.exe) DO (SET FOUND=%%~$PATH:G)
 IF NOT DEFINED FOUND GOTO MissingVar
 
