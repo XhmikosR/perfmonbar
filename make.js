@@ -33,7 +33,7 @@
                 compatibility: "ie8"
             });
 
-        fs.writeFileSync("css/pack.css", minifier.minify(inCss), "utf8");
+        fs.writeFileSync("css/pack.css", minifier.minify(inCss).styles, "utf8");
 
         echo();
         echo("### Finished css/pack.css.");
