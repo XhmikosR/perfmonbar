@@ -326,7 +326,8 @@ LRESULT CPerfBar::OnLButtonDown(UINT uMsg, WPARAM wParam, LPARAM lParam, BOOL& b
     UNREFERENCED_PARAMETER(bHandled);
 
     size_t pageCount = m_config.GetPages().size();
-    m_currentPage = (++m_currentPage % pageCount);
+    m_currentPage++;
+    m_currentPage = m_currentPage % pageCount;
 
     Invalidate();
 
