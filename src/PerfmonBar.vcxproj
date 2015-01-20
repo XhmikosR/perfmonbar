@@ -101,8 +101,8 @@
       <PrecompiledHeader>Use</PrecompiledHeader>
       <PreprocessorDefinitions>WIN32;_WINDOWS;_DEBUG;_USRDLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
-      <WarningLevel>Level4</WarningLevel>
       <SDLCheck>true</SDLCheck>
+      <WarningLevel>Level4</WarningLevel>
     </ClCompile>
     <ResourceCompile>
       <AdditionalIncludeDirectories>$(IntDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
@@ -138,8 +138,8 @@
       <PrecompiledHeader>Use</PrecompiledHeader>
       <PreprocessorDefinitions>_WIN64;_WINDOWS;_DEBUG;_USRDLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
-      <WarningLevel>Level4</WarningLevel>
       <SDLCheck>true</SDLCheck>
+      <WarningLevel>Level4</WarningLevel>
     </ClCompile>
     <ResourceCompile>
       <AdditionalIncludeDirectories>$(IntDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
@@ -176,6 +176,7 @@
       <PrecompiledHeader>Use</PrecompiledHeader>
       <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;_USRDLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <SDLCheck>true</SDLCheck>
       <WarningLevel>Level4</WarningLevel>
     </ClCompile>
     <ResourceCompile>
@@ -216,6 +217,7 @@
       <PrecompiledHeader>Use</PrecompiledHeader>
       <PreprocessorDefinitions>_WIN64;_WINDOWS;NDEBUG;_USRDLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <SDLCheck>true</SDLCheck>
       <WarningLevel>Level4</WarningLevel>
     </ClCompile>
     <ResourceCompile>
