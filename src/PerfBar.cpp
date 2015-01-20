@@ -178,7 +178,7 @@ STDMETHODIMP CPerfBar::SetSite(IUnknown* punkSite)
 {
     HRESULT hr      = E_FAIL;
     ATL::CComQIPtr<IOleWindow> spOleWindow;
-    RECT rect       = {0};
+    RECT rect       = { 0 };
     HWND hWndParent = nullptr;
 
     if (punkSite != nullptr) {
@@ -353,13 +353,13 @@ void CPerfBar::PaintData(HDC hdc, POINT offset)
         return;
     }
 
-    stdext::hash_map<std::wstring, double> values = m_perfMonitor.GetValues();
+    auto values = m_perfMonitor.GetValues();
 
     TEXTMETRIC textMetric;
     GetTextMetrics(hdc, &textMetric);
 
-    wchar_t buf[1024] = {0};
-    wchar_t display[1024] = {0};
+    wchar_t buf[1024] = { 0 };
+    wchar_t display[1024] = { 0 };
 
     for (size_t i = 0; i < page.Lines.size(); ++i) {
         buf[0] = 0;
@@ -367,9 +367,9 @@ void CPerfBar::PaintData(HDC hdc, POINT offset)
         Configuration::Line& line = page.Lines[i];
 
         for (auto iit = line.Display.begin(); iit != line.Display.end(); ++iit) {
-            stdext::hash_map<std::wstring, double>::const_iterator value_it = values.find(iit->Counter);
+            auto value_it = values.find(iit->Counter);
 
-            wchar_t formattedValue[256] = {0};
+            wchar_t formattedValue[256] = { 0 };
             if (value_it == values.end()) {
                 wcscpy_s(formattedValue, _countof(formattedValue), L"[N/A]");
             } else {
@@ -378,7 +378,7 @@ void CPerfBar::PaintData(HDC hdc, POINT offset)
                     val /= iit->Divide;
                 }
 
-                wchar_t formattingString[256] = {0};
+                wchar_t formattingString[256] = { 0 };
                 swprintf_s(
                     formattingString,
                     _countof(formattingString),
@@ -451,8 +451,8 @@ LRESULT CPerfBar::OnPaint(UINT uMsg, WPARAM wParam, LPARAM lParam, BOOL& bHandle
     UNREFERENCED_PARAMETER(lParam);
     UNREFERENCED_PARAMETER(bHandled);
 
-    PAINTSTRUCT ps     = {0};
-    RECT        rect   = {0};
+    PAINTSTRUCT ps     = { 0 };
+    RECT        rect   = { 0 };
     HDC         hdcMem = nullptr;
     HBITMAP     hbmMem = nullptr;
     HBITMAP     hbmOld = nullptr;

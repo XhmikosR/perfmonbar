@@ -33,7 +33,7 @@ public:
 
     virtual ~CPerfMon() { Stop(); }
 
-    BOOL Start(std::vector<stdext::pair<std::wstring, std::wstring>>& counters);
+    bool Start(std::vector<stdext::pair<std::wstring, std::wstring>>& counters);
     void Stop();
     stdext::hash_map<std::wstring, double> GetValues();
 };

@@ -23,17 +23,17 @@
 #include "PerfMonitor.h"
 #include "PerfBar.h"
 
-BOOL CPerfMon::Start(std::vector<stdext::pair<std::wstring, std::wstring>>& counters)
+bool CPerfMon::Start(std::vector<stdext::pair<std::wstring, std::wstring>>& counters)
 {
     Stop();
 
     PDH_STATUS pdhStatus = PdhOpenQuery(nullptr, 0, &_query);
 
     if (pdhStatus != ERROR_SUCCESS) {
-        return FALSE;
+        return false;
     }
 
-    wchar_t szPathBuffer[1024] = {0};
+    wchar_t szPathBuffer[PDH_MAX_COUNTER_PATH] = { 0 };
     for (auto it = counters.begin(); it != counters.end(); ++it) {
         wcscpy_s(szPathBuffer, _countof(szPathBuffer), it->second.c_str());
 
@@ -50,7 +50,7 @@ BOOL CPerfMon::Start(std::vector<stdext::pair<std::wstring, std::wstring>>& coun
         }
     }
 
-    return TRUE;
+    return true;
 }
 
 void CPerfMon::Stop()
