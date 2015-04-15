@@ -1,8 +1,9 @@
 # Perfmonbar
 
-For more info see <http://xhmikosr.github.io/perfmonbar/>.
+[![Build status](https://img.shields.io/appveyor/ci/XhmikosR/perfmonbar/master.svg)](https://ci.appveyor.com/project/XhmikosR/perfmonbar/branch/master)
+[![Coverity Scan Build Status](https://img.shields.io/coverity/scan/1105.svg)](https://scan.coverity.com/projects/1105)
 
-[![Coverity Scan Build Status](https://scan.coverity.com/projects/1105/badge.svg)](https://scan.coverity.com/projects/1105)
+For more info see <http://xhmikosr.github.io/perfmonbar/>.
 
 ![Screenshot](http://xhmikosr.github.io/perfmonbar/img/screenshot.jpg)
 

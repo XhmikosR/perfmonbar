@@ -1,0 +1,13 @@
+version: "{build}"
+
+#clone_depth: 10
+
+# Disable build since we do this in test_script
+build: off
+
+# Actual test command
+test_script:
+  - CALL "build.bat" Build All Release
+
+matrix:
+  fast_finish: true
