@@ -1,5 +1,5 @@
 ;
-; Copyright (C) 2011-2014 XhmikosR
+; Copyright (C) 2011-2015 XhmikosR
 ;
 ; This program is free software: you can redistribute it and/or modify
 ; it under the terms of the GNU General Public License as published by
@@ -18,8 +18,8 @@
 ; Inno Setup: http://www.jrsoftware.org/isdl.php
 
 
-#if VER < EncodeVer(5,5,4)
-  #error Update your Inno Setup version (5.5.4 or newer)
+#if VER < EncodeVer(5,5,6)
+  #error Update your Inno Setup version (5.5.6 or newer)
 #endif
 
 #define bindir "..\bin"
@@ -52,9 +52,9 @@ AppPublisherURL=http://xhmikosr.github.io/perfmonbar/
 AppSupportURL=http://xhmikosr.github.io/perfmonbar/
 AppUpdatesURL=http://xhmikosr.github.io/perfmonbar/
 AppContact=http://xhmikosr.github.io/perfmonbar/
-AppCopyright=Copyright © 2008, Danny Couture - 2010-2014 XhmikosR
+AppCopyright=Copyright © 2008, Danny Couture - 2010-2015 XhmikosR
 VersionInfoCompany=XhmikosR
-VersionInfoCopyright=Copyright © 2008, Danny Couture - 2010-2014 XhmikosR
+VersionInfoCopyright=Copyright © 2008, Danny Couture - 2010-2015 XhmikosR
 VersionInfoDescription={#app_name} {#app_version} Setup
 VersionInfoTextVersion={#app_version}
 VersionInfoVersion={#app_version}
@@ -78,6 +78,7 @@ AllowCancelDuringInstall=no
 MinVersion=6.0
 ArchitecturesAllowed=x86 x64
 ArchitecturesInstallIn64BitMode=x64
+SetupMutex='{#app_name}' + '_setup_mutex'
 
 
 [Languages]
@@ -93,7 +94,6 @@ WinVersionTooLowError=This program only works on Windows Vista or newer.
 
 [CustomMessages]
 en.msg_DeleteSettings=Do you also want to delete {#app_name}'s settings?%n%nIf you plan on installing {#app_name} again then you do not have to delete them.
-en.msg_SetupIsRunningWarning={#app_name} setup is already running!
 en.tsk_ResetSettings=Reset {#app_name}'s settings
 en.run_ViewConfig=View PerfmonBar's configuration file
 
@@ -124,9 +124,6 @@ Type: dirifempty; Name: {app}
 
 
 [Code]
-const installer_mutex_name = '{#app_name}' + '_setup_mutex';
-
-
 // Check if PerfmonBar's settings exist
 function ConfigExists(sPath: String): Boolean;
 begin
@@ -236,32 +233,5 @@ begin
   if (CurUninstallStep = usUninstall) and ConfigExists('{userappdata}') then begin
     if SuppressibleMsgBox(CustomMessage('msg_DeleteSettings'), mbConfirmation, MB_YESNO or MB_DEFBUTTON2, IDNO) = IDYES then
       CleanUpSettings('{userappdata}');
-  end;
-end;
-
-
-function InitializeSetup(): Boolean;
-begin
-  // Create a mutex for the installer and if it's already running then show a message and stop installation
-  if CheckForMutexes(installer_mutex_name) and not WizardSilent() then begin
-    SuppressibleMsgBox(CustomMessage('msg_SetupIsRunningWarning'), mbError, MB_OK, MB_OK);
-    Result := False;
-  end
-  else begin
-    Result := True;
-    CreateMutex(installer_mutex_name);
-  end;
-end;
-
-
-function InitializeUninstall(): Boolean;
-begin
-  if CheckForMutexes(installer_mutex_name) then begin
-    SuppressibleMsgBox(CustomMessage('msg_SetupIsRunningWarning'), mbError, MB_OK, MB_OK);
-    Result := False;
-  end
-  else begin
-    Result := True;
-    CreateMutex(installer_mutex_name);
   end;
 end;
