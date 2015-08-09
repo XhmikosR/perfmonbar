@@ -19,7 +19,7 @@ SETLOCAL ENABLEEXTENSIONS
 CD /D %~dp0
 
 rem Check the building environment
-IF NOT DEFINED VS120COMNTOOLS CALL :SUBMSG "ERROR" "Visual Studio 2013 NOT FOUND!"
+IF NOT DEFINED VS140COMNTOOLS CALL :SUBMSG "ERROR" "Visual Studio 2015 NOT FOUND!"
 
 
 rem Check for the help switches
@@ -85,13 +85,13 @@ IF "%ARCH%" == "x86" GOTO x86
 
 
 :x86
-CALL "%VS120COMNTOOLS%..\..\VC\vcvarsall.bat" x86
+CALL "%VS140COMNTOOLS%..\..\VC\vcvarsall.bat" x86
 CALL :SUBMSVC %BUILDTYPE% Win32
 IF "%ARCH%" == "x86" GOTO END
 
 
 :x64
-CALL "%VS120COMNTOOLS%..\..\VC\vcvarsall.bat" x86_amd64
+CALL "%VS140COMNTOOLS%..\..\VC\vcvarsall.bat" x86_amd64
 CALL :SUBMSVC %BUILDTYPE% x64
 
 IF /I "%BUILDTYPE%" == "Clean" GOTO END

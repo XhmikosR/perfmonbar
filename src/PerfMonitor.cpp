@@ -17,13 +17,13 @@
 
 #include "stdafx.h"
 #include <atlbase.h>
-#include <hash_map>
+#include <unordered_map>
 #include <vector>
 #include <pdh.h>
 #include "PerfMonitor.h"
 #include "PerfBar.h"
 
-bool CPerfMon::Start(std::vector<stdext::pair<std::wstring, std::wstring>>& counters)
+bool CPerfMon::Start(std::vector<std::pair<std::wstring, std::wstring>>& counters)
 {
     Stop();
 
@@ -67,15 +67,15 @@ void CPerfMon::Stop()
     _counters.clear();
 }
 
-stdext::hash_map<std::wstring, double> CPerfMon::GetValues()
+std::unordered_map<std::wstring, double> CPerfMon::GetValues()
 {
     PDH_STATUS pdhStatus = PdhCollectQueryData(_query);
 
     if (pdhStatus != ERROR_SUCCESS) {
-        return stdext::hash_map<std::wstring, double>();
+        return std::unordered_map<std::wstring, double>();
     }
 
-    stdext::hash_map<std::wstring, double> values;
+    std::unordered_map<std::wstring, double> values;
 
     for (auto it = _counters.begin(); it != _counters.end(); ++it) {
         PDH_FMT_COUNTERVALUE pdhCounterValue;

@@ -1,6 +1,7 @@
 /*.opensdf
 /*.sdf
 /*.suo
+/.vs
 /[Aa][Ss]tyle.exe
 /bin
 /build.user.bat

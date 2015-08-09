@@ -17,7 +17,7 @@
 
 #pragma once
 
-#include <hash_map>
+#include <unordered_map>
 #include <vector>
 #include <comdef.h>
 
@@ -72,7 +72,7 @@ public:
         std::wstring Value;
     };
 
-    typedef stdext::hash_map<std::wstring, Counter> counters_t;
+    typedef std::unordered_map<std::wstring, Counter> counters_t;
     typedef std::vector<Page> pages_t;
 
 private:

@@ -17,7 +17,7 @@
 
 #include "stdafx.h"
 #include <atlbase.h>
-#include <hash_map>
+#include <unordered_map>
 #include <vector>
 #include <atlctl.h>
 #include "PerfBar.h"
@@ -48,7 +48,7 @@ STDMETHODIMP CPerfBar::ReloadConfiguration()
 {
     m_perfMonitor.Stop();
     m_config.Read();
-    std::vector<stdext::pair<std::wstring, std::wstring>> counterNames;
+    std::vector<std::pair<std::wstring, std::wstring>> counterNames;
     Configuration::counters_t& counters = m_config.GetCounters();
 
     for (auto it = counters.begin(); it != counters.end(); ++it) {

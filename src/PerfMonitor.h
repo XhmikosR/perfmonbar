@@ -17,13 +17,13 @@
 
 #pragma once
 
-#include <hash_map>
+#include <unordered_map>
 #include <vector>
 #include <pdh.h>
 
 class CPerfMon
 {
-    typedef std::vector<stdext::pair<std::wstring, HCOUNTER>> counters_t;
+    typedef std::vector<std::pair<std::wstring, HCOUNTER>> counters_t;
 private:
     HQUERY     _query;
     counters_t _counters;
@@ -33,7 +33,7 @@ public:
 
     virtual ~CPerfMon() { Stop(); }
 
-    bool Start(std::vector<stdext::pair<std::wstring, std::wstring>>& counters);
+    bool Start(std::vector<std::pair<std::wstring, std::wstring>>& counters);
     void Stop();
-    stdext::hash_map<std::wstring, double> GetValues();
+    std::unordered_map<std::wstring, double> GetValues();
 };

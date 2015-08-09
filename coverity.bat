@@ -1,6 +1,6 @@
 @ECHO OFF
 REM
-REM  Copyright (C) 2013-2014 XhmikosR
+REM  Copyright (C) 2013-2015 XhmikosR
 REM
 REM  This program is free software: you can redistribute it and/or modify
 REM  it under the terms of the GNU General Public License as published by
@@ -20,7 +20,7 @@ SETLOCAL
 
 PUSHD %~dp0
 
-IF NOT DEFINED COVDIR SET "COVDIR=H:\progs\thirdparty\cov-analysis-win64-7.5.0"
+IF NOT DEFINED COVDIR SET "COVDIR=H:\progs\thirdparty\cov-analysis-win64"
 IF DEFINED COVDIR IF NOT EXIST "%COVDIR%" (
   ECHO.
   ECHO ERROR: Coverity not found in "%COVDIR%"
@@ -28,7 +28,7 @@ IF DEFINED COVDIR IF NOT EXIST "%COVDIR%" (
 )
 
 
-CALL "%VS120COMNTOOLS%..\..\VC\vcvarsall.bat" x86
+CALL "%VS140COMNTOOLS%..\..\VC\vcvarsall.bat" x86
 IF %ERRORLEVEL% NEQ 0 (
   ECHO vcvarsall.bat call failed.
   GOTO End
