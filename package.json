@@ -7,7 +7,7 @@
   "homepage": "https://github.com/XhmikosR/perfmonbar/tree/gh-pages",
   "repository": {
     "type": "git",
-    "url": "https://github.com/XhmikosR/perfmonbar.git"
+    "url": "git+https://github.com/XhmikosR/perfmonbar.git"
   },
   "bugs": {
     "url": "https://github.com/XhmikosR/perfmonbar/issues"
@@ -18,11 +18,11 @@
     "lint": "node run-tests"
   },
   "dependencies": {
-    "clean-css": "~3.0.4",
+    "clean-css": "~3.4.4",
     "csslint": "~0.10.0",
-    "jshint": "~2.5.11",
-    "shelljs": "~0.3.0",
-    "uglify-js": "~2.4.16"
+    "jshint": "~2.8.0",
+    "shelljs": "~0.5.3",
+    "uglify-js": "~2.4.24"
   },
   "jshintConfig": {
     "bitwise": true,
