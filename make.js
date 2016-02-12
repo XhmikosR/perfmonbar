@@ -12,8 +12,7 @@
 
     require("shelljs/make");
     var fs = require("fs"),
-        CleanCSS = require("clean-css"),
-        UglifyJS = require("uglify-js");
+        CleanCSS = require("clean-css");
 
     //
     // make minify
@@ -24,7 +23,6 @@
         echo("### Minifying css files...");
 
         var inCss = cat(["css/normalize.css",
-                         "css/jquery.fancybox.css",
                          "css/stylesheet.css"
         ]);
 
@@ -37,24 +35,6 @@
 
         echo();
         echo("### Finished css/pack.css.");
-
-
-        echo();
-        echo("### Minifying js files...");
-
-        var inJs = cat(["js/jquery.fancybox.js"]);
-
-        var minifiedJs = UglifyJS.minify(inJs, {
-            compress: true,
-            fromString: true, // this is needed to pass JS source code instead of filenames
-            mangle: true,
-            warnings: false
-        });
-
-        fs.writeFileSync("js/jquery.fancybox.min.js", minifiedJs.code, "utf8");
-
-        echo();
-        echo("### Finished js/jquery.fancybox.min.js.");
     };
 
 
@@ -70,7 +50,7 @@
     //
     target.help = function () {
         echo("Available targets:");
-        echo("  minify  Creates the minified CSS and JS");
+        echo("  minify  Creates the minified CSS");
         echo("  help    shows this help message");
     };
 
