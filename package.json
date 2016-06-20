@@ -14,13 +14,12 @@
   },
   "license": "MIT",
   "scripts": {
-    "check": "node run-tests",
-    "lint": "node run-tests"
+    "lint": "csslint css/stylesheet.css",
+    "minify": "cleancss --s0 --compatibility ie8 css/normalize.css css/stylesheet.css -o css/pack.css"
   },
   "dependencies": {
-    "clean-css": "~3.4.9",
-    "csslint": "~0.10.0",
-    "shelljs": "~0.6.0"
+    "clean-css": "^3.4.9",
+    "csslint": "^0.10.0"
   },
   "engines": {
     "node": ">=0.10.1"
