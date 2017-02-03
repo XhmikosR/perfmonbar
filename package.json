@@ -15,13 +15,13 @@
   "license": "MIT",
   "scripts": {
     "lint": "csslint css/stylesheet.css",
-    "minify": "cleancss --s0 --compatibility ie8 css/normalize.css css/stylesheet.css -o css/pack.css"
+    "minify": "cleancss --compatibility ie9 -O1 specialComments:0 css/normalize.css css/stylesheet.css -o css/pack.css"
   },
   "dependencies": {
-    "clean-css": "^3.4.9",
-    "csslint": "^0.10.0"
+    "clean-css-cli": "^4.0.0",
+    "csslint": "^1.0.5"
   },
   "engines": {
-    "node": ">=0.10.1"
+    "node": ">=6"
   }
 }

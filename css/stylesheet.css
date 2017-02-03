@@ -1,4 +1,4 @@
-/*csslint box-sizing: false, font-sizes: false,
+/*csslint box-sizing: false, font-sizes: false, order-alphabetical: false,
   qualified-headings: false, unique-headings: false*/
 
 html {
@@ -209,9 +209,9 @@ hr {
 }
 
 .icon-github {
-    background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAAAPFBMVEX///////////////////////////////////////////////////////////////////////////////8gsV51AAAAFHRSTlMADBgkMDxIVGBrb3eDj5unsrO8v5xuV1EAAAB+SURBVHgBXc9BdsNACATRHgdh7AEppO5/1zwrrPJ3sOrShydAuv6s4npF7KbWfTehW9CfT2HEw+wrMEpyQgwFrmw9GIc6xdaLUdqIUDFKgdiWjNM24rQnI5+FshV+AlwhdcoJ/34XsKTApeL4AYTpoDTTC2FBr4nrBpi4f/m/vx0LDaSfJU8AAAAASUVORK5CYII=");
+    background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAA0ElEQVR4AZTTIQgDIRgFYDt21lnHznXsrGO/sGjHjp11rs86+Hvvvfdwe+EJPw9usvCFOx5P0d9wnqfK0MBEg6x5/xGhM3zADoUqDDBmohZEFygQLhQwZqMvmCsnV3KDRHcokumzIMvKtuB3kgMPZ0DgqrawMTugzRUrf+5gC53ZChZk+/2PguILKqSL+1cvSLqD+fMBttCY62B6iAUyC00cMiMDml5jhjc89Tzm4Og16iBt8NF7dwMUmDHoq1HuWvBrlPUxDTLv8jHRd2RlZwB2g3Btm/glmgAAAABJRU5ErkJggg==");
     display: inline-block;
-    margin: 4px 8px 0 0;
+    margin: 4px 4px 0 0;
     opacity: 0.75;
     vertical-align: top;
     width: 16px;
@@ -220,7 +220,7 @@ hr {
 
 /* Links
 */
-a:link {
+a {
     color: #63c0f5;
     text-shadow: 0 0 5px rgba(104, 182, 255, 0.5);
 }
@@ -229,9 +229,15 @@ a:hover {
     color: #0088d5;
 }
 
-a:visited {
-    color: #c71585; /* MediumVioletRed */
+
+/* Images
+*/
+img {
+    display: block;
+    max-width: 100%;
+    height: auto;
 }
+
 
 /* Clearfix */
 /*
