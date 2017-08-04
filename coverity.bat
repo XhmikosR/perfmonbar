@@ -1,6 +1,6 @@
 @ECHO OFF
 REM
-REM  Copyright (C) 2013-2015 XhmikosR
+REM  Copyright (C) 2013-2015, 2017 XhmikosR
 REM
 REM  This program is free software: you can redistribute it and/or modify
 REM  it under the terms of the GNU General Public License as published by
@@ -27,16 +27,12 @@ IF DEFINED COVDIR IF NOT EXIST "%COVDIR%" (
   GOTO End
 )
 
-
-CALL "%VS140COMNTOOLS%..\..\VC\vcvarsall.bat" x86
-IF %ERRORLEVEL% NEQ 0 (
-  ECHO vcvarsall.bat call failed.
-  GOTO End
-)
+CALL :SubVSPath
+IF NOT EXIST "%VS_PATH%" CALL :SUBMSG "ERROR" "Visual Studio 2017 NOT FOUND!"
 
 
 :Cleanup
-IF EXIST "cov-int" RD /q /s "cov-int"
+IF EXIST "cov-int"         RD /q /s "cov-int"
 IF EXIST "PerfmonBar.lzma" DEL "PerfmonBar.lzma"
 IF EXIST "PerfmonBar.tar"  DEL "PerfmonBar.tar"
 IF EXIST "PerfmonBar.tgz"  DEL "PerfmonBar.tgz"
@@ -77,6 +73,9 @@ FOR /F "tokens=2*" %%A IN (
    REG QUERY "HKLM\SOFTWARE\Wow6432Node\7-Zip" /v "Path" 2^>NUL ^| FIND "REG_SZ"') DO SET "SEVENZIP=%%B\7z.exe"
 EXIT /B
 
+:SubVSPath
+FOR /f "delims=" %%A IN ('"%ProgramFiles(x86)%\Microsoft Visual Studio\Installer\vswhere.exe" -property installationPath -latest -requires Microsoft.Component.MSBuild Microsoft.VisualStudio.Component.VC.ATLMFC Microsoft.VisualStudio.Component.VC.Tools.x86.x64') DO SET "VS_PATH=%%A"
+EXIT /B
 
 :End
 POPD
