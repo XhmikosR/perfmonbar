@@ -1,5 +1,5 @@
 ;
-; Copyright (C) 2011-2015 XhmikosR
+; Copyright (C) 2011-2016 XhmikosR
 ;
 ; This program is free software: you can redistribute it and/or modify
 ; it under the terms of the GNU General Public License as published by
@@ -18,8 +18,8 @@
 ; Inno Setup: http://www.jrsoftware.org/isdl.php
 
 
-#if VER < EncodeVer(5,5,6)
-  #error Update your Inno Setup version (5.5.6 or newer)
+#if VER < EncodeVer(5,5,9)
+  #error Update your Inno Setup version (5.5.9 or newer)
 #endif
 
 #define bindir "..\bin"
@@ -52,9 +52,9 @@ AppPublisherURL=http://xhmikosr.github.io/perfmonbar/
 AppSupportURL=http://xhmikosr.github.io/perfmonbar/
 AppUpdatesURL=http://xhmikosr.github.io/perfmonbar/
 AppContact=http://xhmikosr.github.io/perfmonbar/
-AppCopyright=Copyright © 2008, Danny Couture - 2010-2015 XhmikosR
+AppCopyright=Copyright © 2008, Danny Couture - 2010-2017 XhmikosR
 VersionInfoCompany=XhmikosR
-VersionInfoCopyright=Copyright © 2008, Danny Couture - 2010-2015 XhmikosR
+VersionInfoCopyright=Copyright © 2008, Danny Couture - 2010-2017 XhmikosR
 VersionInfoDescription={#app_name} {#app_version} Setup
 VersionInfoTextVersion={#app_version}
 VersionInfoVersion={#app_version}
