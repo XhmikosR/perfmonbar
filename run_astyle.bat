@@ -3,8 +3,8 @@ SETLOCAL
 
 PUSHD %~dp0
 
-SET "AStyleVerMin=2.04"
-astyle --version 2>NUL || (ECHO. & ECHO ERROR: AStyle not found & GOTO End)
+SET "AStyleVerMin=3.0.1"
+astyle --ascii --version 2>NUL || (ECHO. & ECHO ERROR: AStyle not found & GOTO End)
 CALL :SubCheckVer || GOTO End
 
 rem  http://astyle.sourceforge.net/astyle.html
@@ -25,7 +25,7 @@ SET ASTYLE_OPTIONS=--indent=spaces=4 --style=kr^
 
 
 :Start
-astyle %ASTYLE_OPTIONS% --exclude=PerfmonBar_i.h --exclude=resource.h --exclude=Version.h src\*.h src\*.cpp
+astyle --ascii %ASTYLE_OPTIONS% --exclude=PerfmonBar_i.h --exclude=resource.h --exclude=Version.h src\*.h src\*.cpp
 
 IF %ERRORLEVEL% NEQ 0 (ECHO. & ECHO ERROR: Something went wrong!)
 
@@ -40,7 +40,7 @@ EXIT /B
 
 :SubCheckVer
 TITLE Checking astyle version
-FOR /F "tokens=4 delims= " %%A IN ('astyle --version 2^>^&1 NUL') DO (
+FOR /F "tokens=4 delims= " %%A IN ('astyle --ascii --version 2^>^&1 NUL') DO (
   SET "AStyleVer=%%A"
 )
 
