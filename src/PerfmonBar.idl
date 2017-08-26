@@ -18,10 +18,10 @@
 
 // This file will be processed by the MIDL tool to
 // produce the type library (PerfmonBar.tlb) and marshalling code.
-midl_pragma warning(disable:2111) // identifier length exceeds 31 characters
+midl_pragma warning(disable: 2111) // identifier length exceeds 31 characters
 import "oaidl.idl";
 import "ocidl.idl";
-midl_pragma warning(default:2111) // identifier length exceeds 31 characters
+midl_pragma warning(default: 2111)
 
 [
     object,
@@ -40,8 +40,7 @@ interface IPerfBar : IDispatch {
     helpstring("PerfmonBar 1.0 Type Library")
 ]
 
-library PerfmonBarLib
-{
+library PerfmonBarLib {
     importlib("stdole32.tlb");
     importlib("stdole2.tlb");
 

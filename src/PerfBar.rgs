@@ -1,5 +1,4 @@
-HKCR
-{
+HKCR {
     PerfmonBar.PerfBar.1 = s 'Performance Monitor Toolbar'
     {
         CLSID = s '{88C6ABF2-4C63-4B90-98B3-4DCB2615B234}'

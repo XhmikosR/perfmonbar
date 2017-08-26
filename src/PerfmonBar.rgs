@@ -1,5 +1,4 @@
-HKCR
-{
+HKCR {
     NoRemove AppID
     {
         '%APPID%' = s 'Performance Monitor Toolbar'
