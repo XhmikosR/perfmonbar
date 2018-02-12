@@ -3,7 +3,7 @@
 <perfbar>
     <counters>
         <counter name="cpu" value="\Processor(_Total)\% Processor Time"/>
-        <!--<counter name="cpufreq" value="\Processor Performance(PPM_Processor_0)\Processor Frequency"/>-->
+        <!--<counter name="cpufreq" value="\Processor Information(*)\Processor Frequency"/>-->
         <!--<counter name="diskread" value="\LogicalDisk(_Total)\Disk Read Bytes/sec"/>-->
         <!--<counter name="diskwrite" value="\LogicalDisk(_Total)\Disk Write Bytes/sec"/>-->
         <!--<counter name="tcp" value="\TCPv4\Connections Established"/>-->
@@ -11,6 +11,7 @@
         <!--<counter name="contention" value="\.NET CLR LocksAndThreads(_Global_)\Contention Rate / sec"/>-->
         <!--<counter name="gc" value="\.NET CLR Memory(_Global_)\% Time In GC"/>-->
         <!--<counter name="alloc" value="\.NET CLR Memory(_Global_)\Allocated Bytes/sec"/>-->
+        <!--<counter name="netin" value="\Network Interface(Intel[R] Ethernet Connection [2] I219-V)\Bytes Received/sec"/>-->
         <counter name="netin" value="\Network Interface(Realtek PCIe GBE Family Controller)\Bytes Received/sec"/>
         <counter name="netout" value="\Network Interface(Realtek PCIe GBE Family Controller)\Bytes Sent/sec"/>
         <counter name="freediskC" value="\LogicalDisk(C:)\Free Megabytes"/>
@@ -18,13 +19,13 @@
     </counters>
     <pages>
         <!-- use left button click on the performance bar to switch between the pages -->
-        <page offsetY="4">
+        <page offsetY="6">
             <lines>
                 <line fontFamily="Segoe UI" fontSize="8" fontItalic="false" fontBold="true" fontColor="FFFFFF">
                     <display prefix="CPU: " suffix="% " counter="cpu"/>
                     <!--<display prefix="@" suffix=" " counter="cpufreq"/>-->
-                    <display prefix="· RAM: " suffix=" MB" counter="mem" decimals="1" divide="1048576"/>
-                    <!--<<display prefix="· RAM: " suffix=" GB" counter="mem" decimals="2" divide="1073741824"/>-->
+                    <display prefix="· RAM: " suffix=" GB" counter="mem" decimals="2" divide="1073741824"/>
+                    <!--<display prefix="· RAM: " suffix=" MB" counter="mem" decimals="1" divide="1048576"/>-->
                 </line>
                 <line fontFamily="Segoe UI" fontSize="8" fontItalic="false" fontBold="true" fontColor="FFFFFF">
                     <display prefix="Proc: " suffix="" counter="processCount"/>
@@ -33,7 +34,7 @@
                 </line>
             </lines>
         </page>
-        <page offsetY="4">
+        <page offsetY="6">
             <lines>
                 <line fontFamily="Segoe UI" fontSize="8" fontItalic="false" fontBold="true" fontColor="FFFFFF">
                     <display prefix="Free C: " suffix=" GB" counter="freediskC" decimals="1" divide="1024"/>
