@@ -3,9 +3,9 @@
 [![Build status](https://img.shields.io/appveyor/ci/XhmikosR/perfmonbar/master.svg)](https://ci.appveyor.com/project/XhmikosR/perfmonbar/branch/master)
 [![Coverity Scan Build Status](https://img.shields.io/coverity/scan/1105.svg)](https://scan.coverity.com/projects/1105)
 
-For more info see <http://xhmikosr.github.io/perfmonbar/>.
+For more info see <https://xhmikosr.github.io/perfmonbar/>.
 
-![Screenshot](http://xhmikosr.github.io/perfmonbar/img/screenshot.jpg)
+![Screenshot](https://xhmikosr.github.io/perfmonbar/img/screenshot.jpg)
 
 ## Notes
 
