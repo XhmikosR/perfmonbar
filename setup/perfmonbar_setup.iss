@@ -1,5 +1,5 @@
 ;
-; Copyright (C) 2011-2017 XhmikosR
+; Copyright (C) 2011-2018 XhmikosR
 ;
 ; This program is free software: you can redistribute it and/or modify
 ; it under the terms of the GNU General Public License as published by
@@ -64,7 +64,7 @@ VersionInfoProductTextVersion={#app_version}
 UninstallDisplayName={#app_name} {#app_version}
 DefaultDirName={pf}\PerfmonBar
 DefaultGroupName=PerfmonBar
-LicenseFile=..\license.txt
+LicenseFile=..\LICENSE.txt
 OutputDir=.
 OutputBaseFilename={#app_name}.{#app_version}
 SolidCompression=yes
@@ -103,7 +103,7 @@ Name: reset_settings; Description: {cm:tsk_ResetSettings}; Flags: checkedonce un
 
 
 [Files]
-Source: ..\license.txt;                         DestDir: {app};                    Flags: ignoreversion
+Source: ..\LICENSE.txt;                         DestDir: {app};                    Flags: ignoreversion
 Source: {#bindir}\Release_Win32\PerfmonBar.dll; DestDir: {app};                    Flags: ignoreversion regserver restartreplace uninsrestartdelete; Check: not Is64BitInstallMode()
 Source: {#bindir}\Release_x64\PerfmonBar.dll;   DestDir: {app};                    Flags: ignoreversion regserver restartreplace uninsrestartdelete; Check: Is64BitInstallMode()
 Source: ..\src\config.xml;                      DestDir: {userappdata}\PerfmonBar; Flags: uninsneveruninstall;                                       Check: not ConfigExists('{userappdata}') and not ConfigExists('{userdocs}')
