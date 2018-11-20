@@ -2,7 +2,7 @@ image: Visual Studio 2017
 
 version: "{build}"
 
-#clone_depth: 10
+clone_depth: 5
 
 # Disable build since we do this in test_script
 build: off
