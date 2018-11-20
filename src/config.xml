@@ -2,15 +2,9 @@
 <!-- you can reload the configuration file with right click -> Performance Monitor - (Reload Configuration) -->
 <perfbar>
     <counters>
-        <counter name="cpu" value="\Processor(_Total)\% Processor Time"/>
-        <!--<counter name="cpufreq" value="\Processor Information(*)\Processor Frequency"/>-->
-        <!--<counter name="diskread" value="\LogicalDisk(_Total)\Disk Read Bytes/sec"/>-->
-        <!--<counter name="diskwrite" value="\LogicalDisk(_Total)\Disk Write Bytes/sec"/>-->
-        <!--<counter name="tcp" value="\TCPv4\Connections Established"/>-->
+        <!-- you can run `typeperf -q>counters.txt` to list all available counters on your system -->
+        <counter name="cpu" value="\Processor Information(_Total)\% Processor Time"/>
         <counter name="mem" value="\Memory\Committed Bytes"/>
-        <!--<counter name="contention" value="\.NET CLR LocksAndThreads(_Global_)\Contention Rate / sec"/>-->
-        <!--<counter name="gc" value="\.NET CLR Memory(_Global_)\% Time In GC"/>-->
-        <!--<counter name="alloc" value="\.NET CLR Memory(_Global_)\Allocated Bytes/sec"/>-->
         <!--<counter name="netin" value="\Network Interface(Intel[R] Ethernet Connection [2] I219-V)\Bytes Received/sec"/>-->
         <counter name="netin" value="\Network Interface(Realtek PCIe GBE Family Controller)\Bytes Received/sec"/>
         <counter name="netout" value="\Network Interface(Realtek PCIe GBE Family Controller)\Bytes Sent/sec"/>
@@ -23,12 +17,11 @@
             <lines>
                 <line fontFamily="Segoe UI" fontSize="8" fontItalic="false" fontBold="true" fontColor="FFFFFF">
                     <display prefix="CPU: " suffix="% " counter="cpu"/>
-                    <!--<display prefix="@" suffix=" " counter="cpufreq"/>-->
                     <display prefix="· RAM: " suffix=" GB" counter="mem" decimals="2" divide="1073741824"/>
-                    <!--<display prefix="· RAM: " suffix=" MB" counter="mem" decimals="1" divide="1048576"/>-->
                 </line>
                 <line fontFamily="Segoe UI" fontSize="8" fontItalic="false" fontBold="true" fontColor="FFFFFF">
                     <display prefix="Proc: " suffix="" counter="processCount"/>
+                    <!--<display prefix=" · D: " suffix=" MB/s" counter="netin" decimals="1" divide="1048576"/>-->
                     <display prefix=" · D: " suffix="KB/s" counter="netin" decimals="0" divide="1024"/>
                     <display prefix=" || U: " suffix="KB/s" counter="netout" decimals="0" divide="1024"/>
                 </line>
