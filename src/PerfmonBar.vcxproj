@@ -188,7 +188,6 @@
       <AdditionalDependencies>pdh.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <MergeSections>.rdata=.text</MergeSections>
       <ModuleDefinitionFile>PerfmonBar.def</ModuleDefinitionFile>
       <OptimizeReferences>true</OptimizeReferences>
       <SetChecksum>true</SetChecksum>
@@ -229,7 +228,6 @@
       <AdditionalDependencies>pdh.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <MergeSections>.rdata=.text</MergeSections>
       <ModuleDefinitionFile>PerfmonBar.def</ModuleDefinitionFile>
       <OptimizeReferences>true</OptimizeReferences>
       <SetChecksum>true</SetChecksum>
