@@ -5,7 +5,7 @@
 
 Website: <https://xhmikosr.github.io/perfmonbar/>
 
-<img src="https://xhmikosr.github.io/perfmonbar/img/screenshot@2x.jpg" alt="Screenshot" width="520" height="561">
+<img src="https://xhmikosr.github.io/perfmonbar/img/screenshot@2x.jpg" alt="Screenshot" width="520">
 
 ## Notes
 
