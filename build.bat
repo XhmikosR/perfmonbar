@@ -1,5 +1,5 @@
 @ECHO OFF
-REM  Copyright (C) 2011-2015, 2017 XhmikosR
+REM  Copyright (C) 2011-2015, 2017, 2019 XhmikosR
 REM
 REM  This program is free software: you can redistribute it and/or modify
 REM  it under the terms of the GNU General Public License as published by
@@ -77,7 +77,7 @@ IF "%~2" == "" (
 
 :START
 CALL :SubVSPath
-IF NOT EXIST "%VS_PATH%" CALL :SUBMSG "ERROR" "Visual Studio 2017 NOT FOUND!"
+IF NOT EXIST "%VS_PATH%" CALL :SUBMSG "ERROR" "Visual Studio 2019 NOT FOUND!"
 
 IF "%ARCH%" == "x64" GOTO x64
 IF "%ARCH%" == "x86" GOTO x86

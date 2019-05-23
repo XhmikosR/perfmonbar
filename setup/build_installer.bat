@@ -1,5 +1,5 @@
 @ECHO OFF
-REM  Copyright (C) 2011-2012 XhmikosR
+REM  Copyright (C) 2011-2012, 2019 XhmikosR
 REM
 REM  This program is free software: you can redistribute it and/or modify
 REM  it under the terms of the GNU General Public License as published by
@@ -20,7 +20,7 @@ CD /D %~dp0
 
 REM You can set here the Inno Setup path if for example you have Inno Setup Unicode
 REM installed and you want to use the ANSI Inno Setup which is in another location
-IF NOT DEFINED InnoSetupPath SET "InnoSetupPath=H:\progs\thirdparty\isetup"
+IF NOT DEFINED InnoSetupPath SET "InnoSetupPath=C:\isetup"
 
 REM Check the building environment
 CALL :SubDetectInnoSetup
