@@ -1,5 +1,5 @@
 ;
-; Copyright (C) 2011-2018 XhmikosR
+; Copyright (C) 2011-2019 XhmikosR
 ;
 ; This program is free software: you can redistribute it and/or modify
 ; it under the terms of the GNU General Public License as published by
@@ -52,9 +52,9 @@ AppPublisherURL=https://xhmikosr.github.io/perfmonbar/
 AppSupportURL=https://xhmikosr.github.io/perfmonbar/
 AppUpdatesURL=https://xhmikosr.github.io/perfmonbar/
 AppContact=https://xhmikosr.github.io/perfmonbar/
-AppCopyright=Copyright © 2008, Danny Couture - 2010-2018 XhmikosR
+AppCopyright=Copyright © 2008, Danny Couture - 2010-2019 XhmikosR
 VersionInfoCompany=XhmikosR
-VersionInfoCopyright=Copyright © 2008, Danny Couture - 2010-2018 XhmikosR
+VersionInfoCopyright=Copyright © 2008, Danny Couture - 2010-2019 XhmikosR
 VersionInfoDescription={#app_name} {#app_version} Setup
 VersionInfoTextVersion={#app_version}
 VersionInfoVersion={#app_version}
