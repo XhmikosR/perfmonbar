@@ -2,8 +2,6 @@ image: Visual Studio 2019
 
 version: "{build}"
 
-clone_depth: 5
-
 # Disable build since we do this in test_script
 build: off
 
