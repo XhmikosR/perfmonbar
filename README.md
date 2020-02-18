@@ -9,5 +9,5 @@ Website: <https://xhmikosr.github.io/perfmonbar/>
 
 ## Notes
 
-* You will have to edit the default `config.xml` to match your system.
+* You will have to edit the default [`config.xml`](https://github.com/XhmikosR/perfmonbar/blob/master/src/config.xml) to match your system.
 * For the known issues see [issues](https://github.com/XhmikosR/perfmonbar/issues).
