@@ -35,4 +35,6 @@
             </lines>
         </page>
     </pages>
+    <settings minSizeX="10" minSizeY="10">
+    </settings>
 </perfbar>

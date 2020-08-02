@@ -365,6 +365,54 @@ bool Configuration::ReadDisplay(IXMLDOMNodePtr& node, Display& display)
     return true;
 }
 
+bool Configuration::ReadSettings(IXMLDOMNodePtr& node, settings_t& settings)
+{
+    IXMLDOMNamedNodeMapPtr pNamedNodeMap;
+    HRESULT hr = node->get_attributes(&pNamedNodeMap);
+    if (FAILED(hr)) {
+        return false;
+    }
+
+    long itemCount;
+    hr = pNamedNodeMap->get_length(&itemCount);
+    if (FAILED(hr)) {
+        return false;
+    }
+
+    IXMLDOMNodePtr pAttribute;
+    for (long i = 0; i < itemCount; ++i) {
+        hr = pNamedNodeMap->get_item(i, &pAttribute);
+        if (FAILED(hr)) {
+            return false;
+        }
+
+        ATL::CComBSTR nodeName;
+        hr = pAttribute->get_nodeName(&nodeName);
+        if (FAILED(hr)) {
+            return false;
+        }
+
+        VARIANT nodeValue;
+        hr = pAttribute->get_nodeValue(&nodeValue);
+        if (FAILED(hr)) {
+            return false;
+        }
+
+        bstr_t name(nodeName);
+        variant_t value(nodeValue);
+
+        if (name == bstr_t("minSizeX")) {
+            settings.MinSizeX = atoi(bstr_t(value));
+        }
+
+        if (name == bstr_t("minSizeY")) {
+            settings.MinSizeY = atoi(bstr_t(value));
+        }
+    }
+
+    return true;
+}
+
 HRESULT Configuration::GetConfigPath(std::wstring& filePath)
 {
     wchar_t path[MAX_PATH] = { 0 };
@@ -429,6 +477,8 @@ bool Configuration::Read()
                 ReadCounters(childNode, _counters);
             } else if (nodeName == "pages") {
                 ReadPages(childNode, _pages);
+            } else if (nodeName == "settings") {
+                ReadSettings(childNode, _settings);
             }
 
             IXMLDOMNodePtr nextChildNode;
