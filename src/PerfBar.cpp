@@ -64,7 +64,7 @@ STDMETHODIMP CPerfBar::GetBandInfo(DWORD dwBandID, DWORD dwViewMode, DESKBANDINF
     UNREFERENCED_PARAMETER(dwBandID);
     UNREFERENCED_PARAMETER(dwViewMode);
     HRESULT hr = E_FAIL;
-    Configuration::settings_t & settings = m_config.GetSettings();
+    Configuration::settings_t& settings = m_config.GetSettings();
 
     if (pdbi) {
         if (pdbi->dwMask & DBIM_MINSIZE) {
