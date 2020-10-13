@@ -1,6 +1,0 @@
-exclude:
-  - "LICENSE.md"
-  - "node_modules"
-  - "package.json"
-  - "params.json"
-  - "Readme.md"
