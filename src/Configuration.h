@@ -72,12 +72,24 @@ public:
         std::wstring Value;
     };
 
+    struct Settings {
+        int MinSizeX;
+        int MinSizeY;
+
+        Settings()
+            : MinSizeX(10)
+            , MinSizeY(10) {
+        }
+    };
+
     typedef std::unordered_map<std::wstring, Counter> counters_t;
     typedef std::vector<Page> pages_t;
+    typedef Settings settings_t;
 
 private:
     counters_t _counters;
     pages_t    _pages;
+    settings_t _settings;
 
     void Initialize();
     static bool ReadCounter(IXMLDOMNodePtr& node, Counter& counter);
@@ -87,6 +99,7 @@ private:
     static bool ReadLines(IXMLDOMNodePtr& node, std::vector<Line>& lines);
     static bool ReadLine(IXMLDOMNodePtr& node, Line& line);
     static bool ReadDisplay(IXMLDOMNodePtr& node, Display& display);
+    static bool ReadSettings(IXMLDOMNodePtr& node, settings_t& counters);
 
 public:
     static HRESULT GetConfigPath(std::wstring& configPath);
@@ -94,4 +107,5 @@ public:
 
     counters_t& GetCounters() { return _counters; }
     pages_t& GetPages() { return _pages; }
+    settings_t& GetSettings() { return _settings; }
 };

@@ -64,11 +64,12 @@ STDMETHODIMP CPerfBar::GetBandInfo(DWORD dwBandID, DWORD dwViewMode, DESKBANDINF
     UNREFERENCED_PARAMETER(dwBandID);
     UNREFERENCED_PARAMETER(dwViewMode);
     HRESULT hr = E_FAIL;
+    Configuration::settings_t& settings = m_config.GetSettings();
 
     if (pdbi) {
         if (pdbi->dwMask & DBIM_MINSIZE) {
-            pdbi->ptMinSize.x = 10;
-            pdbi->ptMinSize.y = 10;
+            pdbi->ptMinSize.x = settings.MinSizeX;
+            pdbi->ptMinSize.y = settings.MinSizeY;
         }
 
         if (pdbi->dwMask & DBIM_MAXSIZE) {
