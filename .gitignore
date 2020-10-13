@@ -1,3 +1,8 @@
-/_site/
-/node_modules/
 /.jekyll-metadata
+/.vs/
+/_site/
+/bin/
+/node_modules/
+/setup/
+/src/
+/build.user.bat
