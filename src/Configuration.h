@@ -29,7 +29,7 @@ public:
         std::wstring Prefix;
         std::wstring Suffix;
         int          Decimals;
-        int          Divide;
+        double       Divide;
 
         Display()
             : Decimals(0)
