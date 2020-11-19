@@ -16,7 +16,8 @@
         <page offsetY="6">
             <lines>
                 <line fontFamily="Segoe UI" fontSize="8" fontItalic="false" fontBold="true" fontColor="FFFFFF">
-                    <display prefix="CPU: " suffix="% " counter="cpu"/>
+                    <!-- you can use "characters" attribute to ensure minimum length of displayed value -->
+                    <display prefix="CPU: " suffix="% " counter="cpu" characters="3"/>
                     <display prefix="· RAM: " suffix=" GB" counter="mem" decimals="2" divide="1073741824"/>
                 </line>
                 <line fontFamily="Segoe UI" fontSize="8" fontItalic="false" fontBold="true" fontColor="FFFFFF">
