@@ -59,8 +59,8 @@ fi
 ver_full="_T(\"$ver ($hash)$ver_full\")"
 
 version_info+="#define VER_HASH L\"$hash\""$'\n'
-version_info+="#define VER_NUM 1,0,3,$ver"$'\n'
-version_info+="#define VER_STR \"1.0.3.$ver\""
+version_info+="#define VER_NUM 1,0,4,$ver"$'\n'
+version_info+="#define VER_STR \"1.0.4.$ver\""
 
 if [[ "$branch" ]]; then
   echo "On branch: $branch"
