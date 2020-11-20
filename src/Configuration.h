@@ -28,11 +28,13 @@ public:
         std::wstring Counter;
         std::wstring Prefix;
         std::wstring Suffix;
+        int          Characters;
         int          Decimals;
         double       Divide;
 
         Display()
-            : Decimals(0)
+            : Characters(0)
+            , Decimals(0)
             , Divide(0) {
         }
     };

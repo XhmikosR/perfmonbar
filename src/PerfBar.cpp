@@ -383,8 +383,9 @@ void CPerfBar::PaintData(HDC hdc, POINT offset)
                 swprintf_s(
                     formattingString,
                     _countof(formattingString),
-                    L"%s%d%s",
-                    L"%.",
+                    L"%s%d.%d%s",
+                    L"%",
+                    iit->Characters > 0 ? iit->Characters : 0,
                     iit->Decimals > 0 ? iit->Decimals : 0,
                     L"f"
                 );

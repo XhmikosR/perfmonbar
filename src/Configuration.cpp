@@ -359,6 +359,8 @@ bool Configuration::ReadDisplay(IXMLDOMNodePtr& node, Display& display)
             display.Divide = atof(bstr_t(value));
         } else if (name == bstr_t("decimals")) {
             display.Decimals = atoi(bstr_t(value));
+        } else if (name == bstr_t("characters")) {
+            display.Characters = atoi(bstr_t(value));
         }
     }
 
