@@ -10,6 +10,7 @@
         <counter name="netout" value="\Network Interface(Realtek PCIe GBE Family Controller)\Bytes Sent/sec"/>
         <counter name="freediskC" value="\LogicalDisk(C:)\Free Megabytes"/>
         <counter name="processCount" value="\System\Processes"/>
+        <!--<counter name="cpuTemperature" value="\Thermal Zone Information(*)\Temperature"/>-->
     </counters>
     <pages>
         <!-- use left button click on the performance bar to switch between the pages -->
@@ -19,6 +20,8 @@
                     <!-- you can use the "characters" attribute to ensure a minimum length of the displayed value -->
                     <!-- <display prefix="CPU: " suffix="% " counter="cpu" characters="3"/> -->
                     <display prefix="CPU: " suffix="% " counter="cpu"/>
+                    <!-- you can use the "subtract" attribute to subtract some value from counter value -->
+                    <!-- <display prefix=" (" suffix=" °C)" counter="cpuTemperature" decimals="0" subtract="273.15"/> -->
                     <display prefix="· RAM: " suffix=" GB" counter="mem" decimals="2" divide="1073741824"/>
                 </line>
                 <line fontFamily="Segoe UI" fontSize="8" fontItalic="false" fontBold="true" fontColor="FFFFFF">
