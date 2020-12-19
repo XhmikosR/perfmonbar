@@ -1,6 +1,6 @@
 # Perfmonbar
 
-[![Build Status](https://github.com/XhmikosR/perfmonbar/workflows/CI/badge.svg)](https://github.com/XhmikosR/perfmonbar/actions?workflow=CI)
+[![Build Status](https://github.com/XhmikosR/perfmonbar/workflows/CI/badge.svg?branch=master)](https://github.com/XhmikosR/perfmonbar/actions?query=workflow%3ACI+branch%3Amaster)
 [![Coverity Scan Build Status](https://img.shields.io/coverity/scan/1105.svg)](https://scan.coverity.com/projects/1105)
 
 Website: <https://xhmikosr.github.io/perfmonbar/>
