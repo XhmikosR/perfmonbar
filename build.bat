@@ -1,5 +1,5 @@
 @ECHO OFF
-REM  Copyright (C) 2011-2015, 2017, 2019 XhmikosR
+REM  Copyright (C) 2011-2015, 2017, 2019-2020 XhmikosR
 REM
 REM  This program is free software: you can redistribute it and/or modify
 REM  it under the terms of the GNU General Public License as published by
@@ -94,7 +94,6 @@ CALL "%VS_PATH%\Common7\Tools\vsdevcmd" -no_logo -arch=amd64
 CALL :SUBMSVC %BUILDTYPE% x64
 
 IF /I "%BUILDTYPE%" == "Clean" GOTO END
-IF DEFINED CI GOTO END
 CALL "setup\build_installer.bat"
 
 
@@ -142,7 +141,7 @@ ECHO. & ECHO ______________________________
 ECHO [%~1] %~2
 ECHO ______________________________ & ECHO.
 IF /I "%~1" == "ERROR" (
-  PAUSE
+  IF NOT DEFINED CI PAUSE
   EXIT
 ) ELSE (
   EXIT /B

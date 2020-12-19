@@ -2,12 +2,15 @@ image: Visual Studio 2019
 
 version: "{build}"
 
-# Disable build since we do this in test_script
 build: off
 
-# Actual test command
+install: |
+  choco install innosetup
+  SET "PATH=C:\Program Files (x86)\Inno Setup 6;%PATH%"
+
 test_script:
   - CALL "build.bat" Build All Release
 
-matrix:
-  fast_finish: true
+artifacts:
+  - path: setup\PerfmonBar.*.exe
+    name: Installer

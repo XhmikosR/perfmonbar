@@ -29,13 +29,11 @@ CALL :SubInno %1
 
 
 :END
-ECHO. & ECHO.
 ENDLOCAL
 EXIT /B
 
 
 :SubInno
-ECHO.
 TITLE Building PerfmonBar installer...
 "%InnoSetupPath%\ISCC.exe" /Q "perfmonbar_setup.iss" /D%1
 IF %ERRORLEVEL% NEQ 0 (GOTO EndWithError) ELSE (ECHO Installer compiled successfully!)
@@ -72,8 +70,8 @@ EXIT /B
 
 :EndWithError
 Title Compiling PerfmonBar [ERROR]
-ECHO. & ECHO.
+ECHO.
 ECHO **ERROR: Build failed and aborted!**
-PAUSE
+IF NOT DEFINED CI PAUSE
 ENDLOCAL
 EXIT
