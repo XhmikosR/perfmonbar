@@ -1,5 +1,5 @@
 ;
-; Copyright (C) 2011-2019 XhmikosR
+; Copyright (C) 2011-2020 XhmikosR
 ;
 ; This program is free software: you can redistribute it and/or modify
 ; it under the terms of the GNU General Public License as published by
@@ -15,11 +15,11 @@
 ; along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 ; Requirements:
-; Inno Setup: http://www.jrsoftware.org/isdl.php
+; Inno Setup: https://jrsoftware.org/isdl.php
 
 
-#if VER < EncodeVer(5,6,1)
-  #error Update your Inno Setup version (5.6.1 or newer)
+#if VER < EncodeVer(6,1,2)
+  #error Update your Inno Setup version (6.1.2 or newer)
 #endif
 
 #define bindir "..\bin"
@@ -62,7 +62,7 @@ VersionInfoProductName={#app_name}
 VersionInfoProductVersion={#app_version}
 VersionInfoProductTextVersion={#app_version}
 UninstallDisplayName={#app_name} {#app_version}
-DefaultDirName={pf}\PerfmonBar
+DefaultDirName={commonpf}\PerfmonBar
 DefaultGroupName=PerfmonBar
 LicenseFile=..\LICENSE.txt
 OutputDir=.
@@ -78,6 +78,8 @@ AllowCancelDuringInstall=no
 MinVersion=6.0
 ArchitecturesAllowed=x86 x64
 ArchitecturesInstallIn64BitMode=x64
+PrivilegesRequired=admin
+;UsedUserAreasWarning=no
 SetupMutex='{#app_name}' + '_setup_mutex'
 
 
@@ -217,7 +219,7 @@ begin
   if CurStep = ssInstall then begin
     if IsOldBuildInstalled() then
       UninstallOldVersion();
-    if IsTaskSelected('reset_settings') then
+    if WizardIsTaskSelected('reset_settings') then
       CleanUpSettings('{userappdata}');
   end;
   if CurStep = ssPostInstall then begin
