@@ -8,7 +8,7 @@ env:
   CI: true
 
 jobs:
-  run:
+  ci:
     runs-on: windows-latest
     if: (!contains(github.event.commits[0].message, '[ci skip]') && !contains(github.event.commits[0].message, '[skip ci]'))
 
