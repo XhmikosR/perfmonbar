@@ -84,13 +84,13 @@ IF "%ARCH%" == "x86" GOTO x86
 
 
 :x86
-CALL "%VS_PATH%\Common7\Tools\vsdevcmd" -no_logo -arch=x86
+CALL "%VS_PATH%\Common7\Tools\vsdevcmd" -arch=x86
 CALL :SUBMSVC %BUILDTYPE% Win32
 IF "%ARCH%" == "x86" GOTO END
 
 
 :x64
-CALL "%VS_PATH%\Common7\Tools\vsdevcmd" -no_logo -arch=amd64
+CALL "%VS_PATH%\Common7\Tools\vsdevcmd" -arch=amd64
 CALL :SUBMSVC %BUILDTYPE% x64
 
 IF /I "%BUILDTYPE%" == "Clean" GOTO END
