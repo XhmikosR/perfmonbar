@@ -54,9 +54,9 @@ IF DEFINED InnoSetupPath IF NOT EXIST "%InnoSetupPath%" (
 )
 
 IF NOT EXIST "%InnoSetupPath%" (
-  FOR /F "delims=" %%a IN (
-    'REG QUERY "%U_%\Inno Setup 6_is1" /v "Inno Setup: App Path"2^>Nul^|FIND "REG_"') DO (
-    SET "InnoSetupPath=%%a" & CALL :SubInnoSetupPath %%InnoSetupPath:*Z=%%)
+  FOR /F "delims=" %%a IN ('REG QUERY "%U_%\Inno Setup 6_is1" /v "Inno Setup: App Path"2^>Nul^|FIND "REG_"') DO (
+    SET "InnoSetupPath=%%a" & CALL :SubInnoSetupPath %%InnoSetupPath:*Z=%%
+  )
 )
 
 IF NOT EXIST "%InnoSetupPath%" ECHO Inno Setup wasn't found! & GOTO EndWithError
