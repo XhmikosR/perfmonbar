@@ -20,7 +20,7 @@ jobs:
           fetch-depth: 0
 
       - name: Add MSBuild to PATH
-        uses: microsoft/setup-msbuild@v1.0.2
+        uses: microsoft/setup-msbuild@v1
 
       - name: Build
         run: CALL "build.bat" Build All Release
