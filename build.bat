@@ -107,8 +107,7 @@ EXIT /B
 ECHO.
 TITLE Building PerfmonBar - %~1 "Release|%~2"...
 SET "MSBUILD_SWITCHES=/nologo /consoleloggerparameters:Verbosity=minimal /maxcpucount /nodeReuse:true"
-MSBuild.exe PerfmonBar.sln %MSBUILD_SWITCHES%^
- /target:%~1 /property:Configuration=Release;Platform=%2
+MSBuild.exe PerfmonBar.sln %MSBUILD_SWITCHES% /target:%~1 /property:Configuration=Release;Platform=%2
 IF %ERRORLEVEL% NEQ 0 CALL :SUBMSG "ERROR" "Compilation failed!"
 EXIT /B
 
