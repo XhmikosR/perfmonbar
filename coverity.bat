@@ -1,6 +1,6 @@
 @ECHO OFF
 REM
-REM  Copyright (C) 2013-2015, 2017, 2019 XhmikosR
+REM  Copyright (C) 2013-2015, 2017, 2019-2020 XhmikosR
 REM
 REM  This program is free software: you can redistribute it and/or modify
 REM  it under the terms of the GNU General Public License as published by
@@ -83,6 +83,6 @@ EXIT /B
 :End
 POPD
 ECHO. & ECHO Press any key to close this window...
-PAUSE >NUL
+IF NOT DEFINED CI PAUSE >NUL
 ENDLOCAL
 EXIT /B
