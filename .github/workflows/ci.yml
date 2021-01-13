@@ -4,9 +4,6 @@ on:
   push:
   pull_request:
 
-env:
-  CI: true
-
 jobs:
   ci:
     runs-on: windows-latest
