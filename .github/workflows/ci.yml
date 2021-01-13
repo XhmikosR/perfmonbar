@@ -4,13 +4,10 @@ on:
   push:
   pull_request:
 
-env:
-  CI: true
-
 jobs:
   ci:
     runs-on: windows-latest
-    if: (!contains(github.event.commits[0].message, '[ci skip]') && !contains(github.event.commits[0].message, '[skip ci]'))
+    if: "!contains(github.event.commits[0].message, '[ci skip]') && !contains(github.event.commits[0].message, '[skip ci]')"
 
     steps:
       - name: Clone repository
