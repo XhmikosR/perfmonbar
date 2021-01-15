@@ -147,9 +147,7 @@ STDMETHODIMP CPerfBar::CloseDW(DWORD dwReserved)
     return S_OK;
 }
 
-STDMETHODIMP CPerfBar::ResizeBorderDW(LPCRECT   prcBorder,
-                                      IUnknown* punkToolbarSite,
-                                      BOOL      fReserved)
+STDMETHODIMP CPerfBar::ResizeBorderDW(LPCRECT prcBorder, IUnknown* punkToolbarSite, BOOL fReserved)
 {
     UNREFERENCED_PARAMETER(prcBorder);
     UNREFERENCED_PARAMETER(punkToolbarSite);
@@ -214,11 +212,7 @@ STDMETHODIMP CPerfBar::GetSite(REFIID riid, LPVOID* ppvReturn)
     return hr;
 }
 
-STDMETHODIMP CPerfBar::GetCommandString(UINT_PTR idCmd,
-                                        UINT     uFlags,
-                                        UINT*    pwReserved,
-                                        LPSTR    pszName,
-                                        UINT     cchMax)
+STDMETHODIMP CPerfBar::GetCommandString(UINT_PTR idCmd, UINT uFlags, UINT* pwReserved, LPSTR pszName, UINT cchMax)
 {
     UNREFERENCED_PARAMETER(idCmd);
     UNREFERENCED_PARAMETER(uFlags);
@@ -250,11 +244,7 @@ STDMETHODIMP CPerfBar::InvokeCommand(LPCMINVOKECOMMANDINFO pici)
     return hr;
 }
 
-STDMETHODIMP CPerfBar::QueryContextMenu(HMENU hMenu,
-                                        UINT  indexMenu,
-                                        UINT  idCmdFirst,
-                                        UINT  idCmdLast,
-                                        UINT  uFlags)
+STDMETHODIMP CPerfBar::QueryContextMenu(HMENU hMenu, UINT indexMenu, UINT idCmdFirst, UINT idCmdLast, UINT uFlags)
 {
     UNREFERENCED_PARAMETER(idCmdLast);
     HRESULT hr = S_OK;
@@ -364,22 +354,23 @@ void CPerfBar::PaintData(HDC hdc, POINT offset)
 
     for (size_t i = 0; i < page.Lines.size(); ++i) {
         buf[0] = 0;
-
         Configuration::Line& line = page.Lines[i];
 
         for (auto iit = line.Display.begin(); iit != line.Display.end(); ++iit) {
             auto value_it = values.find(iit->Counter);
-
             wchar_t formattedValue[256] = { 0 };
+
             if (value_it == values.end()) {
                 wcscpy_s(formattedValue, _countof(formattedValue), L"[N/A]");
             } else {
                 double val = value_it->second;
+
                 if (iit->Divide > 0) {
                     val /= iit->Divide;
                 }
 
                 wchar_t formattingString[256] = { 0 };
+
                 swprintf_s(
                     formattingString,
                     _countof(formattingString),
@@ -390,23 +381,10 @@ void CPerfBar::PaintData(HDC hdc, POINT offset)
                     L"f"
                 );
 
-                swprintf_s(
-                    formattedValue,
-                    _countof(formattedValue),
-                    formattingString,
-                    val
-                );
+                swprintf_s(formattedValue, _countof(formattedValue), formattingString, val);
             }
 
-            swprintf_s(
-                display,
-                _countof(display),
-                L"%s%s%s",
-                iit->Prefix.c_str(),
-                formattedValue,
-                iit->Suffix.c_str()
-            );
-
+            swprintf_s(display, _countof(display), L"%s%s%s", iit->Prefix.c_str(), formattedValue, iit->Suffix.c_str());
             wcscat_s(buf, _countof(buf), display);
         }
 
@@ -420,23 +398,22 @@ void CPerfBar::PaintData(HDC hdc, POINT offset)
         rc.left += offset.x;
         rc.right += offset.x;
 
-        HFONT font =
-            CreateFontW(
-                -MulDiv((int)line.Font.Size, GetDeviceCaps(hdc, LOGPIXELSY), 72),
-                0,
-                0,
-                0,
-                line.Font.Bold ? FW_BOLD : 0,
-                line.Font.Italic,
-                FALSE,
-                FALSE,
-                ANSI_CHARSET,
-                0,
-                0,
-                0,
-                0,
-                line.Font.Family.c_str()
-            );
+        HFONT font = CreateFontW(
+                         -MulDiv((int)line.Font.Size, GetDeviceCaps(hdc, LOGPIXELSY), 72),
+                         0,
+                         0,
+                         0,
+                         line.Font.Bold ? FW_BOLD : 0,
+                         line.Font.Italic,
+                         FALSE,
+                         FALSE,
+                         ANSI_CHARSET,
+                         0,
+                         0,
+                         0,
+                         0,
+                         line.Font.Family.c_str()
+                     );
 
         SetTextColor(hdc, line.Font.Color);
         HFONT oldFont = (HFONT)SelectObject(hdc, font);
@@ -493,16 +470,7 @@ LRESULT CPerfBar::OnPaint(UINT uMsg, WPARAM wParam, LPARAM lParam, BOOL& bHandle
 
     PaintData(hdcMem, offset);
 
-    BitBlt(
-        ps.hdc,
-        0,
-        0,
-        rc.right - rc.left,
-        rc.bottom - rc.top,
-        hdcMem,
-        offset.x,
-        offset.y,
-        SRCCOPY);
+    BitBlt(ps.hdc, 0, 0, rc.right - rc.left, rc.bottom - rc.top, hdcMem, offset.x, offset.y, SRCCOPY);
 
     SelectObject(hdcMem, hfOld);
     SelectObject(hdcMem, hbmOld);
@@ -532,23 +500,22 @@ LRESULT CPerfBar::OnCreate(UINT uMsg, WPARAM wParam, LPARAM lParam, BOOL& bHandl
 
     HDC hDC = GetDC();
 
-    m_font =
-        CreateFontW(
-            -MulDiv(8, GetDeviceCaps(hDC, LOGPIXELSY), 72),
-            0,
-            0,
-            0,
-            FW_BOLD,
-            FALSE,
-            FALSE,
-            FALSE,
-            ANSI_CHARSET,
-            0,
-            0,
-            0,
-            0,
-            L"Arial"
-        );
+    m_font = CreateFontW(
+                 -MulDiv(8, GetDeviceCaps(hDC, LOGPIXELSY), 72),
+                 0,
+                 0,
+                 0,
+                 FW_BOLD,
+                 FALSE,
+                 FALSE,
+                 FALSE,
+                 ANSI_CHARSET,
+                 0,
+                 0,
+                 0,
+                 0,
+                 L"Arial"
+             );
 
     ReleaseDC(hDC);
 

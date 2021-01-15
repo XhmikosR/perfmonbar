@@ -17,7 +17,7 @@
 
 #pragma once
 
-#include "resource.h"       // main symbols
+#include "resource.h" // main symbols
 #include <shlobj.h>
 #include <atlctl.h>
 #include "PerfmonBar_i.h"
@@ -108,20 +108,9 @@ public:
     ////////////////////////////////////////////////////////////////
     // IContext Menu Methods
 
-    STDMETHOD(GetCommandString)(UINT_PTR idCmd,
-                                UINT     uFlags,
-                                UINT*    pwReserved,
-                                LPSTR    pszName,
-                                UINT     cchMax);
-
+    STDMETHOD(GetCommandString)(UINT_PTR idCmd, UINT uFlags, UINT* pwReserved, LPSTR pszName, UINT cchMax);
     STDMETHOD(InvokeCommand)(LPCMINVOKECOMMANDINFO pici);
-
-    STDMETHOD(QueryContextMenu)(HMENU hmenu,
-                                UINT  indexMenu,
-                                UINT  idCmdFirst,
-                                UINT  idCmdLast,
-                                UINT  uFlags);
-
+    STDMETHOD(QueryContextMenu)(HMENU hmenu, UINT indexMenu, UINT idCmdFirst, UINT idCmdLast, UINT uFlags);
     STDMETHOD(ReloadConfiguration)();
     STDMETHOD(EditConfiguration)();
 
