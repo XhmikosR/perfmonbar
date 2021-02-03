@@ -73,7 +73,7 @@ BEGIN
             VALUE "FileDescription", "Performance Monitor Toolbar"
             VALUE "FileVersion", VER_STR
             VALUE "InternalName", "PerfmonBar.dll"
-            VALUE "LegalCopyright", "© 2008 Danny Couture / 2010-2020 XhmikosR. All rights reserved."
+            VALUE "LegalCopyright", "© 2008 Danny Couture / 2010-2021 XhmikosR. All rights reserved."
             VALUE "OriginalFilename", "PerfmonBar.dll"
             VALUE "ProductName", "PerfmonBar"
             VALUE "ProductVersion", VER_STR
