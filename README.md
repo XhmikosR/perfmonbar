@@ -1,6 +1,6 @@
 # Perfmonbar
 
-[![Build Status](https://img.shields.io/github/workflow/status/XhmikosR/perfmonbar/CI/master)](https://github.com/XhmikosR/perfmonbar/actions?query=workflow%3ACI+branch%3Amaster)
+[![Build Status](https://img.shields.io/github/workflow/status/XhmikosR/perfmonbar/CI/main)](https://github.com/XhmikosR/perfmonbar/actions?query=workflow%3ACI+branch%3Amain)
 [![Coverity Scan Build Status](https://img.shields.io/coverity/scan/1105.svg)](https://scan.coverity.com/projects/1105)
 
 Website: <https://xhmikosr.github.io/perfmonbar/>
@@ -9,7 +9,7 @@ Website: <https://xhmikosr.github.io/perfmonbar/>
 
 ## Notes
 
-* You will have to edit the default [`config.xml`](https://github.com/XhmikosR/perfmonbar/blob/master/src/config.xml) to match your system.
+* You will have to edit the default [`config.xml`](https://github.com/XhmikosR/perfmonbar/blob/main/src/config.xml) to match your system.
 * The default `config.xml` will **not** work for **non-English** systems. You have to adjust the config file, see below.
 * For the known issues see [issues](https://github.com/XhmikosR/perfmonbar/issues).
 

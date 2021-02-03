@@ -30,20 +30,20 @@ if ! git rev-parse --git-dir > /dev/null 2>&1; then
 else
   # Get the current branch name
   branch=$(git symbolic-ref -q HEAD) && branch=${branch##refs/heads/} || branch="no branch"
-  # If we are on the master branch
-  if [[ "$branch" == "master" ]]; then
+  # If we are on the main branch
+  if [[ "$branch" == "main" ]]; then
     base="HEAD"
-  # If we are on another branch that isn't master, we want extra info like on
-  # which commit from master it is based on and what its hash is. This assumes we
+  # If we are on another branch that isn't main, we want extra info like on
+  # which commit from main it is based on and what its hash is. This assumes we
   # won't ever branch from a changeset from before the move to git
   else
-    # Get where the branch is based on master
-    base=$(git merge-base master HEAD)
+    # Get where the branch is based on main
+    base=$(git merge-base main HEAD)
     base_ver=$(git rev-list --count $svnhash..$base)
     base_ver=$((base_ver+svnrev))
 
     version_info="#define BRANCH _T(\"$branch\")"$'\n'
-    ver_full=" ($branch) (master@${base_ver:0:7})"
+    ver_full=" ($branch) (main@${base_ver:0:7})"
   fi
 
   # Count how many changesets we have since the last svn changeset
@@ -71,8 +71,8 @@ if [[ "$branch" ]] && ! git diff-index --quiet HEAD; then
 else
   echo "Revision:  $ver"
 fi
-if [[ "$branch" ]] && [[ "$branch" != "master" ]]; then
-  echo "Mergebase: master@${base_ver} (${base:0:7})"
+if [[ "$branch" ]] && [[ "$branch" != "main" ]]; then
+  echo "Mergebase: main@${base_ver} (${base:0:7})"
 fi
 
 # Update Version.h if it does not exist, or if version information  was changed.
