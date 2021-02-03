@@ -36,20 +36,46 @@
                     <a href="https://sourceforge.net/projects/perfmonbar/" rel="noopener" target="_blank">Original PerfmonBar Page</a>
                 </p>
 
-                <h2>Supported Operating Systems</h2>
+                <h2 id="supported-operating-systems">Supported Operating Systems</h2>
+
                 <p>
                     Perfmonbar runs on Windows Vista, 7, 8, 8.1, 10 both 32-bit and 64-bit
                 </p>
 
-                <h2>Screenshots</h2>
+                <h2 id="screenshots">Screenshots</h2>
 
                 <img srcset="img/screenshot.jpg, img/screenshot@2x.jpg 2x" src="img/screenshot.jpg" alt="PerfmonBar screenshot" width="520" height="561">
 
-                <h2>Notes</h2>
+                <h2 id="notes">Notes</h2>
+
                 <ul>
                     <li>You will have to edit the default <a href="https://github.com/XhmikosR/perfmonbar/blob/master/src/config.xml" rel="noopener" target="_blank"><code>config.xml</code></a> to match your system.</li>
+                    <li>The default <code>config.xml</code> will <strong>not</strong> work for <strong>non-English</strong> systems. You have to adjust the config file, see below.</li>
                     <li>For the known issues see <a href="https://github.com/XhmikosR/perfmonbar/issues" rel="noopener" target="_blank">GitHub Issues</a>.</li>
                 </ul>
+
+                <h2 id="configuration">Configuration</h2>
+
+                <p>The <code>config.xml</code> file must be adapted in the following cases:</p>
+
+                <ul>
+                    <li>You have a non-English Windows system running. The search strings in the <code>config.xml</code> file must be adapted to the language of the operating system, otherwise the corresponding strings will not be found by Perfmonbar and nothing will be displayed in the taskbar.</li>
+                    <li>You want to display other information in the taskbar. To do this, you have to find the appropriate and available strings and change them in the <code>config.xml</code> file.</li>
+                    <li>You want to change the appearance of the information in the taskbar. To do this, you need to change the corresponding properties in the <code>config.xml</code> file.</li>
+                </ul>
+
+                <h3 id="where-is-the-configxml-file">Where is the <code>config.xml</code> file?</h3>
+
+                <p>Usually, the <code>config.xml</code> file can be found under:</p>
+
+                <pre><code>C:\Users\{User}\AppData\Roaming\PerfmonBar\config.xml</code></pre>
+
+                <p>To quickly get to the directory, you can simply type <code>%APPDATA%\PerfmonBar</code>.</p>
+
+                <h3 id="how-to-find-the-desired-settings">How to find the desired settings?</h3>
+
+                <p>Open a console and run the command <code>typeperf -q &gt; counters.txt</code></p>
+                <p>Then you can search the file <code>counters.txt</code> for the desired performance counters that are available on your computer. The counters are unfortunately called differently in every single language.</p>
             </section>
         </div>
 

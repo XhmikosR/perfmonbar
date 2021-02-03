@@ -56,6 +56,12 @@ header h1 {
                  0 0   10px rgba(181, 232, 83, .1);
 }
 
+@media (max-width: 600px) {
+    header h1 {
+        margin-left: 0;
+    }
+}
+
 header h1::before {
     content: "./ ";
     font-size: 24px;
@@ -127,6 +133,7 @@ blockquote {
     color: #aaa;
     padding-left: 10px;
 }
+*/
 
 pre {
     background-color: rgba(0, 0, 0, .9);
@@ -140,6 +147,7 @@ pre {
     text-wrap: normal;
 }
 
+/*
 table {
     margin: 0 0 20px;
 }
