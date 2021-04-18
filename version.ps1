@@ -59,7 +59,11 @@ if (-not (TryCall('git rev-parse --git-dir 2>&1 | Out-Null'))) {
   # won't ever branch from a changeset from before the move to git
   } else {
     # Get where the branch is based on main
-    $base = & git merge-base main HEAD
+    $base = & git merge-base main HEAD 2>$null
+    if (-not $?) {
+        #assume failure is because main has not been checked out (e.g. a PR build)
+        $base = & git merge-base origin/main HEAD
+    }
     $base_ver = & git rev-list --count "$svnhash..$base"
     $base_ver = [int]$base_ver + $svnrev
 
