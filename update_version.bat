@@ -3,9 +3,9 @@ SETLOCAL
 
 PUSHD %~dp0
 
-rem check powershell installed and at least v5.1
+REM check if powershell is installed and at least v5.1
 powershell -Command "if ([Version]'5.1' -gt $PSVersionTable.PSVersion){exit 1;}" > NUL 2>&1
-if ERRORLEVEL 1 GOTO :MissingPowershell
+IF ERRORLEVEL 1 GOTO :MissingPowershell
 
 powershell -ExecutionPolicy Bypass -File .\version.ps1
 
