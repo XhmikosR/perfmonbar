@@ -77,7 +77,7 @@ if ($branch -ne "main") {
   Write-Output "Mergebase: main@$base_ver ($($base.substring(0,7)))"
 }
 
-# Update Version.h if it does not exist, or if version information  was changed.
+# Update Version.h if it does not exist, or if version information was changed.
 if ((-not (Test-Path($versionfile))) -or ($version_info -ne (Get-Content $versionfile -Raw))) {
   # Write the version information to Version.h
   Set-Content -Path $versionfile -Encoding ascii -NoNewline $version_info
