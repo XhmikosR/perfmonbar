@@ -1,25 +1,3 @@
-<#
-.Description
-Original version.sh header:
-#!/bin/bash
-# (C) 2012-2013 see Authors.txt
-#
-# This file is part of MPC-HC.
-#
-# MPC-HC is free software; you can redistribute it and/or modify
-# it under the terms of the GNU General Public License as published by
-# the Free Software Foundation; either version 3 of the License, or
-# (at your option) any later version.
-#
-# MPC-HC is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program. If not, see <http://www.gnu.org/licenses/>.
-#>
-
 # This is the last svn changeset, the number and hash can be automatically
 # calculated, but it is slow to do that. So it is better to have it hardcoded.
 $svnrev=55
@@ -28,16 +6,16 @@ $svnhash="688c3dd699fda7a256dca048466c1902b2c32d6e"
 $versionfile="./src/Version.h"
 
 function TryCall($cmdLine) {
-    try {
-        & ([scriptblock]::Create($cmdLine))
-    }
-    catch {
-        #eat the exception
-    }
-    return $?
+  try {
+    & ([scriptblock]::Create($cmdLine))
+  }
+  catch {
+    # eat the exception
+  }
+  return $?
 }
 
-#If the git command isn't available or we are not inside a git repo use hardcoded values
+# If the git command isn't available or we are not inside a git repo use hardcoded values
 if (-not (TryCall('git rev-parse --git-dir 2>&1 | Out-Null'))) {
   $hash = '0000000'
   $ver = 0
