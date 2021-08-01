@@ -3,8 +3,6 @@ SETLOCAL
 
 PUSHD %~dp0
 
-IF EXIST "build.user.bat" (CALL "build.user.bat")
-
 rem check powershell installed and at least v5.1
 powershell -Command "if ([Version]'5.1' -gt $PSVersionTable.PSVersion){exit 1;}" > NUL 2>&1
 if ERRORLEVEL 1 GOTO :MissingPowershell
