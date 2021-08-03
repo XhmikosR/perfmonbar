@@ -18,8 +18,8 @@
 ; Inno Setup: https://jrsoftware.org/isdl.php
 
 
-#if VER < EncodeVer(6,1,2)
-  #error Update your Inno Setup version (6.1.2 or newer)
+#if VER < EncodeVer(6,2,0)
+  #error Update your Inno Setup version (6.2.0 or newer)
 #endif
 
 #define bindir "..\bin"
@@ -79,6 +79,7 @@ MinVersion=6.0
 ArchitecturesAllowed=x86 x64
 ArchitecturesInstallIn64BitMode=x64
 PrivilegesRequired=admin
+WizardStyle=modern
 ;UsedUserAreasWarning=no
 SetupMutex='{#app_name}' + '_setup_mutex'
 
