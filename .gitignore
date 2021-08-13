@@ -1,13 +1,11 @@
 /*.opensdf
 /*.sdf
 /*.suo
-/.vs
+/.vs/
 /[Aa][Ss]tyle.exe
-/bin
-/build.user.bat
-/cov-int
-/ipch
-/PerfmonBar.lzma
+/bin/
+/cov-int/
+/ipch/
 /PerfmonBar.tgz
 /setup/PerfmonBar*.exe
 /src/*.aps
