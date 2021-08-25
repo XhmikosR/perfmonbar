@@ -12,6 +12,7 @@ Website: <https://xhmikosr.github.io/perfmonbar/>
 * You will have to edit the default [`config.xml`](https://github.com/XhmikosR/perfmonbar/blob/main/src/config.xml) to match your system.
 * The default `config.xml` will **not** work for **non-English** systems. You have to adjust the config file, see below.
 * For the known issues see [issues](https://github.com/XhmikosR/perfmonbar/issues).
+* Changes in the <settings> section (e.g. minimum sizes) of `config.xml` will only take effect by switching off the toolbar and switching it on again.
 
 ## Configuration
 
