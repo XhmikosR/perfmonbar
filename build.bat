@@ -1,5 +1,5 @@
 @ECHO OFF
-REM  Copyright (C) 2011-2015, 2017, 2019-2020 XhmikosR
+REM  Copyright (C) 2011-2015, 2017, 2019-2021 XhmikosR
 REM
 REM  This program is free software: you can redistribute it and/or modify
 REM  it under the terms of the GNU General Public License as published by
@@ -132,7 +132,7 @@ ENDLOCAL
 EXIT /B
 
 :SubVSPath
-FOR /f "delims=" %%A IN ('"%ProgramFiles(x86)%\Microsoft Visual Studio\Installer\vswhere.exe" -property installationPath -latest -requires Microsoft.Component.MSBuild Microsoft.VisualStudio.Component.VC.ATLMFC Microsoft.VisualStudio.Component.VC.Tools.x86.x64') DO SET "VS_PATH=%%A"
+FOR /f "delims=" %%A IN ('"%ProgramFiles(x86)%\Microsoft Visual Studio\Installer\vswhere.exe" -property installationPath -latest -requires Microsoft.Component.MSBuild Microsoft.VisualStudio.Component.VC.ATL Microsoft.VisualStudio.Component.VC.Tools.x86.x64') DO SET "VS_PATH=%%A"
 EXIT /B
 
 :SUBMSG
