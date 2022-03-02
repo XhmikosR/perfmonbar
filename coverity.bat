@@ -1,6 +1,6 @@
 @ECHO OFF
 REM
-REM  Copyright (C) 2013-2015, 2017, 2019-2021 XhmikosR
+REM  Copyright (C) 2013-2015, 2017, 2019-2022 XhmikosR
 REM
 REM  This program is free software: you can redistribute it and/or modify
 REM  it under the terms of the GNU General Public License as published by
@@ -28,7 +28,7 @@ IF DEFINED COVDIR IF NOT EXIST "%COVDIR%" (
 )
 
 CALL :SubVSPath
-IF NOT EXIST "%VS_PATH%" CALL :SUBMSG "ERROR" "Visual Studio 2019 NOT FOUND!"
+IF NOT EXIST "%VS_PATH%" CALL :SUBMSG "ERROR" "Visual Studio NOT FOUND!"
 
 
 :Cleanup
