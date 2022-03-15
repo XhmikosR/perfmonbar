@@ -23,12 +23,12 @@ PUSHD %~dp0
 IF NOT DEFINED COVDIR SET "COVDIR=C:\cov-analysis-win64"
 IF DEFINED COVDIR IF NOT EXIST "%COVDIR%" (
   ECHO.
-  ECHO ERROR: Coverity not found in "%COVDIR%"
+  ECHO ERROR: Coverity not found in "%COVDIR%"!
   GOTO End
 )
 
 CALL :SubVSPath
-IF NOT EXIST "%VS_PATH%" CALL :SUBMSG "ERROR" "Visual Studio NOT FOUND!"
+IF NOT EXIST "%VS_PATH%" ECHO ERROR: Visual Studio NOT FOUND!
 
 
 :Cleanup
@@ -37,6 +37,7 @@ IF EXIST "PerfmonBar.tgz"  DEL "PerfmonBar.tgz"
 
 
 :Main
+"%COVDIR%\bin\cov-configure.exe" --msvc
 "%COVDIR%\bin\cov-build.exe" --dir cov-int "build.bat" Rebuild All
 
 
@@ -47,7 +48,7 @@ GOTO End
 
 
 :SubVSPath
-FOR /f "delims=" %%A IN ('"%ProgramFiles(x86)%\Microsoft Visual Studio\Installer\vswhere.exe" -property installationPath -latest -requires Microsoft.Component.MSBuild Microsoft.VisualStudio.Component.VC.ATLMFC Microsoft.VisualStudio.Component.VC.Tools.x86.x64') DO SET "VS_PATH=%%A"
+FOR /f "delims=" %%A IN ('"%ProgramFiles(x86)%\Microsoft Visual Studio\Installer\vswhere.exe" -property installationPath -latest -requires Microsoft.Component.MSBuild Microsoft.VisualStudio.Component.VC.ATL Microsoft.VisualStudio.Component.VC.Tools.x86.x64') DO SET "VS_PATH=%%A"
 EXIT /B
 
 :End
