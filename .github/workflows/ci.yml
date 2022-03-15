@@ -3,6 +3,10 @@ name: CI
 on:
   push:
   pull_request:
+  workflow_dispatch:
+
+env:
+  FORCE_COLOR: 2
 
 jobs:
   ci:
@@ -15,8 +19,8 @@ jobs:
           # We need to get all git revisions for the version number to work
           fetch-depth: 0
 
-      - name: Add MSBuild to PATH
-        uses: microsoft/setup-msbuild@v1
+      - name: Add MSVC to PATH
+        uses: ilammy/msvc-dev-cmd@v1
 
       - name: Build
         run: CALL "build.bat" Build All Release
@@ -27,7 +31,7 @@ jobs:
         shell: bash
 
       - name: Upload setup
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v3
         with:
           name: "PerfmonBar.${{ env.PERF_VER }}"
           path: "setup/PerfmonBar.${{ env.PERF_VER }}.exe"
