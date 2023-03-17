@@ -1,6 +1,6 @@
 # Perfmonbar
 
-[![Build Status](https://img.shields.io/github/workflow/status/XhmikosR/perfmonbar/CI/main)](https://github.com/XhmikosR/perfmonbar/actions?query=workflow%3ACI+branch%3Amain)
+[![Build Status](https://img.shields.io/github/actions/workflow/status/XhmikosR/perfmonbar/ci.yml?branch=main&label=CI&logo=github)](https://github.com/XhmikosR/perfmonbar/actions?query=workflow%3ACI+branch%3Amain)
 [![Coverity Scan Build Status](https://img.shields.io/coverity/scan/1105.svg)](https://scan.coverity.com/projects/1105)
 
 Website: <https://xhmikosr.github.io/perfmonbar/>
