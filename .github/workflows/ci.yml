@@ -15,6 +15,7 @@ jobs:
         with:
           # We need to get all git revisions for the version number to work
           fetch-depth: 0
+          persist-credentials: false
 
       - name: Add MSBuild to PATH
         uses: microsoft/setup-msbuild@v1
