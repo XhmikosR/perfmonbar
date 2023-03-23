@@ -61,8 +61,8 @@ if (-not (TryCall('git rev-parse --git-dir 2>&1 | Out-Null'))) {
 $ver_full = "_T(`"$ver ($hash)$ver_full`")"
 
 $version_info += "#define VER_HASH L`"$hash`"`n"
-$version_info += "#define VER_NUM 1,0,5,$ver`n"
-$version_info += "#define VER_STR `"1.0.5.$ver`"`n"
+$version_info += "#define VER_NUM 1,0,6,$ver`n"
+$version_info += "#define VER_STR `"1.0.6.$ver`"`n"
 
 if ($null -ne $branch) {
   Write-Output "On branch: $branch"
