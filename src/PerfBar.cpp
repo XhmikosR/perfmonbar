@@ -369,6 +369,10 @@ void CPerfBar::PaintData(HDC hdc, POINT offset)
                     val /= iit->Divide;
                 }
 
+                if (iit->Add != 0) {
+                    val += iit->Add;
+                }
+
                 wchar_t formattingString[256] = { 0 };
 
                 swprintf_s(

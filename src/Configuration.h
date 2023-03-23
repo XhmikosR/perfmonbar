@@ -30,11 +30,13 @@ public:
         std::wstring Suffix;
         int          Characters;
         int          Decimals;
+        double       Add;
         double       Divide;
 
         Display()
             : Characters(0)
             , Decimals(0)
+            , Add(0)
             , Divide(0) {
         }
     };
