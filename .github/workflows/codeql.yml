@@ -1,0 +1,43 @@
+name: "CodeQL"
+
+on:
+  push:
+  pull_request:
+  schedule:
+    - cron: "0 0 * * 0"
+  workflow_dispatch:
+
+jobs:
+  analyze:
+    name: Analyze
+    runs-on: windows-latest
+    permissions:
+      actions: read
+      contents: read
+      security-events: write
+
+    steps:
+      - name: Clone repository
+        uses: actions/checkout@v3
+        with:
+          # We need to get all git revisions for the version number to work
+          fetch-depth: 0
+          persist-credentials: false
+
+      - name: Initialize CodeQL
+        uses: github/codeql-action/init@v2
+        with:
+          languages: "cpp"
+          queries: security-extended,security-and-quality
+
+      - name: Add MSBuild to PATH
+        uses: microsoft/setup-msbuild@v1
+
+      - name: Build
+        run: CALL "build.bat" Build All Release
+        shell: cmd
+
+      - name: Perform CodeQL Analysis
+        uses: github/codeql-action/analyze@v2
+        with:
+          category: "/language:cpp"
