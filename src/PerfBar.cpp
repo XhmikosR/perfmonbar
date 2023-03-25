@@ -328,7 +328,6 @@ LRESULT CPerfBar::OnLButtonDown(UINT uMsg, WPARAM wParam, LPARAM lParam, BOOL& b
 void CPerfBar::PaintData(HDC hdc, POINT offset)
 {
     Configuration::pages_t& pages = m_config.GetPages();
-    //Configuration::counters_t & counters = m_config.GetCounters();
 
     if (pages.empty()) {
         return;
@@ -388,7 +387,14 @@ void CPerfBar::PaintData(HDC hdc, POINT offset)
                 swprintf_s(formattedValue, _countof(formattedValue), formattingString, val);
             }
 
-            swprintf_s(display, _countof(display), L"%s%s%s", iit->Prefix.c_str(), formattedValue, iit->Suffix.c_str());
+            swprintf_s(
+                display,
+                _countof(display),
+                L"%s%s%s",
+                iit->Prefix.c_str(),
+                formattedValue,
+                iit->Suffix.c_str()
+            );
             wcscat_s(buf, _countof(buf), display);
         }
 
