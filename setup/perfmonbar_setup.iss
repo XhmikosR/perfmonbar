@@ -1,5 +1,5 @@
 ;
-; Copyright (C) 2011-2021 XhmikosR
+; Copyright (C) 2011-2023 XhmikosR
 ;
 ; This program is free software: you can redistribute it and/or modify
 ; it under the terms of the GNU General Public License as published by
@@ -40,6 +40,7 @@
 #expr ParseVersion(bindir + "\Release_Win32\PerfmonBar.dll", VerMajor, VerMinor, VerBuild, VerRevision)
 #define app_version  str(VerMajor) + "." + str(VerMinor) + "." + str(VerBuild) + "." + str(VerRevision)
 #define app_name     "PerfmonBar"
+#define copyright    "Copyright © 2008, Danny Couture - 2010-2023 XhmikosR"
 
 
 [Setup]
@@ -52,9 +53,9 @@ AppPublisherURL=https://xhmikosr.github.io/perfmonbar/
 AppSupportURL=https://xhmikosr.github.io/perfmonbar/
 AppUpdatesURL=https://xhmikosr.github.io/perfmonbar/
 AppContact=https://xhmikosr.github.io/perfmonbar/
-AppCopyright=Copyright © 2008, Danny Couture - 2010-2021 XhmikosR
+AppCopyright={#copyright}
 VersionInfoCompany=XhmikosR
-VersionInfoCopyright=Copyright © 2008, Danny Couture - 2010-2021 XhmikosR
+VersionInfoCopyright={#copyright}
 VersionInfoDescription={#app_name} {#app_version} Setup
 VersionInfoTextVersion={#app_version}
 VersionInfoVersion={#app_version}
