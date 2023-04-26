@@ -18,8 +18,8 @@
 ; Inno Setup: https://jrsoftware.org/isdl.php
 
 
-#if VER < EncodeVer(6,2,0)
-  #error Update your Inno Setup version (6.2.0 or newer)
+#if VER < EncodeVer(6,2,2)
+  #error Update your Inno Setup version (6.2.2 or newer)
 #endif
 
 #define bindir "..\bin"
