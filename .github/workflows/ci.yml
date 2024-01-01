@@ -29,7 +29,7 @@ jobs:
         shell: bash
 
       - name: Upload setup
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: "PerfmonBar.${{ env.PERF_VER }}"
           path: "setup/PerfmonBar.${{ env.PERF_VER }}.exe"
