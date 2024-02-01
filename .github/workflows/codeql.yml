@@ -31,7 +31,7 @@ jobs:
           queries: security-extended,security-and-quality
 
       - name: Add MSBuild to PATH
-        uses: microsoft/setup-msbuild@v1
+        uses: microsoft/setup-msbuild@v2
 
       - name: Build
         run: CALL "build.bat" Build All Release
