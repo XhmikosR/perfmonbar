@@ -153,6 +153,7 @@
       <ModuleDefinitionFile>PerfmonBar.def</ModuleDefinitionFile>
       <SubSystem>Windows</SubSystem>
       <TargetMachine>MachineX64</TargetMachine>
+      <MinimumRequiredVersion>6.1</MinimumRequiredVersion>
     </Link>
     <PreBuildEvent>
       <Command>..\update_version.bat</Command>
@@ -233,6 +234,7 @@
       <SetChecksum>true</SetChecksum>
       <SubSystem>Windows</SubSystem>
       <TargetMachine>MachineX64</TargetMachine>
+      <MinimumRequiredVersion>6.1</MinimumRequiredVersion>
     </Link>
     <PreBuildEvent>
       <Command>..\update_version.bat</Command>
