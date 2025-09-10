@@ -21,26 +21,26 @@ jobs:
 
     steps:
       - name: Clone repository
-        uses: actions/checkout@v5
+        uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5.0.0
         with:
           # We need to get all git revisions for the version number to work
           fetch-depth: 0
           persist-credentials: false
 
       - name: Initialize CodeQL
-        uses: github/codeql-action/init@v3
+        uses: github/codeql-action/init@d3678e237b9c32a6c9bffb3315c335f976f3549f # v3.30.2
         with:
           languages: "cpp"
           queries: security-extended,security-and-quality
 
       - name: Add MSBuild to PATH
-        uses: microsoft/setup-msbuild@v2
+        uses: microsoft/setup-msbuild@6fb02220983dee41ce7ae257b6f4d8f9bf5ed4ce # v2.0.0
 
       - name: Build
         run: CALL "build.bat" Build All Release
         shell: cmd
 
       - name: Perform CodeQL Analysis
-        uses: github/codeql-action/analyze@v3
+        uses: github/codeql-action/analyze@d3678e237b9c32a6c9bffb3315c335f976f3549f # v3.30.2
         with:
           category: "/language:cpp"
