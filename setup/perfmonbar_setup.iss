@@ -1,5 +1,5 @@
 ;
-; Copyright (C) 2011-2023 XhmikosR
+; Copyright (C) 2011-2025 XhmikosR
 ;
 ; This program is free software: you can redistribute it and/or modify
 ; it under the terms of the GNU General Public License as published by
@@ -18,8 +18,8 @@
 ; Inno Setup: https://jrsoftware.org/isdl.php
 
 
-#if VER < EncodeVer(6,2,2)
-  #error Update your Inno Setup version (6.2.2 or newer)
+#if VER < EncodeVer(6,4,0)
+  #error Update your Inno Setup version (6.4.0 or newer)
 #endif
 
 #define bindir "..\bin"
@@ -76,9 +76,9 @@ DisableProgramGroupPage=yes
 DisableReadyPage=yes
 DisableWelcomePage=yes
 AllowCancelDuringInstall=no
-MinVersion=6.0
-ArchitecturesAllowed=x86 x64
-ArchitecturesInstallIn64BitMode=x64
+MinVersion=6.1sp1
+ArchitecturesAllowed=x86 x64os
+ArchitecturesInstallIn64BitMode=x64os
 PrivilegesRequired=admin
 WizardStyle=modern
 ;UsedUserAreasWarning=no
@@ -93,7 +93,7 @@ Name: en; MessagesFile: compiler:Default.isl
 BeveledLabel={#app_name} {#app_version}
 SetupAppTitle=Setup - {#app_name}
 SetupWindowTitle=Setup - {#app_name}
-WinVersionTooLowError=This program only works on Windows Vista or newer.
+WinVersionTooLowError=This program only works on Windows 7 or newer.
 
 
 [CustomMessages]
